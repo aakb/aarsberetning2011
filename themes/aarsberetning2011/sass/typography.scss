@@ -1,0 +1,23 @@
+@import 'variables.scss';
+
+body {
+  color: $text-color;
+  font-family: $text-font;
+  font-size: $font-size-default;
+  a {
+    &:link {
+      color: $link-color;
+      text-decoration: none;
+    }
+    &:visited {
+      color: $link-visited;
+    }
+    &:hover {
+      color: $link-hover;
+      text-decoration: underline;
+    }
+    &:active {
+      color: $link-active;
+    }
+  }
+}

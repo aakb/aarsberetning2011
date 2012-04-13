@@ -1,0 +1,150 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "variables.scss";
+@import "typography.scss";
+
+html {
+  height: 100%;
+}
+
+body {
+  background: url('../images/e-reolen.jpg') no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+.logo {
+  a {
+    font-size: $font-size-default * 1.6;
+    text-transform: uppercase;
+    &:link {
+      color: $text-color;
+    }
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+header {
+  background: #fff;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  .header-inner-wrapper {
+    padding: $medium-padding * 2 0 $medium-padding;
+    position: relative;
+    .logo {
+      bottom: $small-spacing;      
+      position: absolute;
+      left: 0;
+    }
+    .secondary-menu {
+      color: #656565;
+      position: absolute;
+      right: 0;
+      top: $small-spacing;
+      a {
+        color: #656565;
+        font-size: $font-size-default * .9;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.wrapper {
+  .main-menu-wrapper {
+    background: rgba(0,0,0,.25);
+    overflow: hidden;
+    padding: $small-padding * 1.5 0 $small-padding;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    .main-menu {
+      text-align: center;
+      a {
+        background: url('../images/nav-sep.png') no-repeat center 1.45em;
+        color: rgba(255,255,255,.75);
+        float: left;
+        font-size: $font-size-default * .75;
+        text-align: center;
+        text-transform: uppercase;
+        span {
+          background: url('../images/nav.png') no-repeat center .75em;
+          display: block;
+          width: 97px;
+          padding: 4.5em $small-padding 0;
+        }
+        &.active {
+          span {
+            background: url('../images/nav-active.png') no-repeat center 0;
+            color: #fff;
+            font-size: $font-size-default * .95;
+            padding-top: 3.5em;
+          }
+          &:hover {
+            span {
+              background: url('../images/nav-active.png') no-repeat center 0;          
+            }
+          }
+        }      
+        &.first {
+        }
+        &.last {
+        }
+        &.arrow-nav {
+          background: none;
+          &.prev {
+            span {
+              background: url('../images/nav-arrow-left.png') no-repeat;      
+            }
+          }
+          &.next {
+            span {
+              background: url('../images/nav-arrow-right.png') no-repeat right top;
+            }
+          }
+          span {
+            display: block;
+            height: 35px;
+            overflow: hidden;
+            text-indent: -10000px;
+            width: 44px;        
+          }
+        }
+        &:hover {
+          color: #fff;
+          text-decoration: none;
+          span {
+            background: url('../images/nav-hover.png') no-repeat center .75em;
+          }
+        }
+      }
+    }
+  }
+
+  position: relative;
+  top: 6em;
+  .content {
+    background-color: rgba(255,255,255,.75);
+    min-height: 100%;
+    overflow: hidden;
+    margin: auto;
+    position: relative;
+    top: 10em;
+    width: 1200px;
+    ul {
+      li {
+        float: left;
+        padding: 2em;
+        width: 1200px;
+      }
+    }
+  }   
+}

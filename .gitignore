@@ -25,3 +25,5 @@ settings.php
 files
 private
 
+/.sass-cache/
+/themes/aarsberetning2011/.sass-cache/
