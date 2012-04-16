@@ -17,7 +17,7 @@ body {
   height: 100%;
 }
 
-.logo {
+.site-name {
   a {
     font-size: $font-size-default * 1.6;
     text-transform: uppercase;
@@ -35,7 +35,7 @@ header {
   position: absolute;
   top: 0;
   width: 100%;
-  .header-inner-wrapper {
+  .zone-branding {
     padding: $medium-padding * 2 0 $medium-padding;
     position: relative;
     .logo {
@@ -57,8 +57,8 @@ header {
   }
 }
 
-.wrapper {
-  .main-menu-wrapper {
+.region-menu {
+  .navigation {
     background: rgba(0,0,0,.25);
     overflow: hidden;
     padding: $small-padding * 1.5 0 $small-padding;
@@ -128,10 +128,12 @@ header {
       }
     }
   }
+}
 
+.section-content {
   position: relative;
   top: 6em;
-  .content {
+  .region-content {
     background-color: rgba(255,255,255,.75);
     min-height: 100%;
     overflow: hidden;

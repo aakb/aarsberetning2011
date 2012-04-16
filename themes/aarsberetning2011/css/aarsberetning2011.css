@@ -105,16 +105,16 @@ body {
 }
 
 /* line 21, ../sass/aarsberetning2011.scss */
-.logo a {
+.site-name a {
   font-size: 22.4px;
   text-transform: uppercase;
 }
 /* line 24, ../sass/aarsberetning2011.scss */
-.logo a:link {
+.site-name a:link {
   color: black;
 }
 /* line 27, ../sass/aarsberetning2011.scss */
-.logo a:hover {
+.site-name a:hover {
   text-decoration: none;
 }
 
@@ -126,37 +126,32 @@ header {
   width: 100%;
 }
 /* line 38, ../sass/aarsberetning2011.scss */
-header .header-inner-wrapper {
+header .zone-branding {
   padding: 4em 0 2em;
   position: relative;
 }
 /* line 41, ../sass/aarsberetning2011.scss */
-header .header-inner-wrapper .logo {
+header .zone-branding .logo {
   bottom: 1em;
   position: absolute;
   left: 0;
 }
 /* line 46, ../sass/aarsberetning2011.scss */
-header .header-inner-wrapper .secondary-menu {
+header .zone-branding .secondary-menu {
   color: #656565;
   position: absolute;
   right: 0;
   top: 1em;
 }
 /* line 51, ../sass/aarsberetning2011.scss */
-header .header-inner-wrapper .secondary-menu a {
+header .zone-branding .secondary-menu a {
   color: #656565;
   font-size: 12.6px;
   text-transform: uppercase;
 }
 
-/* line 60, ../sass/aarsberetning2011.scss */
-.wrapper {
-  position: relative;
-  top: 6em;
-}
 /* line 61, ../sass/aarsberetning2011.scss */
-.wrapper .main-menu-wrapper {
+.region-menu .navigation {
   background: rgba(0, 0, 0, 0.25);
   overflow: hidden;
   padding: 1.5em 0 1em;
@@ -166,11 +161,11 @@ header .header-inner-wrapper .secondary-menu a {
   z-index: 10;
 }
 /* line 69, ../sass/aarsberetning2011.scss */
-.wrapper .main-menu-wrapper .main-menu {
+.region-menu .navigation .main-menu {
   text-align: center;
 }
 /* line 71, ../sass/aarsberetning2011.scss */
-.wrapper .main-menu-wrapper .main-menu a {
+.region-menu .navigation .main-menu a {
   background: url("../images/nav-sep.png") no-repeat center 1.45em;
   color: rgba(255, 255, 255, 0.75);
   float: left;
@@ -179,37 +174,37 @@ header .header-inner-wrapper .secondary-menu a {
   text-transform: uppercase;
 }
 /* line 78, ../sass/aarsberetning2011.scss */
-.wrapper .main-menu-wrapper .main-menu a span {
+.region-menu .navigation .main-menu a span {
   background: url("../images/nav.png") no-repeat center 0.75em;
   display: block;
   width: 97px;
   padding: 4.5em 1em 0;
 }
 /* line 85, ../sass/aarsberetning2011.scss */
-.wrapper .main-menu-wrapper .main-menu a.active span {
+.region-menu .navigation .main-menu a.active span {
   background: url("../images/nav-active.png") no-repeat center 0;
   color: #fff;
   font-size: 13.3px;
   padding-top: 3.5em;
 }
 /* line 92, ../sass/aarsberetning2011.scss */
-.wrapper .main-menu-wrapper .main-menu a.active:hover span {
+.region-menu .navigation .main-menu a.active:hover span {
   background: url("../images/nav-active.png") no-repeat center 0;
 }
 /* line 101, ../sass/aarsberetning2011.scss */
-.wrapper .main-menu-wrapper .main-menu a.arrow-nav {
+.region-menu .navigation .main-menu a.arrow-nav {
   background: none;
 }
 /* line 104, ../sass/aarsberetning2011.scss */
-.wrapper .main-menu-wrapper .main-menu a.arrow-nav.prev span {
+.region-menu .navigation .main-menu a.arrow-nav.prev span {
   background: url("../images/nav-arrow-left.png") no-repeat;
 }
 /* line 109, ../sass/aarsberetning2011.scss */
-.wrapper .main-menu-wrapper .main-menu a.arrow-nav.next span {
+.region-menu .navigation .main-menu a.arrow-nav.next span {
   background: url("../images/nav-arrow-right.png") no-repeat right top;
 }
 /* line 113, ../sass/aarsberetning2011.scss */
-.wrapper .main-menu-wrapper .main-menu a.arrow-nav span {
+.region-menu .navigation .main-menu a.arrow-nav span {
   display: block;
   height: 35px;
   overflow: hidden;
@@ -217,16 +212,22 @@ header .header-inner-wrapper .secondary-menu a {
   width: 44px;
 }
 /* line 121, ../sass/aarsberetning2011.scss */
-.wrapper .main-menu-wrapper .main-menu a:hover {
+.region-menu .navigation .main-menu a:hover {
   color: #fff;
   text-decoration: none;
 }
 /* line 124, ../sass/aarsberetning2011.scss */
-.wrapper .main-menu-wrapper .main-menu a:hover span {
+.region-menu .navigation .main-menu a:hover span {
   background: url("../images/nav-hover.png") no-repeat center 0.75em;
 }
-/* line 134, ../sass/aarsberetning2011.scss */
-.wrapper .content {
+
+/* line 133, ../sass/aarsberetning2011.scss */
+.section-content {
+  position: relative;
+  top: 6em;
+}
+/* line 136, ../sass/aarsberetning2011.scss */
+.section-content .region-content {
   background-color: rgba(255, 255, 255, 0.75);
   min-height: 100%;
   overflow: hidden;
@@ -235,8 +236,8 @@ header .header-inner-wrapper .secondary-menu a {
   top: 10em;
   width: 1200px;
 }
-/* line 143, ../sass/aarsberetning2011.scss */
-.wrapper .content ul li {
+/* line 145, ../sass/aarsberetning2011.scss */
+.section-content .region-content ul li {
   float: left;
   padding: 2em;
   width: 1200px;

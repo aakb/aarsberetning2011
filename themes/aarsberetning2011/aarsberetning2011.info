@@ -16,15 +16,9 @@ regions[content] = "Content"
 
 ; ----- / CUSTOM REGIONS / -----
 
-regions[user_first] = "User Bar First"
-regions[user_second] = User Bar Second
 regions[branding] = Branding
-regions[search] = Search
 regions[menu] = Menu
-regions[sidebar_first] = Sidebar First
-regions[sidebar_second] = Sidebar Second
-regions[header_first] = Header First
-regions[header_second] = Header Second
+regions[header] = Header
 regions[preface_first] = Preface First
 regions[preface_second] = Preface Second
 regions[preface_third] = Preface Third
@@ -44,7 +38,6 @@ regions[footer_fifth] = Footer Fifth
 zones[header] = 'Header'
 zones[content] = 'Content'
 zones[footer] = 'Footer'
-zones[footer_second] = 'Footer second'
 zones[user] = 'User'
 zones[branding] = 'Branding'
 zones[menu] = 'Menu'
