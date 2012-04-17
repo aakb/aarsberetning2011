@@ -21,11 +21,18 @@ body {
   a {
     font-size: $font-size-default * 1.6;
     text-transform: uppercase;
-    &:link {
+    &:link,
+    &:visited {
       color: $text-color;
     }
     &:hover {
+      color: $link-color;
       text-decoration: none;
+    }
+    &:active {
+      background-color: $link-color;
+      color: $text-color-light;
+      padding: .1em .1em 0;
     }
   }
 }
@@ -141,11 +148,10 @@ header {
   }
 }
 
-
 .section-content {
   position: relative;
   top: 3em;
-  .region-content {
+  .zone-content {
     background-color: rgba(255,255,255,.75);
     min-height: 100%;
     overflow: hidden;
@@ -153,12 +159,6 @@ header {
     position: relative;
     top: 10em;
     width: 1200px;
-    ul {
-      li {
-        float: left;
-        padding: 2em;
-        width: 1200px;
-      }
-    }
+
   }
 }
