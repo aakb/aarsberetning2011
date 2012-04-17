@@ -39,7 +39,7 @@ header {
     padding: $medium-padding * 2 0 $medium-padding;
     position: relative;
     .logo {
-      bottom: $small-spacing;      
+      bottom: $small-spacing;
       position: absolute;
       left: 0;
     }
@@ -57,72 +57,74 @@ header {
   }
 }
 
-.region-menu {
-  .navigation {
-    background: rgba(0,0,0,.25);
-    overflow: hidden;
-    padding: $small-padding * 1.5 0 $small-padding;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 10;
-    .main-menu {
-      text-align: center;
-      a {
+.zone-menu-wrapper {
+  background: rgba(0,0,0,.25);
+  overflow: hidden;
+  padding: $small-padding * 1.5 0 $small-padding;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  nav {
+    text-align: center;
+    li {
+      float: left;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      span {
         background: url('../images/nav-sep.png') no-repeat center 1.45em;
-        color: rgba(255,255,255,.75);
         float: left;
         font-size: $font-size-default * .75;
         text-align: center;
         text-transform: uppercase;
-        span {
+        a {
           background: url('../images/nav.png') no-repeat center .75em;
+          color: rgba(255,255,255,.75);
           display: block;
           width: 97px;
           padding: 4.5em $small-padding 0;
-        }
-        &.active {
-          span {
+          &.active {
             background: url('../images/nav-active.png') no-repeat center 0;
             color: #fff;
             font-size: $font-size-default * .95;
             padding-top: 3.5em;
-          }
-          &:hover {
-            span {
-              background: url('../images/nav-active.png') no-repeat center 0;          
+            &:hover {
+              span {
+                background: url('../images/nav-active.png') no-repeat center 0;
+              }
             }
           }
-        }      
-        &.first {
-        }
-        &.last {
+          &.first {
+          }
+          &.last {
+          }
+          &:hover {
+            color: #fff;
+            text-decoration: none;
+            a {
+              background: url('../images/nav-hover.png') no-repeat center .75em;
+            }
+          }
         }
         &.arrow-nav {
           background: none;
           &.prev {
-            span {
-              background: url('../images/nav-arrow-left.png') no-repeat;      
+            a {
+              background: url('../images/nav-arrow-left.png') no-repeat;
             }
           }
           &.next {
-            span {
+            a {
               background: url('../images/nav-arrow-right.png') no-repeat right top;
             }
           }
-          span {
+          a {
             display: block;
             height: 35px;
             overflow: hidden;
             text-indent: -10000px;
-            width: 44px;        
-          }
-        }
-        &:hover {
-          color: #fff;
-          text-decoration: none;
-          span {
-            background: url('../images/nav-hover.png') no-repeat center .75em;
+            width: 44px;
           }
         }
       }
@@ -130,9 +132,19 @@ header {
   }
 }
 
+.toolbar {
+  header {
+    top: 4em;
+  }
+  .section-content {
+    top: 7em;
+  }
+}
+
+
 .section-content {
   position: relative;
-  top: 6em;
+  top: 3em;
   .region-content {
     background-color: rgba(255,255,255,.75);
     min-height: 100%;
@@ -148,5 +160,5 @@ header {
         width: 1200px;
       }
     }
-  }   
+  }
 }

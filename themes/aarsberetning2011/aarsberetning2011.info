@@ -13,6 +13,17 @@ regions[page_top] = "Page Top"
 regions[page_bottom] = "Page Bottom"
 regions[content] = "Content"
 
+; ----- / ZONES / -----
+
+zones[header] = 'Header'
+zones[content] = 'Content'
+zones[footer] = 'Footer'
+zones[user] = 'User'
+zones[branding] = 'Branding'
+zones[menu] = 'Menu'
+zones[preface] = 'Preface'
+zones[postscript] = 'Postscript'
+
 
 ; ----- / CUSTOM REGIONS / -----
 
@@ -33,18 +44,6 @@ regions[footer_fourth] = Footer Fourth
 regions[footer_fifth] = Footer Fifth
 
 
-; ----- / ZONES / -----
-
-zones[header] = 'Header'
-zones[content] = 'Content'
-zones[footer] = 'Footer'
-zones[user] = 'User'
-zones[branding] = 'Branding'
-zones[menu] = 'Menu'
-zones[preface] = 'Preface'
-zones[postscript] = 'Postscript'
-
-
 ; ----- / OPTIONAL CSS / -----
 
 css[aarsberetning2011.css][name] = 'Årsberetning 2011 styles'
@@ -58,7 +57,7 @@ stylesheets[all][] = css/cartogothic-std/cartogothic-std.css
 
 ; ----- / SCRIPTS / -----
 
-;scripts[] = scripts/spanien.common.js
+scripts[] = scripts/common.js
 
 ; ----- / DEFAULT SETTINGS / -----
 
