@@ -17,38 +17,33 @@ body {
   height: 100%;
 }
 
-.site-name {
-  a {
-    font-size: $font-size-default * 1.6;
-    text-transform: uppercase;
-    &:link,
-    &:visited {
-      color: $text-color;
-    }
-    &:hover {
-      color: $link-color;
-      text-decoration: none;
-    }
-    &:active {
-      background-color: $link-color;
-      color: $text-color-light;
-      padding: .1em .1em 0;
-    }
-  }
-}
-
 header {
   background: #fff;
   position: absolute;
   top: 0;
   width: 100%;
   .zone-branding {
-    padding: $medium-padding * 2 0 $medium-padding;
+    height: $large-padding * 2;
     position: relative;
-    .logo {
-      bottom: $small-spacing;
-      position: absolute;
-      left: 0;
+    .site-name {
+      margin-top: $large-padding * 1.25;
+      a {
+        font-size: $font-size-default * 1.6;
+        text-transform: uppercase;
+        &:link,
+        &:visited {
+          color: $text-color;
+        }
+        &:hover {
+          color: $link-color;
+          text-decoration: none;
+        }
+        &:active {
+          background-color: $link-color;
+          color: $text-color-light;
+          padding: .1em .1em 0;
+        }
+      }
     }
     .secondary-menu {
       color: #656565;
@@ -141,16 +136,13 @@ header {
 
 .toolbar {
   header {
-    top: 4em;
-  }
-  .section-content {
-    top: 7em;
+    top: $medium-padding * 2.325;
   }
 }
 
 .section-content {
   position: relative;
-  top: 3em;
+  top: $large-padding * 2;
   .zone-content {
     background-color: rgba(255,255,255,.75);
     min-height: 100%;
