@@ -1,0 +1,156 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "variables.scss";
+@import "typography.scss";
+
+html {
+  height: 100%;
+}
+
+body {
+  background: url('../images/e-reolen.jpg') no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+header {
+  background: #fff;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  .zone-branding {
+    height: $large-padding * 2;
+    position: relative;
+    .site-name {
+      margin-top: $large-padding * 1.25;
+      a {
+        font-size: $font-size-default * 1.6;
+        text-transform: uppercase;
+        &:link,
+        &:visited {
+          color: $text-color;
+        }
+        &:hover {
+          color: $link-color;
+          text-decoration: none;
+        }
+        &:active {
+          background-color: $link-color;
+          color: $text-color-light;
+          padding: .1em .1em 0;
+        }
+      }
+    }
+    .secondary-menu {
+      color: #656565;
+      position: absolute;
+      right: 0;
+      top: $small-spacing;
+      a {
+        color: #656565;
+        font-size: $font-size-default * .9;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.zone-menu-wrapper {
+  background: rgba(0,0,0,.25);
+  overflow: hidden;
+  padding: $small-padding * 1.5 0 $small-padding;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  nav {
+    text-align: center;
+    li {
+      float: left;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      span {
+        background: url('../images/nav-sep.png') no-repeat center 1.45em;
+        float: left;
+        font-size: $font-size-default * .75;
+        text-align: center;
+        text-transform: uppercase;
+        a {
+          background: url('../images/nav.png') no-repeat center .75em;
+          color: rgba(255,255,255,.75);
+          display: block;
+          width: 97px;
+          padding: 4.5em $small-padding 0;
+          &.active {
+            background: url('../images/nav-active.png') no-repeat center 0;
+            color: #fff;
+            font-size: $font-size-default * .95;
+            padding-top: 3.5em;
+            &:hover {
+              span {
+                background: url('../images/nav-active.png') no-repeat center 0;
+              }
+            }
+          }
+          &.first {
+          }
+          &.last {
+          }
+          &:hover {
+            color: #fff;
+            text-decoration: none;
+            a {
+              background: url('../images/nav-hover.png') no-repeat center .75em;
+            }
+          }
+        }
+        &.arrow-nav {
+          background: none;
+          &.prev {
+            a {
+              background: url('../images/nav-arrow-left.png') no-repeat;
+            }
+          }
+          &.next {
+            a {
+              background: url('../images/nav-arrow-right.png') no-repeat right top;
+            }
+          }
+          a {
+            display: block;
+            height: 35px;
+            overflow: hidden;
+            text-indent: -10000px;
+            width: 44px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.toolbar {
+  header {
+    top: $medium-padding * 2.325;
+  }
+}
+
+.section-content {
+  position: relative;
+  top: $large-padding * 2;
+  .zone-content {
+    background-color: rgba(255,255,255,.75);
+    min-height: 100%;
+    overflow: hidden;
+    margin: auto;
+    position: relative;
+    top: 10em;
+    width: 1200px;
+
+  }
+}

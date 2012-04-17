@@ -1,0 +1,24 @@
+/* line 3, ../sass/typography.scss */
+body {
+  color: black;
+  font-family: "ff-scala-sans-web-pro", sans-serif;
+  font-size: 14px;
+}
+/* line 8, ../sass/typography.scss */
+body a:link {
+  color: #ff6600;
+  text-decoration: none;
+}
+/* line 12, ../sass/typography.scss */
+body a:visited {
+  color: #ff6600;
+}
+/* line 15, ../sass/typography.scss */
+body a:hover {
+  color: #ff6600;
+  text-decoration: underline;
+}
+/* line 19, ../sass/typography.scss */
+body a:active {
+  color: #ff6600;
+}

@@ -1,0 +1,254 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 17, ../../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 20, ../../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+body {
+  line-height: 1;
+}
+
+/* line 22, ../../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 24, ../../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 26, ../../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 28, ../../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 101, ../../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 30, ../../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 114, ../../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 3, ../sass/typography.scss */
+body {
+  color: black;
+  font-family: "ff-scala-sans-web-pro", sans-serif;
+  font-size: 14px;
+}
+/* line 8, ../sass/typography.scss */
+body a:link {
+  color: #ff6600;
+  text-decoration: none;
+}
+/* line 12, ../sass/typography.scss */
+body a:visited {
+  color: #ff6600;
+}
+/* line 15, ../sass/typography.scss */
+body a:hover {
+  color: #ff6600;
+  text-decoration: underline;
+}
+/* line 19, ../sass/typography.scss */
+body a:active {
+  color: #ff6600;
+}
+
+/* line 10, ../sass/aarsberetning2011.scss */
+html {
+  height: 100%;
+}
+
+/* line 14, ../sass/aarsberetning2011.scss */
+body {
+  background: url("../images/e-reolen.jpg") no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+/* line 20, ../sass/aarsberetning2011.scss */
+header {
+  background: #fff;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+/* line 25, ../sass/aarsberetning2011.scss */
+header .zone-branding {
+  height: 6em;
+  position: relative;
+}
+/* line 28, ../sass/aarsberetning2011.scss */
+header .zone-branding .site-name {
+  margin-top: 3.75em;
+}
+/* line 30, ../sass/aarsberetning2011.scss */
+header .zone-branding .site-name a {
+  font-size: 22.4px;
+  text-transform: uppercase;
+}
+/* line 34, ../sass/aarsberetning2011.scss */
+header .zone-branding .site-name a:link, header .zone-branding .site-name a:visited {
+  color: black;
+}
+/* line 37, ../sass/aarsberetning2011.scss */
+header .zone-branding .site-name a:hover {
+  color: #ff6600;
+  text-decoration: none;
+}
+/* line 41, ../sass/aarsberetning2011.scss */
+header .zone-branding .site-name a:active {
+  background-color: #ff6600;
+  color: white;
+  padding: .1em .1em 0;
+}
+/* line 48, ../sass/aarsberetning2011.scss */
+header .zone-branding .secondary-menu {
+  color: #656565;
+  position: absolute;
+  right: 0;
+  top: 1em;
+}
+/* line 53, ../sass/aarsberetning2011.scss */
+header .zone-branding .secondary-menu a {
+  color: #656565;
+  font-size: 12.6px;
+  text-transform: uppercase;
+}
+
+/* line 62, ../sass/aarsberetning2011.scss */
+.zone-menu-wrapper {
+  background: rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  padding: 1.5em 0 1em;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+/* line 70, ../sass/aarsberetning2011.scss */
+.zone-menu-wrapper nav {
+  text-align: center;
+}
+/* line 72, ../sass/aarsberetning2011.scss */
+.zone-menu-wrapper nav li {
+  float: left;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 77, ../sass/aarsberetning2011.scss */
+.zone-menu-wrapper nav li span {
+  background: url("../images/nav-sep.png") no-repeat center 1.45em;
+  float: left;
+  font-size: 10.5px;
+  text-align: center;
+  text-transform: uppercase;
+}
+/* line 83, ../sass/aarsberetning2011.scss */
+.zone-menu-wrapper nav li span a {
+  background: url("../images/nav.png") no-repeat center 0.75em;
+  color: rgba(255, 255, 255, 0.75);
+  display: block;
+  width: 97px;
+  padding: 4.5em 1em 0;
+}
+/* line 89, ../sass/aarsberetning2011.scss */
+.zone-menu-wrapper nav li span a.active {
+  background: url("../images/nav-active.png") no-repeat center 0;
+  color: #fff;
+  font-size: 13.3px;
+  padding-top: 3.5em;
+}
+/* line 95, ../sass/aarsberetning2011.scss */
+.zone-menu-wrapper nav li span a.active:hover span {
+  background: url("../images/nav-active.png") no-repeat center 0;
+}
+/* line 104, ../sass/aarsberetning2011.scss */
+.zone-menu-wrapper nav li span a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+/* line 107, ../sass/aarsberetning2011.scss */
+.zone-menu-wrapper nav li span a:hover a {
+  background: url("../images/nav-hover.png") no-repeat center 0.75em;
+}
+/* line 112, ../sass/aarsberetning2011.scss */
+.zone-menu-wrapper nav li span.arrow-nav {
+  background: none;
+}
+/* line 115, ../sass/aarsberetning2011.scss */
+.zone-menu-wrapper nav li span.arrow-nav.prev a {
+  background: url("../images/nav-arrow-left.png") no-repeat;
+}
+/* line 120, ../sass/aarsberetning2011.scss */
+.zone-menu-wrapper nav li span.arrow-nav.next a {
+  background: url("../images/nav-arrow-right.png") no-repeat right top;
+}
+/* line 124, ../sass/aarsberetning2011.scss */
+.zone-menu-wrapper nav li span.arrow-nav a {
+  display: block;
+  height: 35px;
+  overflow: hidden;
+  text-indent: -10000px;
+  width: 44px;
+}
+
+/* line 138, ../sass/aarsberetning2011.scss */
+.toolbar header {
+  top: 4.65em;
+}
+
+/* line 143, ../sass/aarsberetning2011.scss */
+.section-content {
+  position: relative;
+  top: 6em;
+}
+/* line 146, ../sass/aarsberetning2011.scss */
+.section-content .zone-content {
+  background-color: rgba(255, 255, 255, 0.75);
+  min-height: 100%;
+  overflow: hidden;
+  margin: auto;
+  position: relative;
+  top: 10em;
+  width: 1200px;
+}
