@@ -33,6 +33,8 @@
         options = opt;
       }
 
+      // @TODO: Load page if location.hash is defined.
+
       // Save current page.
       saveData($(options.content).html(),  getHashKey());
 
@@ -45,23 +47,29 @@
       // Add navigation items.
       menu.prepend('<li><span class="arrow-nav prev"><a href="#previous">'+Drupal.t('Back')+'</a></span></li>');
       menu.append('<li><span class="arrow-nav next"><a href="#next">'+Drupal.t('Forward')+'</a></span></li>');
-
-      // @TODO Load page if location.hash is defined.
     }
 
     // Attache event listners to the target list.
     function start() {
-      $('.leaf a', menu).live('click', function(event) {
+      menu.delegate('.leaf a', 'click', function(event) {
         event.stopPropagation();
+        event.preventDefault();
         var link = $(event.target); 
         loadPage(link.attr('href'), link);
-        return false;
       });
-    }
 
-    // Deattache event listners to the target list.
-    function stop() {
-      // @TODO: remove the event binding form the taget list.
+      // Add listerns to navigation arrows.
+      menu.delegate('.arrow-nav', 'click', function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        var link = $(event.target);
+        if (link.attr('href') == '#previous') {
+          prev();
+        }
+        else {
+          next();
+        }
+      });
     }
 
     // Used to store page content.
@@ -131,14 +139,46 @@
       target.html(content);
     }
 
+    // Find the next element in the menu to load (used by next link).
+    function next() {
+      var current = $('a.active', menu);
+      if (current.length == 1) {
+        var link = current;
+        var list = current.parent().parent();
+        if (list.hasClass('last')) {
+          link = $('.first a', list.parent());
+        }
+        else {
+          link = $('a', list.next());
+        }
+        loadPage(link.attr('href'), link);
+      }
+    }
+
+    // Find the previous element in the menu to load (used by prev link).
+    function prev() {
+      var current = $('a.active', menu);
+      if (current.length == 1) {
+        var link = current;
+        var list = current.parent().parent();
+        if (list.hasClass('first')) {
+          link = $('.last a', list.parent());
+        }
+        else {
+          link = $('a', list.prev());
+        }
+        loadPage(link.attr('href'), link);
+      }
+    }
+
     // Return public methods.
     return {
       init : init,
-      start: start,
-      stop: stop
+      start: start
     };
   }());
 
+  // Load the moduel and start the fun.
   $(document).ready(function() {
     slider.init();
     slider.start();
