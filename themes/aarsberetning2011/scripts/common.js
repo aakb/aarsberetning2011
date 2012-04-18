@@ -7,7 +7,7 @@
   * It assumes that the target for the animation is the ul with a tags inside 
   * li's.
   * 
-  * Pattern: Revealig module
+  * Pattern: Revealing module
   * 
   * Functions:
   *   init - Init the object and takes an object litteral with menu 
@@ -17,6 +17,7 @@
   *   stop - End the animation (mostly for development).
   */
   var slider = (function() {
+    var menu = null;
     var target = null;
     var pages = {};
     var options = {
@@ -33,34 +34,50 @@
       }
 
       // Save current page.
-      saveData($(options.content),  getHashKey());
+      saveData($(options.content).html(),  getHashKey());
 
       // Get menu as jquery object.
-      target = $(options.menu);
+      menu = $(options.menu);
+
+      // Get target.
+      target = $(options.content);
+
+      // Add navigation items.
+      menu.prepend('<li><span class="arrow-nav prev"><a href="#previous">'+Drupal.t('Back')+'</a></span></li>');
+      menu.append('<li><span class="arrow-nav next"><a href="#next">'+Drupal.t('Forward')+'</a></span></li>');
+
+      // @TODO Load page if location.hash is defined.
     }
 
     // Attache event listners to the target list.
     function start() {
-      $(target, 'a').live('click', function(event) {
+      $('.leaf a', menu).live('click', function(event) {
         event.stopPropagation();
-        loadPage($(event.target).attr('href'));
+        var link = $(event.target); 
+        loadPage(link.attr('href'), link);
         return false;
       });
     }
 
+    // Deattache event listners to the target list.
     function stop() {
       // @TODO: remove the event binding form the taget list.
     }
 
     // Used to store page content.
     function saveData(data, key) {
-      pages[key] = data;
-      addHashtag(key);
+      if (!$('body').hasClass('logged-in')) {
+        pages[key] = data;
+        addHashtag(key);
+      }
     }
 
     // Return stored data based on key.
     function loadData(key) {
-      return pages[key];
+      if (pages[key] !== undefined) {
+        return pages[key];
+      }
+      return null;
     }
 
     // Build hash key based on url, if non provied current path will be used.
@@ -73,27 +90,48 @@
       else {
         if (url.charAt(0) == '/') {
           hash = url.substr(1);
+          if (hash == '') {
+            hash = 'frontpage';
+          }
         }
         else {
-          hash = url; 
+          hash = url;
         }
-      }      
+      }
       return hash;
     }
 
     function addHashtag(hash) {
-      hash = hash.substr(1);
       window.location.hash = hash;
     }
 
-    function loadPage(url) {
-      console.log(url);
+    function loadPage(url, link) {
+      // Try to get content from cache.
+      var key = getHashKey(url);
+      var content = loadData(key);
+      if (content !== null) {
+        animatePageLoad(content, link);
+      }
+      else {
+        // The ajax query string is used to change theme in the backend.
+        $.get(url + '?ajax=1', function(data) {
+          animatePageLoad(data, link);
+          saveData(data, key);
+        });
+      }
+      addHashtag(key);
     }
 
-    function animate() {
-      
+    function animatePageLoad(content, link) {
+      // Update active class in the menu.
+      $('a', menu).removeClass('active');
+      link.addClass('active');
+
+      // @TODO: animate the whole thing.
+      target.html(content);
     }
 
+    // Return public methods.
     return {
       init : init,
       start: start,
@@ -102,123 +140,7 @@
   }());
 
   $(document).ready(function() {
-
-
-    // Set variables.
-    var menu = $('.region-menu nav .menu');
-    var menuItems = $('a', menu).not('.arrow-nav');
-    var content = $('.region-content-inner');
-
-    //----- Add previous and next arrows.
-    var arrow = menu.find('.arrow-nav');
-
-    if (!arrow.lenght) {
-      menu.prepend('<li><span class="arrow-nav prev"><a href="#previous">'+Drupal.t('Back')+'</a></span></li>');
-      menu.append('<li><span class="arrow-nav next"><a href="#next">'+Drupal.t('Forward')+'</a></span></li>');    
-    }
-
     slider.init();
     slider.start();
-
-
-    //----- Define functions.
-
-    // Function for click event.
-  //  function gotoIndex(elem, target, index) {
-  //    elem.click(function() {
-  //      if (target.contents().length) {
-  //        content.trigger('goto', index);
-  //      } else {
-  //        $.get($(this).attr('href'), function(data) {
-  //          target.append(data);
-  //          content.trigger('goto', index);
-  //        });
-  //      }
-  //
-  //      // Remove active classes.
-  //      menuItems.removeClass('active');
-  //
-  //      // Add active class.
-  //      $(this).addClass('active');
-  //
-  //      return false;
-  //    });
-  //  }
-  //
-  //  // Create List.
-  //  content.append('<ul>');
-  //
-  //  menuItems.each(function(index) {
-  //
-  //    // Create list items.
-  //    $('ul', content).append('<li rel=' + index + '>');
-  //
-  //    // Set element.
-  //    var elem = $('.content ul [rel=' + index + ']');
-  //
-  //    $(this).click(function() {
-  //      if (elem.contents().length) {
-  //        $('.content').trigger('goto', index);
-  //      } else {
-  //        $.get($(this).attr('href'), function(data) {
-  //          elem.append(data);
-  //          $('.content').trigger('goto', index);
-  //        });
-  //      }
-  //
-  //      return false;
-  //    });
-  //
-  //  });
-  //
-  //  // Set width on list so the slide effect to works.
-  //  $('ul', content).css('width', 1256 * $('ul li', content).length)
-  //
-  //  // Previous/next click events.
-  //  $('a.prev', menu).click(function() {
-  //    $('.content').trigger('prev');
-  //  });
-  //
-  //  $('a.next', menu).click(function() {
-  //
-  //    var activeElem = $('.active',menu);
-  //
-  //    if (activeElem.parent().next().contents().length) {
-  //      $('.content').trigger('goto', activeElem.parent().next().attr('rel'));
-  //    } else {
-  //      $.get(activeElem.parent().next().find('a').attr('href'), function(data) {
-  //        activeElem.parent().next().append(data);
-  //        $('.content').trigger('goto', activeElem.parent().next().attr('rel'));
-  //      });
-  //    }
-  //
-  //    return false;
-  //
-  //  });
-  //
-  //  // Load default content.
-  //  $('ul li[rel=0]', content).load('page1.html');
-  //
-  //  // Add serialScroll (http://flesler.blogspot.com/2008/02/jqueryserialscroll.html).
-  //  $('.wrapper').serialScroll({
-  //		target:'.content',
-  //		items:'li',
-  //		next:'a.next',
-  //		prev:'a.prev',
-  //		force:true,
-  //		stop:true,
-  //		lock:false,
-  //		cycle:false,
-  //		jump: true,
-  //    lazy: true,
-  //		onAfter:function(pos,pane){
-  //      // Remove active classes.
-  //      menuItems.removeClass('active');
-  //
-  //      // Add active class.
-  //      $(menuItems[$(pos).attr('rel')]).addClass('active');
-  //		}
-  //	});
-
   });
 }) (jQuery);
