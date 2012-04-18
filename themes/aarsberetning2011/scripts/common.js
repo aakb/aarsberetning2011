@@ -19,11 +19,13 @@
   var slider = (function() {
     var menu = null;
     var target = null;
-    var pages = {};
+    var slider = $('<div class="slider"></div>');
+    var cache = {};
+
     var options = {
       menu: '.menu-name-main-menu ul',
       content: '.region-content-inner',
-      speed: 100
+      speed: 600
     };
 
     // Init the object and get options.
@@ -33,10 +35,11 @@
         options = opt;
       }
 
-      // @TODO: Load page if location.hash is defined.
-
-      // Save current page.
-      saveData($(options.content).html(),  getHashKey());
+      // Wrap target content in slider div and slide div.
+      target = $(options.content);
+      target.wrapInner($('<div class="slide current"></div>'));
+      target.wrapInner(slider);
+      slider = $('.slider', target);
 
       // Get menu as jquery object.
       menu = $(options.menu);
@@ -48,9 +51,24 @@
       menu.prepend('<li><span class="arrow-nav prev"><a href="#previous">'+Drupal.t('Back')+'</a></span></li>');
       menu.append('<li><span class="arrow-nav next"><a href="#next">'+Drupal.t('Forward')+'</a></span></li>');
     }
-
-    // Attache event listners to the target list.
+    
+    // Start the application.
     function start() {
+      // Load page if hash-tag is defined.
+      var hash = getHashtag();
+      if (hash != '') {
+        var url = '/' + (hash == 'frontpage' ? '' : hash);
+        if (url == '/' && !$('body').hasClass('front')) {
+          var link = $('a[href="' + url + '"]', menu);
+          loadPage(url, link);
+        }
+      }
+      else {
+        // No hash-tag found, so we save current page in cache.
+        saveData($(options.content).html(),  getHashKey());
+      }
+      
+    // Attache event listners to the target list.       
       menu.delegate('.leaf a', 'click', function(event) {
         event.stopPropagation();
         event.preventDefault();
@@ -75,15 +93,15 @@
     // Used to store page content.
     function saveData(data, key) {
       if (!$('body').hasClass('logged-in')) {
-        pages[key] = data;
+        cache[key] = data;
         addHashtag(key);
       }
     }
 
     // Return stored data based on key.
     function loadData(key) {
-      if (pages[key] !== undefined) {
-        return pages[key];
+      if (cache[key] !== undefined) {
+        return cache[key];
       }
       return null;
     }
@@ -109,34 +127,61 @@
       return hash;
     }
 
+    // Add hash tag to url.
     function addHashtag(hash) {
       window.location.hash = hash;
     }
 
-    function loadPage(url, link) {
+    // Get hash tag from url.
+    function getHashtag() {
+      return window.location.hash.substr(1);
+    }
+
+    // Ajax call to get page content.
+    function loadPage(url, link, direction) {
       // Try to get content from cache.
       var key = getHashKey(url);
       var content = loadData(key);
       if (content !== null) {
-        animatePageLoad(content, link);
+        // Found content in cache.
+        animatePageLoad(content, link, direction);
       }
       else {
         // The ajax query string is used to change theme in the backend.
         $.get(url + '?ajax=1', function(data) {
-          animatePageLoad(data, link);
+          animatePageLoad(data, link, direction);
           saveData(data, key);
         });
       }
       addHashtag(key);
     }
 
-    function animatePageLoad(content, link) {
+    // Animate the page load (slide/fade).
+    function animatePageLoad(content, link, direction) {
       // Update active class in the menu.
       $('a', menu).removeClass('active');
       link.addClass('active');
 
-      // @TODO: animate the whole thing.
-      target.html(content);
+      console.log(direction);
+
+      // @TODO: animate the slide left/right.
+//      if (direction == 'left') {
+//        
+//      } 
+//      else if (direction == 'right') {
+//        slider.append('<div class="slide">' + content + '</div>');    
+//      }
+//      else {
+        var current = $(slider, 'current');
+        current.hide(0, function() {
+          current.html(content);
+          current.fadeIn(options.speed, function() {
+            // Work around when to faste menu clicks, which lead to 0.001232 opacity).
+            current.css('filter', 'alpha(opacity=100)')
+            current.css('opacity', '1');
+          });
+        });
+//      }
     }
 
     // Find the next element in the menu to load (used by next link).
@@ -151,7 +196,7 @@
         else {
           link = $('a', list.next());
         }
-        loadPage(link.attr('href'), link);
+        loadPage(link.attr('href'), link, 'right');
       }
     }
 
@@ -167,7 +212,7 @@
         else {
           link = $('a', list.prev());
         }
-        loadPage(link.attr('href'), link);
+        loadPage(link.attr('href'), link, 'left');
       }
     }
 
