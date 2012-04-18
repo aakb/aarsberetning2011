@@ -20,4 +20,11 @@ body {
       color: $link-active;
     }
   }
+  h1 {
+    &.title {
+      font-size: $font-size-large;
+      margin-bottom: $small-spacing * .9;
+      margin-left: -2px; // Fix left spacing when using font from typekit.
+    }
+  }
 }

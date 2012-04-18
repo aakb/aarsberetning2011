@@ -91,6 +91,12 @@ body a:hover {
 body a:active {
   color: #ff6600;
 }
+/* line 24, ../sass/typography.scss */
+body h1.title {
+  font-size: 28px;
+  margin-bottom: 0.9em;
+  margin-left: -2px;
+}
 
 /* line 10, ../sass/aarsberetning2011.scss */
 html {
@@ -118,7 +124,7 @@ header .zone-branding {
 }
 /* line 28, ../sass/aarsberetning2011.scss */
 header .zone-branding .site-name {
-  margin-top: 3.75em;
+  margin-top: 3em;
 }
 /* line 30, ../sass/aarsberetning2011.scss */
 header .zone-branding .site-name a {
@@ -248,6 +254,7 @@ header .zone-branding .secondary-menu a {
   min-height: 100%;
   overflow: hidden;
   margin: auto;
+  padding: 2em;
   position: relative;
   top: 10em;
   width: 1200px;

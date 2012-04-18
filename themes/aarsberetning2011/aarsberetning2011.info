@@ -50,6 +50,9 @@ css[aarsberetning2011.css][name] = 'Årsberetning 2011 styles'
 css[aarsberetning2011.css][description] = 'This file holds all the custom CSS of your theme.'
 css[aarsberetning2011.css][options][weight] = '10'
 
+css[typography.css][name] = 'Årsberetning 2011 typography'
+css[typography.css][description] = 'This file holds the typography stylesheet.'
+css[typography.css][options][weight] = '10'
 
 ; ----- / SCRIPTS / -----
 
