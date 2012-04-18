@@ -144,13 +144,15 @@ header {
   position: relative;
   top: $large-padding * 2;
   .zone-content {
-    background-color: rgba(255,255,255,.75);
     min-height: 100%;
     overflow: hidden;
     margin: auto;
-    padding: $medium-padding;
     position: relative;
     top: 10em;
     width: 1200px;
+    .region-content-inner {
+      background-color: rgba(255,255,255,.75);
+      padding: $medium-padding;    
+    }
   }
 }

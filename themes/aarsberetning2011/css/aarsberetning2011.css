@@ -250,12 +250,15 @@ header .zone-branding .secondary-menu a {
 }
 /* line 146, ../sass/aarsberetning2011.scss */
 .section-content .zone-content {
-  background-color: rgba(255, 255, 255, 0.75);
   min-height: 100%;
   overflow: hidden;
   margin: auto;
-  padding: 2em;
   position: relative;
   top: 10em;
   width: 1200px;
+}
+/* line 153, ../sass/aarsberetning2011.scss */
+.section-content .zone-content .region-content-inner {
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 2em;
 }
