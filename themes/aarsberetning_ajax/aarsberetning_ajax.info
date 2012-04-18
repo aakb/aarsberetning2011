@@ -1,0 +1,5 @@
+name = 'Årsberetning Ajax'
+description = 'Theme used to load nodes via jQuery, so only node content is rendered.'
+core = '7.x'
+
+regions[content] = "Content"
