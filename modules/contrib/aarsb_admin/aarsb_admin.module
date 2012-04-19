@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * The Aarsberetning Admin module contains functions which changes standard
+ * behavior of core modules.
+ */
+    
+/**
+ * Implements hook_form_alter().
+ * 
+ * @param string $form
+ * @param type $form_state
+ * @param type $form_id 
+ */
+function aarsb_admin_form_alter(&$form, $form_state, $form_id) {
+  if ($form_id == 'page_node_form') {
+    $form['#after_build'][] = '_node_form_alter';
+  }  
+}
+
+/**
+ * Function called after form is rendered.
+ * Makes altering the forms element possible.
+ * 
+ * @param type $form
+ * @param type $form_state
+ * @return type 
+ */
+function _node_form_alter($form, &$form_state) {
+  if (array_key_exists('und', $form['language']['#options'])) {
+    //Removes the "Language neutral option from the Language selector
+    unset($form['language']['#options']['und']);
+  }
+  return $form;
+}
