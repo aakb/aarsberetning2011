@@ -17,14 +17,14 @@
   *   stop - End the animation (mostly for development).
   */
   var slider = (function() {
-    var menu = null;
-    var target = null;
-    var slider = $('<div class="slider"></div>');
+    var $menu = null;
+    var $content = null;
     var cache = {};
 
     var options = {
       menu: '.menu-name-main-menu ul',
-      content: '.zone-content-wrapper',
+      content: '#zone-content-wrapper', // Slider container.
+      outer: '#section-content', // Overflow container.
       speed: 600
     };
 
@@ -36,20 +36,22 @@
       }
 
       // Wrap target content in slider div and slide div.
-      target = $(options.content);
-      target.wrapInner($('<div class="slide current"></div>'));
-      target.wrapInner(slider);
-      slider = $('.slider', target);
+      var outer = $(options.outer);
+      outer.css('overflow-x', 'hidden');
+      $content = $(options.content);
+      $content.css('width', '200%');
+      $content.css('position', 'relative');
+      $content.wrapInner($('<div class="slide current" style="width:50%;float:left;"></div>'));
 
       // Get menu as jquery object.
-      menu = $(options.menu);
+      $menu = $(options.menu);
 
       // Get target.
-      target = $(options.content);
+      $content = $(options.content);
 
       // Add navigation items.
-      menu.prepend('<li><span class="arrow-nav prev"><a href="#previous">'+Drupal.t('Back')+'</a></span></li>');
-      menu.append('<li><span class="arrow-nav next"><a href="#next">'+Drupal.t('Forward')+'</a></span></li>');
+      $menu.prepend('<li><span class="arrow-nav prev"><a href="#previous">'+Drupal.t('Back')+'</a></span></li>');
+      $menu.append('<li><span class="arrow-nav next"><a href="#next">'+Drupal.t('Forward')+'</a></span></li>');
     }
     
     // Start the application.
@@ -59,7 +61,7 @@
       if (hash != '') {
         var url = '/' + (hash == 'frontpage' ? '' : hash);
         if (url == '/' && !$('body').hasClass('front')) {
-          var link = $('a[href="' + url + '"]', menu);
+          var link = $('a[href="' + url + '"]', $menu);
           loadPage(url, link);
         }
       }
@@ -69,7 +71,7 @@
       }
       
     // Attache event listners to the target list.       
-      menu.delegate('.leaf a', 'click', function(event) {
+      $menu.delegate('.leaf a', 'click', function(event) {
         event.stopPropagation();
         event.preventDefault();
         var link = $(event.target); 
@@ -77,7 +79,7 @@
       });
 
       // Add listerns to navigation arrows.
-      menu.delegate('.arrow-nav', 'click', function(event) {
+      $menu.delegate('.arrow-nav', 'click', function(event) {
         event.stopPropagation();
         event.preventDefault();
         var link = $(event.target);
@@ -159,20 +161,24 @@
     // Animate the page load (slide/fade).
     function animatePageLoad(content, link, direction) {
       // Update active class in the menu.
-      $('a', menu).removeClass('active');
+      $('a', $menu).removeClass('active');
       link.addClass('active');
 
-//      console.log(direction);
-//
-//      // @TODO: animate the slide left/right.
-//      if (direction == 'left') {
-//        
-//      } 
-//      else if (direction == 'right') {
-//        slider.append('<div class="slide">' + content + '</div>');    
-//      }
-//      else {
-        var current = $(slider, 'current');
+      console.log(direction);
+
+      // @TODO: animate the slide left/right.
+      if (direction == 'left') {
+        $content.prepend('<div class="slider left" style="width:50%;float:left;">' + content + '</div>');
+        $content.css('left', '-100%').animate({left:'0%'}, 2000, function(){
+          $('.current', $content).remove();
+          $('.left', $content).removeClass('left').addClass('current');
+        });
+      }
+      else if (direction == 'right') {
+        
+      }
+      else {
+        var current = $('.current', $content);
         current.hide(0, function() {
           current.html(content);
           current.fadeIn(options.speed, function() {
@@ -181,12 +187,12 @@
             current.css('opacity', '1');
           });
         });
-//      }
+      }
     }
 
     // Find the next element in the menu to load (used by next link).
     function next() {
-      var current = $('a.active', menu);
+      var current = $('a.active', $menu);
       if (current.length == 1) {
         var link = current;
         var list = current.parent().parent();
@@ -202,7 +208,7 @@
 
     // Find the previous element in the menu to load (used by prev link).
     function prev() {
-      var current = $('a.active', menu);
+      var current = $('a.active', $menu);
       if (current.length == 1) {
         var link = current;
         var list = current.parent().parent();
