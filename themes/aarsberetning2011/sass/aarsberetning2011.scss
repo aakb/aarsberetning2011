@@ -12,8 +12,6 @@ html {
 }
 
 body {
-  background: url('../images/e-reolen.jpg') no-repeat;
-  background-size: cover;
   height: 100%;
 }
 
@@ -129,12 +127,12 @@ header {
           background: none;
           &.prev {
             a {
-              background: url('../images/nav-arrow-left.png') no-repeat;
+              background: url('../images/nav-arrow-left.png') no-repeat left 1px;
             }
           }
           &.next {
             a {
-              background: url('../images/nav-arrow-right.png') no-repeat right top;
+              background: url('../images/nav-arrow-right.png') no-repeat right 1px;
             }
           }
           a {
@@ -156,19 +154,27 @@ header {
   }
 }
 
-.section-content {
-  position: relative;
-  top: $large-padding * 2;
-  .zone-content {
-    min-height: 100%;
-    overflow: hidden;
-    margin: auto;
+.page {
+  height: 100%;
+  .section-content {
+    height: 89%;
     position: relative;
-    top: 10em;
-    width: 1200px;
-    .region-content-inner {
-      background-color: rgba(255,255,255,.75);
-      padding: $medium-padding;    
+    top: 11%;
+    .zone-content-wrapper {
+      background: url('../images/e-reolen.jpg') no-repeat;
+      background-size: cover;  
+      min-height: 100%;
+      .zone-content {
+        overflow: hidden;
+        margin: auto;
+        position: relative;
+        top: 10em;
+        width: 1200px;
+        .region-content-inner {
+          background-color: rgba(255,255,255,.75);
+          padding: $medium-padding;    
+        }
+      }
     }
   }
 }
