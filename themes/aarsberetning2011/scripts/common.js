@@ -24,7 +24,7 @@
 
     var options = {
       menu: '.menu-name-main-menu ul',
-      content: '.region-content-inner',
+      content: '.zone-content-wrapper',
       speed: 600
     };
 
@@ -162,9 +162,9 @@
       $('a', menu).removeClass('active');
       link.addClass('active');
 
-      console.log(direction);
-
-      // @TODO: animate the slide left/right.
+//      console.log(direction);
+//
+//      // @TODO: animate the slide left/right.
 //      if (direction == 'left') {
 //        
 //      } 
