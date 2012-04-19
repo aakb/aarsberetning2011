@@ -17,15 +17,17 @@
   *   stop - End the animation (mostly for development).
   */
   var slider = (function() {
-    var $menu = null;
-    var $content = null;
+    var $menu = undefined;
+    var $content = undefined;
+    var isRunningAnimating = false;
     var cache = {};
 
     var options = {
       menu: '.menu-name-main-menu ul',
       content: '#zone-content-wrapper', // Slider container.
       outer: '#section-content', // Overflow container.
-      speed: 600
+      fadeSpeed: 600,
+      slideSpeed: 1000
     };
 
     // Init the object and get options.
@@ -35,13 +37,23 @@
         options = opt;
       }
 
-      // Wrap target content in slider div and slide div.
+      // Build slider and wrap current content.
       var outer = $(options.outer);
-      outer.css('overflow-x', 'hidden');
+      outer.css({'overflow-x':'hidden','overflow-y':'auto'});
       $content = $(options.content);
       $content.css('width', '200%');
-      $content.css('position', 'relative');
-      $content.wrapInner($('<div class="slide current" style="width:50%;float:left;"></div>'));
+      $content.css('position', 'relative');      
+      $content.wrapInner(buildSlide(''));
+      
+      // Save current page in cache.
+      var currentSlide = $('.slide', $content);
+      var background = $content.css('background-image');
+      saveData(currentSlide.html(), background, getHashKey());
+      currentSlide.addClass('current');
+
+      // Fix background image.
+      currentSlide.css({'background-image': background, 'background-size': $content.css('background-size')});
+      $content.css('background-image', 'none');
 
       // Get menu as jquery object.
       $menu = $(options.menu);
@@ -53,35 +65,35 @@
       $menu.prepend('<li><span class="arrow-nav prev"><a href="#previous">'+Drupal.t('Back')+'</a></span></li>');
       $menu.append('<li><span class="arrow-nav next"><a href="#next">'+Drupal.t('Forward')+'</a></span></li>');
     }
-    
+        
     // Start the application.
-    function start() {
+    function start() {     
       // Load page if hash-tag is defined.
       var hash = getHashtag();
       if (hash != '') {
         var url = '/' + (hash == 'frontpage' ? '' : hash);
         if (url == '/' && !$('body').hasClass('front')) {
           var link = $('a[href="' + url + '"]', $menu);
-          loadPage(url, link);
+          loadPage(url, link, 'fade');
         }
       }
-      else {
-        // No hash-tag found, so we save current page in cache.
-        saveData($(options.content).html(),  getHashKey());
-      }
-      
-    // Attache event listners to the target list.       
+
+      // Attache event listners to the target list.       
       $menu.delegate('.leaf a', 'click', function(event) {
         event.stopPropagation();
         event.preventDefault();
+        if (isRunningAnimating) {return;}
+        isRunningAnimating = true;
         var link = $(event.target); 
-        loadPage(link.attr('href'), link);
+        loadPage(link.attr('href'), link, 'fade');
       });
 
       // Add listerns to navigation arrows.
       $menu.delegate('.arrow-nav', 'click', function(event) {
         event.stopPropagation();
         event.preventDefault();
+        if (isRunningAnimating) {return;}
+        isRunningAnimating = true;
         var link = $(event.target);
         if (link.attr('href') == '#previous') {
           prev();
@@ -92,12 +104,19 @@
       });
     }
 
+    // Build slide div.
+    function buildSlide(content) {
+      return $('<div class="slide" style="width:50%;float:left;">' + content + '</div>');
+    }
+
     // Used to store page content.
-    function saveData(data, key) {
+    function saveData(content, background, key) {
+      var data = {'background': background, 'content' : content};
       if (!$('body').hasClass('logged-in')) {
         cache[key] = data;
         addHashtag(key);
       }
+      return data;
     }
 
     // Return stored data based on key.
@@ -151,48 +170,61 @@
       else {
         // The ajax query string is used to change theme in the backend.
         $.get(url + '?ajax=1', function(data) {
+          // @TODO: add background.
+          data = saveData(data, '', key);
           animatePageLoad(data, link, direction);
-          saveData(data, key);
         });
       }
       addHashtag(key);
     }
 
-    // Animate the page load (slide/fade).
-    function animatePageLoad(content, link, direction) {
-      // Update active class in the menu.
+    // Update active class in the menu.
+    function updateActiveMenu(link) {
       $('a', $menu).removeClass('active');
       link.addClass('active');
+    }
+    
+    // Animate the page load (slide/fade).
+    function animatePageLoad(data, link, direction) {
+      var currentPage = $('.current', $content);
+      
+      // Fix content by wrapping in slide div.
+      var slide = $(buildSlide(data.content)).addClass(direction);
+      slide.css({'background-image': data.background, 'background-size': 'cover'});
 
-      console.log(direction);
-
-      // @TODO: animate the slide left/right.
       if (direction == 'left') {
-        $content.prepend('<div class="slider left" style="width:50%;float:left;">' + content + '</div>');
-        $content.css('left', '-100%').animate({left:'0%'}, 1500, function(){
-          $('.current', $content).remove();
-          $('.left', $content).removeClass('left').addClass('current');
+        $content.prepend(slide);
+        $content.css('left', '-100%').animate({left:'0%'}, options.slideSpeed, function(){
+          currentPage.remove();
+          slide.removeClass('left').addClass('current');
+          isRunningAnimating = false;
         });
       }
       else if (direction == 'right') {
-        $content.append('<div class="slider right" style="width:50%;float:left;">' + content + '</div>');
-        $content.animate({left:'-100%'}, 1500, function(){
-          $('.current', $content).remove();
+        $content.append(slide);
+        $content.animate({left:'-100%'}, options.slideSpeed, function(){
+          currentPage.remove();
           $content.css('left', '0')
-          $('.right', $content).removeClass('right').addClass('current');
+          slide.removeClass('right').addClass('current');
+          isRunningAnimating = false;
         });
       }
       else {
-        var current = $('.current', $content);
-        current.hide(0, function() {
-          current.html(content);
-          current.fadeIn(options.speed, function() {
-            // Work around when to faste menu clicks, which lead to 0.001232 opacity).
-            current.css('filter', 'alpha(opacity=100)')
-            current.css('opacity', '1');
-          });
+        // Remove current slide.
+        currentPage.remove();
+        
+        // Hide slide, append and fade in the slide.
+        slide.hide();
+        $content.append(slide);
+        slide.fadeIn(options.fadeSpeed, function() {
+          // Work around when to faste menu clicks, which lead to 0.001232 opacity).
+          slide.css('filter', 'alpha(opacity=100)')
+          slide.css('opacity', '1');
+          slide.removeClass('fade').addClass('current');
+          isRunningAnimating = false;
         });
       }
+      updateActiveMenu(link);
     }
 
     // Find the next element in the menu to load (used by next link).
