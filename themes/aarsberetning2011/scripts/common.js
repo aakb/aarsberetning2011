@@ -169,13 +169,18 @@
       // @TODO: animate the slide left/right.
       if (direction == 'left') {
         $content.prepend('<div class="slider left" style="width:50%;float:left;">' + content + '</div>');
-        $content.css('left', '-100%').animate({left:'0%'}, 2000, function(){
+        $content.css('left', '-100%').animate({left:'0%'}, 1500, function(){
           $('.current', $content).remove();
           $('.left', $content).removeClass('left').addClass('current');
         });
       }
       else if (direction == 'right') {
-        
+        $content.append('<div class="slider right" style="width:50%;float:left;">' + content + '</div>');
+        $content.animate({left:'-100%'}, 1500, function(){
+          $('.current', $content).remove();
+          $content.css('left', '0')
+          $('.right', $content).removeClass('right').addClass('current');
+        });
       }
       else {
         var current = $('.current', $content);
