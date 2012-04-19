@@ -4,6 +4,7 @@ body {
   color: $text-color;
   font-family: $text-font;
   font-size: $font-size-default;
+  line-height: $font-size-default * 1.5;
   a {
     &:link {
       color: $link-color;
@@ -25,6 +26,11 @@ body {
       font-size: $font-size-large;
       margin-bottom: $small-spacing * .9;
       margin-left: -2px; // Fix left spacing when using font from typekit.
+    }
+  }
+  .content {
+    p {
+      margin-bottom: $small-spacing;
     }
   }
 }
