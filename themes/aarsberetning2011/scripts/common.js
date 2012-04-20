@@ -72,6 +72,7 @@
       var hash = getHashtag();
       if (hash != '') {
         var url = '/' + (hash == 'frontpage' ? '' : hash);
+        console.log(hash);
         if (url == '/' && !$('body').hasClass('front')) {
           var link = $('a[href="' + url + '"]', $menu);
           loadPage(url, link, 'fade');
@@ -112,10 +113,7 @@
     // Used to store page content.
     function saveData(content, background, key) {
       var data = {'background': background, 'content' : content};
-      if (!$('body').hasClass('logged-in')) {
-        cache[key] = data;
-        addHashtag(key);
-      }
+      cache[key] = data;
       return data;
     }
 
@@ -225,6 +223,7 @@
         });
       }
       updateActiveMenu(link);
+      addHashtag(getHashKey(link.attr('href')));
     }
 
     // Find the next element in the menu to load (used by next link).
@@ -268,7 +267,11 @@
 
   // Load the moduel and start the fun.
   $(document).ready(function() {
-    slider.init();
-    slider.start();
+    // Don't run code for logged in users, as it give problems with node edit
+    // and messages from the system.
+    if (!$('body').hasClass('logged-in')) {
+      slider.init();
+      slider.start();
+    }
   });
 }) (jQuery);
