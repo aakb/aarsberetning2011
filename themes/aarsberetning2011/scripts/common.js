@@ -107,7 +107,6 @@
 
     // Used to store page content.
     function saveData(content, bgStyle, key) {
-      console.log(bgStyle);
       var data = {'background': bgStyle, 'content' : content};
       cache[key] = data;
       return data;
@@ -142,7 +141,6 @@
 
     // Build slide div.
     function buildSlide(content, bgStyle) {
-      console.log(bgStyle);
       if (bgStyle === undefined) {bgStyle = '';}
       return '<div class="slide" style="width:50%;float:left;' + bgStyle + '">' + content + '</div>';
     }
