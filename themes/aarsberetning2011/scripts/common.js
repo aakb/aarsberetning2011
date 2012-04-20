@@ -39,11 +39,12 @@
 
       // Extract background information.
       $content = $(options.content);
-      var bgStyle = 'background-image:' + $content.css('background-image').replace('"', "'") + ';background-size:' + $content.css('background-size').replace('"', "'") + ';';
+      var bgStyle = 'background-image:' + $content.css('background-image').replace(/"/g, "'") + ';background-size:' + $content.css('background-size').replace(/'/g, "'") + ';';
+      console.log(bgStyle);
 
       // Build wrapper content.
       var outer = $(options.outer);
-      outer.css({'overflow-x':'hidden','overflow-y':'auto'});      
+      outer.css({'overflow-x':'hidden'});
       $content.css({'width': '200%', 'position': 'relative'});
    
       var slide = buildSlide($content.html(), bgStyle);
