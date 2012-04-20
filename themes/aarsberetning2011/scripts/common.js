@@ -74,7 +74,7 @@
         var url = '/' + (hash == 'frontpage' ? '' : hash);
         if (!(url == '/' && $('body').hasClass('front'))) {
           var link = $('a[href="' + url + '"]', $menu);
-          loadPage(url, link, 'fade');
+          fetchPage(url, link, 'fade');
         }
       }
 
@@ -85,7 +85,7 @@
         if (isRunningAnimating) {return;}
         isRunningAnimating = true;
         var link = $(event.target); 
-        loadPage(link.attr('href'), link, 'fade');
+        fetchPage(link.attr('href'), link, 'fade');
       });
 
       // Add listerns to navigation arrows.
@@ -104,11 +104,6 @@
       });
     }
 
-    // Build slide div.
-    function buildSlide(content) {
-      return $('<div class="slide" style="width:50%;float:left;">' + content + '</div>');
-    }
-
     // Used to store page content.
     function saveData(content, background, key) {
       var data = {'background': background, 'content' : content};
@@ -122,6 +117,31 @@
         return cache[key];
       }
       return null;
+    }
+
+    // Ajax call to get page content.
+    function fetchPage(url, link, direction) {
+      // Try to get content from cache.
+      var key = getHashKey(url);
+      var content = loadData(key);
+      if (content !== null) {
+        // Found content in cache.
+        animatePageLoad(content, link, direction);
+      }
+      else {
+        // The ajax query string is used to change theme in the backend.
+        $.get(url + '?ajax=1', function(data) {
+          // @TODO: add background.
+          data = saveData(data, '', key);
+          animatePageLoad(data, link, direction);
+        });
+      }
+      addHashtag(key);
+    }
+
+    // Build slide div.
+    function buildSlide(content) {
+      return $('<div class="slide" style="width:50%;float:left;">' + content + '</div>');
     }
 
     // Build hash key based on url, if non provied current path will be used.
@@ -153,26 +173,6 @@
     // Get hash tag from url.
     function getHashtag() {
       return window.location.hash.substr(1);
-    }
-
-    // Ajax call to get page content.
-    function loadPage(url, link, direction) {
-      // Try to get content from cache.
-      var key = getHashKey(url);
-      var content = loadData(key);
-      if (content !== null) {
-        // Found content in cache.
-        animatePageLoad(content, link, direction);
-      }
-      else {
-        // The ajax query string is used to change theme in the backend.
-        $.get(url + '?ajax=1', function(data) {
-          // @TODO: add background.
-          data = saveData(data, '', key);
-          animatePageLoad(data, link, direction);
-        });
-      }
-      addHashtag(key);
     }
 
     // Update active class in the menu.
@@ -237,7 +237,7 @@
         else {
           link = $('a', list.next());
         }
-        loadPage(link.attr('href'), link, 'right');
+        fetchPage(link.attr('href'), link, 'right');
       }
     }
 
@@ -253,7 +253,7 @@
         else {
           link = $('a', list.prev());
         }
-        loadPage(link.attr('href'), link, 'left');
+        fetchPage(link.attr('href'), link, 'left');
       }
     }
 
