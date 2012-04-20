@@ -4,34 +4,89 @@
  * Preprocess and alter functions for the theme.
  */
 
+
 /**
- * Implements template_menu_link().
+ * Page preprocess function used to create the $background variable, so it
+ * can be used in html.tpl.php. If selected have selected to use custom CSS.
  *
- * Adds classes based on menu level to nested menus.
  */
-function aarsberetning_ajax_menu_link(array $variables) {
+function aarsberetning_ajax_preprocess_html(&$vars) {
+  // Load image configuration.
+  $image_conf = dynamic_background_load_image_configuration($vars);
 
-  $element = $variables['element'];
-  $sub_menu = '';
-
-  if ($element['#below']) {
-    $sub_menu = drupal_render($element['#below']);
-  }
-  $output = l($element['#title'], $element['#href'], $element['#localized_options']);
-  
-  // Adds the depth class just for main-menu.
-  if ($element['#original_link']['menu_name'] == 'main-menu') {
-    $element['#attributes']['class'][] = 'level-' . $element['#original_link']['depth'];
-    return '<li' . drupal_attributes($element['#attributes']) . '><span>' . $output . $sub_menu . "</span></li>\n";
-  }
-  else {
-    return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
+  // Generate the css and add it to the site.
+  if (isset($image_conf)) {
+    $css = aarsberetning_build_background_style($image_conf);
+    if ($css) {
+      $vars['dynamic_background'] = $css;
+    }
   }
 }
 
-function aarsberetning_ajax_page_alter(&$page) {
+/**
+ * Copy from dynamic background, which is modified to return the css as a single
+ * string that can be used as inline style.  
+ *
+ * @param array $images_conf
+ * @param boolean $reset optional
+ * @return string $css or FALSE if custom CSS have not been defined
+ */
+function aarsberetning_build_background_style($images_conf, $reset = FALSE) {
+  static $css;
+  if (!isset($css) || $reset) {
+    // Build style array based on weight, this will allow weight base override
+    // at the same time allowing different selectors.
+    $style_array = array();
+    foreach ($images_conf as $image_conf) {
+      // Add image style, if one have been defined.
+      $image = $image_conf['image'];
+      if (isset($image_conf['image_style']) && $image_conf['image_style']) {
+        // Image style found, so update the image path with an image style
+        // based one.
+        $image->uri = image_style_path($image_conf['image_style'], $image->uri);
+      }
 
- // Check if we are on a node page.
+      // Only use image if css behaviour have be set.
+      if (!empty($image_conf['configuration'])) {
+        // Check if selector have been used, if it have and has a higher weight
+        // override it.
+        if (isset($style_array[$image_conf['configuration']['selector']])) {
+          if ($style_array[$image_conf['configuration']['selector']]['weight'] > $image_conf['weight']) {
+            $style_array[$image_conf['configuration']['selector']] = array(
+              'css' => $image_conf['configuration']['css'],
+              'image' => $image,
+              'weight' => $image_conf['weight'],
+            );
+          }
+        }
+        else {
+          $style_array[$image_conf['configuration']['selector']] = array(
+            'css' => $image_conf['configuration']['css'],
+            'image' => $image,
+            'weight' => $image_conf['weight'],
+          );
+        }
+      }
+    }
+
+    // Build css based on weighted style array.
+    $css = '';
+    foreach ($style_array as $selector => $style) {
+      $css .= "background-image: url('" . file_create_url($style['image']->uri) . "');" . str_replace("\n", ';', $style['css']) . ';';
+    }
+  }
+  return $css;
+}
+
+/**
+ * Implements hook_page_alter().
+ * 
+ * Moved movie field into another region.
+ * 
+ * @param type $page 
+ */
+function aarsberetning_ajax_page_alter(&$page) {
+  // Check if we are on a node page.
   if ($node = menu_get_object()) {
     
     // Check if we are on a static_page

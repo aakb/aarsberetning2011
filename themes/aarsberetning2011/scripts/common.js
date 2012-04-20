@@ -37,22 +37,23 @@
         options = opt;
       }
 
-      // Build slider and wrap current content.
-      var outer = $(options.outer);
-      outer.css({'overflow-x':'hidden','overflow-y':'auto'});
+      // Extract background information.
       $content = $(options.content);
-      $content.css('width', '200%');
-      $content.css('position', 'relative');      
-      $content.wrapInner(buildSlide(''));
-      
-      // Save current page in cache.
-      var currentSlide = $('.slide', $content);
-      var background = $content.css('background-image');
-      saveData(currentSlide.html(), background, getHashKey());
-      currentSlide.addClass('current');
+      var bgStyle = 'background-image:' + $content.css('background-image').replace('"', "'") + ';background-size:' + $content.css('background-size') + ';';
 
-      // Fix background image.
-      currentSlide.css({'background-image': background, 'background-size': $content.css('background-size')});
+      // Build wrapper content.
+      var outer = $(options.outer);
+      outer.css({'overflow-x':'hidden','overflow-y':'auto'});      
+      $content.css({'width': '200%', 'position': 'relative'});
+   
+      var slide = buildSlide($content.html(), bgStyle);
+      saveData($content.html(), bgStyle, getHashKey());
+      $content.html(slide);
+      
+      // Add information to current slide.
+      $('.slide', $content).addClass('current');
+
+      // Remove old background.
       $content.css('background-image', 'none');
 
       // Get menu as jquery object.
@@ -105,8 +106,9 @@
     }
 
     // Used to store page content.
-    function saveData(content, background, key) {
-      var data = {'background': background, 'content' : content};
+    function saveData(content, bgStyle, key) {
+      console.log(bgStyle);
+      var data = {'background': bgStyle, 'content' : content};
       cache[key] = data;
       return data;
     }
@@ -130,9 +132,8 @@
       }
       else {
         // The ajax query string is used to change theme in the backend.
-        $.get(url + '?ajax=1', function(data) {
-          // @TODO: add background.
-          data = saveData(data, '', key);
+        $.get(url + '?ajax=1', function(data) {        
+          data = saveData(data.content, data.background, key);
           animatePageLoad(data, link, direction);
         });
       }
@@ -140,8 +141,10 @@
     }
 
     // Build slide div.
-    function buildSlide(content) {
-      return $('<div class="slide" style="width:50%;float:left;">' + content + '</div>');
+    function buildSlide(content, bgStyle) {
+      console.log(bgStyle);
+      if (bgStyle === undefined) {bgStyle = '';}
+      return '<div class="slide" style="width:50%;float:left;' + bgStyle + '">' + content + '</div>';
     }
 
     // Build hash key based on url, if non provied current path will be used.
@@ -186,8 +189,7 @@
       var currentPage = $('.current', $content);
       
       // Fix content by wrapping in slide div.
-      var slide = $(buildSlide(data.content)).addClass(direction);
-      slide.css({'background-image': data.background, 'background-size': 'cover'});
+      var slide = $(buildSlide(data.content, data.background)).addClass(direction);
 
       if (direction == 'left') {
         $content.prepend(slide);
