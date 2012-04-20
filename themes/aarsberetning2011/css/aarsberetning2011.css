@@ -254,26 +254,20 @@ header .zone-branding .secondary-menu a {
   width: 44px;
 }
 
-/* line 147, ../sass/aarsberetning2011.scss */
-.page {
-  height: 100%;
-}
-/* line 150, ../sass/aarsberetning2011.scss */
+/* line 149, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper {
   background: url("../images/e-reolen.jpg") no-repeat;
   background-size: cover;
-  min-height: 100%;
   position: relative;
   top: -9em;
 }
-/* line 156, ../sass/aarsberetning2011.scss */
+/* line 154, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper .zone-content {
-  overflow: hidden;
   margin: auto;
   padding-top: 11em;
   width: 1200px;
 }
-/* line 161, ../sass/aarsberetning2011.scss */
+/* line 158, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper .zone-content .region-content-inner {
   background-color: rgba(255, 255, 255, 0.75);
   padding: 2em;

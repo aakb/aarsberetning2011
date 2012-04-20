@@ -145,16 +145,13 @@ header {
 }
 
 .page {
-  height: 100%;
   .section-content {
     .zone-content-wrapper {
       background: url('../images/e-reolen.jpg') no-repeat;
       background-size: cover;  
-      min-height: 100%;
       position: relative;
       top: -9em;
       .zone-content {
-        overflow: hidden;
         margin: auto;
         padding-top: 11em;
         width: 1200px;
