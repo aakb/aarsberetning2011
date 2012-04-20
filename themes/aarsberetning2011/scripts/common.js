@@ -72,8 +72,7 @@
       var hash = getHashtag();
       if (hash != '') {
         var url = '/' + (hash == 'frontpage' ? '' : hash);
-        console.log(hash);
-        if (url == '/' && !$('body').hasClass('front')) {
+        if (!(url == '/' && $('body').hasClass('front'))) {
           var link = $('a[href="' + url + '"]', $menu);
           loadPage(url, link, 'fade');
         }
