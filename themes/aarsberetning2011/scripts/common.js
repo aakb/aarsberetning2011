@@ -27,7 +27,7 @@
       content: '#zone-content-wrapper', // Slider container.
       outer: '#section-content', // Overflow container.
       fadeSpeed: 600,
-      slideSpeed: 1000
+      slideSpeed: 1200
     };
 
     // Init the object and get options.
