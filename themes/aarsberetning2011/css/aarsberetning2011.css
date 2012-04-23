@@ -2,7 +2,7 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 17, ../../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -24,45 +24,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 20, ../../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 20, ../../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 body {
   line-height: 1;
 }
 
-/* line 22, ../../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 24, ../../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 26, ../../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 28, ../../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 101, ../../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 101, ../../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 30, ../../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 114, ../../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 114, ../../../../../../../../../../var/lib/gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
@@ -138,43 +138,43 @@ header {
   background: #fff;
   width: 100%;
 }
-/* line 38, ../sass/aarsberetning2011.scss */
-header .zone-branding .site-name {
-  margin-top: 4.5em;
-  margin-bottom: 1em;
-}
-/* line 41, ../sass/aarsberetning2011.scss */
-header .zone-branding .site-name a {
-  font-size: 22.4px;
-  text-transform: uppercase;
-}
-/* line 45, ../sass/aarsberetning2011.scss */
-header .zone-branding .site-name a:link, header .zone-branding .site-name a:visited {
-  color: black;
-}
-/* line 48, ../sass/aarsberetning2011.scss */
-header .zone-branding .site-name a:hover {
-  color: #ff6600;
-  text-decoration: none;
-}
-/* line 52, ../sass/aarsberetning2011.scss */
-header .zone-branding .site-name a:active {
-  background-color: #ff6600;
-  color: white;
-  padding: .1em .1em 0;
-}
-/* line 59, ../sass/aarsberetning2011.scss */
-header .zone-branding .secondary-menu {
+/* line 37, ../sass/aarsberetning2011.scss */
+header .language-switcher-locale-url {
   color: #656565;
   position: absolute;
   right: 0;
   top: 1em;
 }
-/* line 64, ../sass/aarsberetning2011.scss */
-header .zone-branding .secondary-menu a {
+/* line 42, ../sass/aarsberetning2011.scss */
+header .language-switcher-locale-url a {
   color: #656565;
   font-size: 12.6px;
   text-transform: uppercase;
+}
+/* line 49, ../sass/aarsberetning2011.scss */
+header .zone-branding .site-name {
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+/* line 52, ../sass/aarsberetning2011.scss */
+header .zone-branding .site-name a {
+  font-size: 22.4px;
+  text-transform: uppercase;
+}
+/* line 56, ../sass/aarsberetning2011.scss */
+header .zone-branding .site-name a:link, header .zone-branding .site-name a:visited {
+  color: black;
+}
+/* line 59, ../sass/aarsberetning2011.scss */
+header .zone-branding .site-name a:hover {
+  color: #ff6600;
+  text-decoration: none;
+}
+/* line 63, ../sass/aarsberetning2011.scss */
+header .zone-branding .site-name a:active {
+  background-color: #ff6600;
+  color: white;
+  padding: .1em .1em 0;
 }
 
 /* line 73, ../sass/aarsberetning2011.scss */

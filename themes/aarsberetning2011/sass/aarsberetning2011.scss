@@ -34,9 +34,20 @@ body {
 header {
   background: #fff;
   width: 100%;
+  .language-switcher-locale-url {
+    color: #656565;
+    position: absolute;
+    right: 0;
+    top: $small-spacing;
+    a {
+      color: #656565;
+      font-size: $font-size-default * .9;
+      text-transform: uppercase;
+    }
+  }
   .zone-branding {
     .site-name {
-      margin-top: $large-padding *1.5;
+      margin-top: $medium-padding;
       margin-bottom: $small-padding;
       a {
         font-size: $font-size-default * 1.6;
@@ -54,17 +65,6 @@ header {
           color: $text-color-light;
           padding: .1em .1em 0;
         }
-      }
-    }
-    .secondary-menu {
-      color: #656565;
-      position: absolute;
-      right: 0;
-      top: $small-spacing;
-      a {
-        color: #656565;
-        font-size: $font-size-default * .9;
-        text-transform: uppercase;
       }
     }
   }
