@@ -3,22 +3,33 @@ body {
   color: black;
   font-family: "ff-scala-sans-web-pro", sans-serif;
   font-size: 14px;
+  line-height: 21px;
 }
-/* line 8, ../sass/typography.scss */
+/* line 9, ../sass/typography.scss */
 body a:link {
   color: #ff6600;
   text-decoration: none;
 }
-/* line 12, ../sass/typography.scss */
+/* line 13, ../sass/typography.scss */
 body a:visited {
   color: #ff6600;
 }
-/* line 15, ../sass/typography.scss */
+/* line 16, ../sass/typography.scss */
 body a:hover {
   color: #ff6600;
   text-decoration: underline;
 }
-/* line 19, ../sass/typography.scss */
+/* line 20, ../sass/typography.scss */
 body a:active {
   color: #ff6600;
+}
+/* line 25, ../sass/typography.scss */
+body h1.title {
+  font-size: 28px;
+  margin-bottom: 0.9em;
+  margin-left: -2px;
+}
+/* line 32, ../sass/typography.scss */
+body .content p {
+  margin-bottom: 1em;
 }

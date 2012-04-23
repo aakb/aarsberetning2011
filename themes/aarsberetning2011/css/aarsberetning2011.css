@@ -141,46 +141,47 @@ header {
   top: 0;
   width: 100%;
 }
-/* line 41, ../sass/aarsberetning2011.scss */
+/* line 40, ../sass/aarsberetning2011.scss */
+header .language-switcher-locale-url {
+  color: #656565;
+  position: absolute;
+  right: 0;
+  top: 1em;
+  z-index: 1000001;
+}
+/* line 46, ../sass/aarsberetning2011.scss */
+header .language-switcher-locale-url a {
+  color: #656565;
+  font-size: 12.6px;
+  text-transform: uppercase;
+}
+/* line 53, ../sass/aarsberetning2011.scss */
 header .zone-branding .site-name {
-  margin-top: 4.5em;
+  margin-top: 2em;
   margin-bottom: 1em;
 }
-/* line 44, ../sass/aarsberetning2011.scss */
+/* line 56, ../sass/aarsberetning2011.scss */
 header .zone-branding .site-name a {
   font-size: 22.4px;
   text-transform: uppercase;
 }
-/* line 48, ../sass/aarsberetning2011.scss */
+/* line 60, ../sass/aarsberetning2011.scss */
 header .zone-branding .site-name a:link, header .zone-branding .site-name a:visited {
   color: black;
 }
-/* line 51, ../sass/aarsberetning2011.scss */
+/* line 63, ../sass/aarsberetning2011.scss */
 header .zone-branding .site-name a:hover {
   color: #ff6600;
   text-decoration: none;
 }
-/* line 55, ../sass/aarsberetning2011.scss */
+/* line 67, ../sass/aarsberetning2011.scss */
 header .zone-branding .site-name a:active {
   background-color: #ff6600;
   color: white;
   padding: .1em .1em 0;
 }
-/* line 62, ../sass/aarsberetning2011.scss */
-header .zone-branding .secondary-menu {
-  color: #656565;
-  position: absolute;
-  right: 0;
-  top: 1em;
-}
-/* line 67, ../sass/aarsberetning2011.scss */
-header .zone-branding .secondary-menu a {
-  color: #656565;
-  font-size: 12.6px;
-  text-transform: uppercase;
-}
 
-/* line 76, ../sass/aarsberetning2011.scss */
+/* line 77, ../sass/aarsberetning2011.scss */
 .zone-menu-wrapper {
   background: rgba(0, 0, 0, 0.25);
   overflow: hidden;
@@ -190,18 +191,18 @@ header .zone-branding .secondary-menu a {
   width: 100%;
   z-index: 10;
 }
-/* line 84, ../sass/aarsberetning2011.scss */
+/* line 85, ../sass/aarsberetning2011.scss */
 .zone-menu-wrapper nav {
   text-align: center;
 }
-/* line 86, ../sass/aarsberetning2011.scss */
+/* line 87, ../sass/aarsberetning2011.scss */
 .zone-menu-wrapper nav li {
   float: left;
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 91, ../sass/aarsberetning2011.scss */
+/* line 92, ../sass/aarsberetning2011.scss */
 .zone-menu-wrapper nav li span {
   background: url("../images/nav-sep.png") no-repeat center 1.45em;
   float: left;
@@ -209,7 +210,7 @@ header .zone-branding .secondary-menu a {
   text-align: center;
   text-transform: uppercase;
 }
-/* line 97, ../sass/aarsberetning2011.scss */
+/* line 98, ../sass/aarsberetning2011.scss */
 .zone-menu-wrapper nav li span a {
   background: url("../images/nav.png") no-repeat center 0.75em;
   color: rgba(255, 255, 255, 0.75);
@@ -217,39 +218,39 @@ header .zone-branding .secondary-menu a {
   width: 97px;
   padding: 4.5em 1em 0;
 }
-/* line 103, ../sass/aarsberetning2011.scss */
+/* line 104, ../sass/aarsberetning2011.scss */
 .zone-menu-wrapper nav li span a.active {
   background: url("../images/nav-active.png") no-repeat center 0;
   color: #fff;
   font-size: 13.3px;
   padding-top: 3.5em;
 }
-/* line 109, ../sass/aarsberetning2011.scss */
+/* line 110, ../sass/aarsberetning2011.scss */
 .zone-menu-wrapper nav li span a.active:hover span {
   background: url("../images/nav-active.png") no-repeat center 0;
 }
-/* line 118, ../sass/aarsberetning2011.scss */
+/* line 119, ../sass/aarsberetning2011.scss */
 .zone-menu-wrapper nav li span a:hover {
   color: #fff;
   text-decoration: none;
 }
-/* line 121, ../sass/aarsberetning2011.scss */
+/* line 122, ../sass/aarsberetning2011.scss */
 .zone-menu-wrapper nav li span a:hover a {
   background: url("../images/nav-hover.png") no-repeat center 0.75em;
 }
-/* line 126, ../sass/aarsberetning2011.scss */
+/* line 127, ../sass/aarsberetning2011.scss */
 .zone-menu-wrapper nav li span.arrow-nav {
   background: none;
 }
-/* line 129, ../sass/aarsberetning2011.scss */
+/* line 130, ../sass/aarsberetning2011.scss */
 .zone-menu-wrapper nav li span.arrow-nav.prev a {
   background: url("../images/nav-arrow-left.png") no-repeat;
 }
-/* line 134, ../sass/aarsberetning2011.scss */
+/* line 135, ../sass/aarsberetning2011.scss */
 .zone-menu-wrapper nav li span.arrow-nav.next a {
   background: url("../images/nav-arrow-right.png") no-repeat right 0;
 }
-/* line 138, ../sass/aarsberetning2011.scss */
+/* line 139, ../sass/aarsberetning2011.scss */
 .zone-menu-wrapper nav li span.arrow-nav a {
   display: block;
   height: 35px;
@@ -258,7 +259,7 @@ header .zone-branding .secondary-menu a {
   width: 44px;
 }
 
-/* line 152, ../sass/aarsberetning2011.scss */
+/* line 153, ../sass/aarsberetning2011.scss */
 .page .section-content {
   bottom: 0;
   left: 0;
@@ -266,7 +267,7 @@ header .zone-branding .secondary-menu a {
   right: 0;
   top: 0;
 }
-/* line 158, ../sass/aarsberetning2011.scss */
+/* line 159, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper {
   background: url("../images/e-reolen.jpg") no-repeat;
   background-size: cover;
@@ -274,13 +275,13 @@ header .zone-branding .secondary-menu a {
   position: absolute;
   top: 9em;
 }
-/* line 164, ../sass/aarsberetning2011.scss */
+/* line 165, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper .zone-content {
   margin: auto;
   padding-top: 11em;
   width: 1200px;
 }
-/* line 168, ../sass/aarsberetning2011.scss */
+/* line 169, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper .zone-content .region-content-inner {
   background-color: rgba(255, 255, 255, 0.75);
   padding: 2em;
