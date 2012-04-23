@@ -45,7 +45,7 @@
       // Build wrapper content.
       var outer = $(options.outer);
       outer.css({'overflow-x':'hidden'});
-      $content.css({'width': '200%', 'position': 'relative'});
+      $content.css({'width': '200%', 'position': 'absolute'});
    
       var slide = buildSlide($content.html(), bgStyle);
       saveData($content.html(), bgStyle, getHashKey());
@@ -143,7 +143,7 @@
     // Build slide div.
     function buildSlide(content, bgStyle) {
       if (bgStyle === undefined) {bgStyle = '';}
-      return '<div class="slide" style="width:50%;float:left;' + bgStyle + '">' + content + '</div>';
+      return '<div class="slide" style="width:50%; float:left; position: absolute; top: 0; bottom: 0;' + bgStyle + '">' + content + '</div>';
     }
 
     // Build hash key based on url, if non provied current path will be used.
@@ -191,18 +191,22 @@
       var slide = $(buildSlide(data.content, data.background)).addClass(direction);
 
       if (direction == 'left') {
-        $content.prepend(slide);
-        $content.css('left', '-100%').animate({left:'0%'}, options.slideSpeed, function(){
+        // Move content wrapper ( <- ) to show current.
+        currentPage.css('right', '0%');
+        $content.prepend(slide.css('left', '0%'));
+        $content.css('right', '0%').animate({right:'-100%'}, options.slideSpeed, function(){
           currentPage.remove();
           slide.removeClass('left').addClass('current');
           isRunningAnimating = false;
         });
       }
       else if (direction == 'right') {
-        $content.append(slide);
-        $content.animate({left:'-100%'}, options.slideSpeed, function(){
+        $content.css('right', '-100%');
+        $content.append(slide.css('left', '50%'));        
+        $content.animate({'right':'0%'}, options.slideSpeed, function(){
           currentPage.remove();
-          $content.css('left', '0')
+          $content.css('right', 'auto');
+          $('right', $content).css('left', 'auto');
           slide.removeClass('right').addClass('current');
           isRunningAnimating = false;
         });

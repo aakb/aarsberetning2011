@@ -33,6 +33,9 @@ body {
 
 header {
   background: #fff;
+  height: 9em;
+  position: absolute;
+  top: 0;
   width: 100%;
   .zone-branding {
     .site-name {
@@ -74,7 +77,8 @@ header {
   background: rgba(0,0,0,.25);
   overflow: hidden;
   padding: $small-padding * 1.5 0 $small-padding;
-  position: relative;
+  position: absolute;
+  top: 9em;
   width: 100%;
   z-index: 10;
   nav {
@@ -146,11 +150,17 @@ header {
 
 .page {
   .section-content {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
     .zone-content-wrapper {
       background: url('../images/e-reolen.jpg') no-repeat;
       background-size: cover;  
-      position: relative;
-      top: -9em;
+      bottom: 0;
+      position: absolute;
+      top: 9em;
       .zone-content {
         margin: auto;
         padding-top: 11em;
