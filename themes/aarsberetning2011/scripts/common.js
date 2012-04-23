@@ -196,6 +196,10 @@
         $content.prepend(slide.css('left', '0%'));
         $content.css('right', '0%').animate({right:'-100%'}, options.slideSpeed, function(){
           currentPage.remove();
+
+          // Reset slider.
+          $content.css('right', 'auto');
+          slide.css('left', 'auto');
           slide.removeClass('left').addClass('current');
           isRunningAnimating = false;
         });
@@ -205,6 +209,8 @@
         $content.append(slide.css('left', '50%'));        
         $content.animate({'right':'0%'}, options.slideSpeed, function(){
           currentPage.remove();
+
+          // Reset slider.
           $content.css('right', 'auto');
           slide.css('left', 'auto');
           slide.removeClass('right').addClass('current');
