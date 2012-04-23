@@ -243,7 +243,7 @@ header .zone-branding .secondary-menu a {
 }
 /* line 130, ../sass/aarsberetning2011.scss */
 .zone-menu-wrapper nav li span.arrow-nav.next a {
-  background: url("../images/nav-arrow-right.png") no-repeat;
+  background: url("../images/nav-arrow-right.png") no-repeat right 0;
 }
 /* line 134, ../sass/aarsberetning2011.scss */
 .zone-menu-wrapper nav li span.arrow-nav a {
