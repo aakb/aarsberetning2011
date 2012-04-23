@@ -26,6 +26,7 @@ zones[footer] = 'Footer'
 ; ----- / CUSTOM REGIONS / -----
 
 regions[branding] = Branding
+regions[secondary_menu] = Secondary Menu
 regions[menu] = Menu
 regions[header] = Header
 regions[sidebar] = Sidebar
