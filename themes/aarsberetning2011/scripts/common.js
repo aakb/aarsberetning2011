@@ -206,7 +206,7 @@
         $content.animate({'right':'0%'}, options.slideSpeed, function(){
           currentPage.remove();
           $content.css('right', 'auto');
-          $('right', $content).css('left', 'auto');
+          slide.css('left', 'auto');
           slide.removeClass('right').addClass('current');
           isRunningAnimating = false;
         });
