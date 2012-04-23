@@ -39,6 +39,7 @@ header {
     position: absolute;
     right: 0;
     top: $small-spacing;
+    z-index: 1000001;
     a {
       color: #656565;
       font-size: $font-size-default * .9;
