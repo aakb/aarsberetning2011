@@ -136,7 +136,7 @@ body {
 /* line 34, ../sass/aarsberetning2011.scss */
 header {
   background: #fff;
-  height: 9em;
+  height: 7em;
   position: absolute;
   top: 0;
   width: 100%;
@@ -157,7 +157,7 @@ header .language-switcher-locale-url a {
 }
 /* line 53, ../sass/aarsberetning2011.scss */
 header .zone-branding .site-name {
-  margin-top: 2em;
+  margin-top: 4.5em;
   margin-bottom: 1em;
 }
 /* line 56, ../sass/aarsberetning2011.scss */
@@ -187,7 +187,7 @@ header .zone-branding .site-name a:active {
   overflow: hidden;
   padding: 1.5em 0 1em;
   position: absolute;
-  top: 9em;
+  top: 0;
   width: 100%;
   z-index: 10;
 }
@@ -265,7 +265,7 @@ header .zone-branding .site-name a:active {
   left: 0;
   position: absolute;
   right: 0;
-  top: 0;
+  top: 7em;
 }
 /* line 159, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper {
@@ -273,7 +273,7 @@ header .zone-branding .site-name a:active {
   background-size: cover;
   bottom: 0;
   position: absolute;
-  top: 9em;
+  top: 0;
 }
 /* line 165, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper .zone-content {
