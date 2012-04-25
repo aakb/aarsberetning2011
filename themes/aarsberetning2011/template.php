@@ -4,6 +4,12 @@
  * Preprocess and alter functions for the theme.
  */
 
+function aarsberetning2011_preprocess_block(&$vars) {
+ if($vars['elements']['#block']->module == 'menu_block') {
+   $vars['attributes_array']['class'][] = 'menu-dropdown';
+ }
+}
+
 /**
  * Implements template_links__locale_block();
  * 
