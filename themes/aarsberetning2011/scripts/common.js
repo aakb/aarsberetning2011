@@ -40,7 +40,6 @@
       // Extract background information.
       $content = $(options.content);
       var bgStyle = 'background-image:' + $content.css('background-image').replace(/"/g, "'") + ';background-size:' + $content.css('background-size').replace(/'/g, "'") + ';';
-      console.log(bgStyle);
 
       // Build wrapper content.
       var outer = $(options.outer);

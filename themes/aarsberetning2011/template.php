@@ -5,6 +5,20 @@
  */
 
 /**
+ *
+ * Add IE css.
+ */
+
+function aarsberetning2011_preprocess_html(&$variables) { 
+  // Add css for using background-size: cover in IE.
+  drupal_add_css(path_to_theme() . '/css/flexi-background.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'IE', '!IE' => FALSE), 'weight' => 999, 'preprocess' => FALSE));
+  
+  // Add IE specific css.
+  drupal_add_css(path_to_theme() . '/css/ie.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'IE', '!IE' => FALSE), 'weight' => 999, 'preprocess' => FALSE));
+}
+
+
+/**
  * Implements template_links__locale_block();
  * 
  * Removes the active language from the language menu

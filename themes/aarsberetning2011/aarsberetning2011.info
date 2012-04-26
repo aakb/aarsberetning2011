@@ -45,6 +45,7 @@ css[typography.css][options][weight] = '10'
 ; ----- / SCRIPTS / -----
 
 scripts[] = scripts/common.js
+scripts[] = scripts/flexi-background.js
 
 ; ----- / DEFAULT SETTINGS / -----
 
