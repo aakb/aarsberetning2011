@@ -1,7 +1,7 @@
 ; ----- / BASIC INFO / -----
 
-name = 'Årsberetning Ajax'
-description = 'Theme til Årsberetning Ajax (used to load nodes via ajax.)'
+name = 'Aarsberetning Ajax'
+description = 'Theme til Aarsberetning Ajax (used to load nodes via ajax.)'
 core = '7.x'
 base theme = 'aarsberetning2011'
 
