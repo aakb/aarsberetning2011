@@ -10,10 +10,6 @@ javascripts_dir = "scripts"
 output_style = :expanded
 environment = :development
 
-require "rubygems"
-require "chunky_png"
-require "rgbapng"
-
 # To enable relative paths to assets via compass helper functions. Uncomment:
 # relative_assets = true
 
@@ -27,3 +23,10 @@ color_output = false
 # preferred_syntax = :sass
 # and then run:
 # sass-convert -R --from scss --to sass sass scss && rm -rf sass && mv scss sass
+
+# hex for use in rgba background 
+module Sass::Script::Functions
+  def hex(decimal)
+    Sass::Script::String.new("%02x" % decimal)
+  end
+end

@@ -67,10 +67,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/*
-  Mixins are slightly modified from Benjamin Doherty's first implementations: http://gist.github.com/377912
-  rgba-background mixin can now be passed an option $dir variable
-*/
 /* line 3, ../sass/typography.scss */
 body {
   color: black;
@@ -314,15 +310,17 @@ header .zone-branding .site-name a:active {
 .page .section-content .zone-content-wrapper .zone-content {
   margin: auto;
   padding-top: 11em;
-  width: 1200px;
 }
-/* line 195, ../sass/aarsberetning2011.scss */
+/* line 194, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper .zone-content .region-content-inner {
-  background: url('/images/rgbapng/ffffffbf.png?1335444656');
-  background: rgba(255, 255, 255, 0.75);
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.75);
+  background-color: transparent\9;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#bfffffff,endColorstr=#bfffffff);
+  zoom: 1;
   padding: 2em;
 }
-/* line 199, ../sass/aarsberetning2011.scss */
+/* line 198, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper .zone-content .region-sidebar {
   overflow: hidden;
 }
