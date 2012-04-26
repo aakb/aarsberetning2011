@@ -6,7 +6,8 @@
 
 function aarsberetning2011_preprocess_block(&$vars) {
  if($vars['elements']['#block']->module == 'menu_block') {
-   $vars['attributes_array']['class'][] = 'menu-dropdown';
+   // Deactivated, it has to target the specifik menu block.
+   //$vars['attributes_array']['class'][] = 'menu-dropdown';
  }
 }
 
