@@ -5,6 +5,7 @@
 
 @import "compass/reset";
 @import "compass/css3";
+@import "rgbapng";
 @import "variables.scss";
 @import "typography.scss";
 
@@ -192,8 +193,7 @@ header {
         padding-top: 11em;
         width: 1200px;
         .region-content-inner {
-          background: #fff;
-          @include opacity(.75);
+          @include rgba-background(rgba(255,255,255,0.75));
           padding: $medium-padding;
         }
         .region-sidebar {
