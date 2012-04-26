@@ -1,0 +1,9 @@
+/* line 1, ../sass/ie.scss */
+body {
+  padding: 100px;
+}
+
+/* line 6, ../sass/ie.scss */
+#zone-content-wrapper {
+  width: 100%;
+}
