@@ -7,6 +7,7 @@
 @import "compass/css3";
 @import "typography.scss";
 @import "variables.scss";
+@import "mediaqueries.scss";
 @import "mixins.scss";
 
 html {
@@ -200,5 +201,13 @@ header {
         }
       }
     }
+  }
+}
+
+// Video styling
+.file-video {
+  iframe,
+  div {
+    max-width: 100%;  
   }
 }
