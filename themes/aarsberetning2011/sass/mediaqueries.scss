@@ -1,0 +1,32 @@
+// Mediaquery styles.
+
+// 1200
+@media screen and (max-width: 1200px) {
+  .container-12 {
+    .region {
+      &.always-stack {
+        clear: both;
+        margin-bottom: $medium-spacing;
+        min-height: auto;
+        width: 100%;
+      }
+    }
+  }
+}
+
+// 1024
+@media screen and (max-width: 1024px) {
+
+}
+
+// 768
+@media screen and (max-width: 768px) {
+  .region {
+    clear: both;
+  }
+}
+
+// 500
+@media screen and (max-width: 500px) {
+
+}

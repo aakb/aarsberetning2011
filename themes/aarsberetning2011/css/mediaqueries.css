@@ -1,0 +1,12 @@
+@media screen and (max-width: 1200px) {
+  /* line 5, ../sass/mediaqueries.scss */
+  .region {
+    clear: both;
+  }
+}
+@media screen and (max-width: 768px) {
+  /* line 17, ../sass/mediaqueries.scss */
+  .region {
+    clear: both;
+  }
+}
