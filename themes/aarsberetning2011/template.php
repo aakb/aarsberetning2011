@@ -5,12 +5,15 @@
  */
 
 /**
- * @todo: MISSING DOCUMENTATION
+ * Implements template_preprocess_block();
+ * 
+ * Add class 'menu-dropdown' to block of the menu in the header.
  */
 function aarsberetning2011_preprocess_block(&$vars) {
- if($vars['elements']['#block']->module == 'menu_block') {
-   // Deactivated, it has to target the specifik menu block.
-   //$vars['attributes_array']['class'][] = 'menu-dropdown';
+ if(isset($vars['elements']['#block']->module) && $vars['elements']['#block']->module == 'menu_block') {
+   if ($vars['elements']['#delta'] == 2) {
+    $vars['attributes_array']['class'][] = 'menu-dropdown';
+   }
  }
 }
 
