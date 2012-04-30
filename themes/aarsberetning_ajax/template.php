@@ -72,7 +72,7 @@ function aarsberetning_build_background_style($images_conf, $reset = FALSE) {
     // Build css based on weighted style array.
     $css = '';
     foreach ($style_array as $selector => $style) {
-      $css .= "background-image: url('" . file_create_url($style['image']->uri) . "');" . str_replace("\n", ';', $style['css']) . ';';
+      $css .= file_create_url($style['image']->uri);
     }
   }
   return $css;

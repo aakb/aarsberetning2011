@@ -19,7 +19,8 @@
   var slider = (function() {
     var $menu = undefined;
     var $content = undefined;
-    var isRunningAnimating = false;
+    var $outer = undefined;    
+    var isAnimationRunning = false;
     var cache = {};
 
     var options = {
@@ -39,15 +40,17 @@
 
       // Extract background image.
       $content = $(options.content);
-      var bgStyle = 'background-image:' + $content.css('backgroundImage').replace(/"/g, "'") + ';';
+      var bgImage = $content.css('backgroundImage').replace(/"/g, "'");
 
       // Build wrapper content.
-      var outer = $(options.outer);
-      outer.css({'overflow-x':'hidden'});
+      $outer = $(options.outer);      
+      $outer.css({'overflow-x':'hidden'});
+      $outer.css('background-image', $content.css('backgroundImage').replace(/"/g, "'").replace("url('", "").replace("')", ""))
+      console.log($content.css('backgroundImage').replace(/"/g, "'"));
       $content.css({'width': '200%', 'position': 'absolute'});
    
-      var slide = buildSlide($content.html(), bgStyle);
-      saveData($content.html(), bgStyle, getHashKey());
+      var slide = buildSlide($content.html(), bgImage);
+      saveData($content.html(), bgImage, getHashKey());
       $content.html(slide);
       
       // Add information to current slide.
@@ -83,8 +86,8 @@
       $menu.delegate('.leaf a', 'click', function(event) {
         event.stopPropagation();
         event.preventDefault();
-        if (isRunningAnimating) {return;}
-        isRunningAnimating = true;
+        if (isAnimationRunning) {return;}
+        isAnimationRunning = true;
         var link = $(event.target); 
         fetchPage(link.attr('href'), link, 'fade');
       });
@@ -93,8 +96,8 @@
       $menu.delegate('.arrow-nav', 'click', function(event) {
         event.stopPropagation();
         event.preventDefault();
-        if (isRunningAnimating) {return;}
-        isRunningAnimating = true;
+        if (isAnimationRunning) {return;}
+        isAnimationRunning = true;
         var link = $(event.target);
         if (link.attr('href') == '#previous') {
           prev();
@@ -106,8 +109,8 @@
     }
 
     // Used to store page content.
-    function saveData(content, bgStyle, key) {
-      var data = {'background': bgStyle, 'content' : content};
+    function saveData(content, bgImage, key) {
+      var data = {'background': bgImage, 'content' : content};
       cache[key] = data;
       return data;
     }
@@ -140,9 +143,9 @@
     }
 
     // Build slide div.
-    function buildSlide(content, bgStyle) {
-      if (bgStyle === undefined) {bgStyle = '';}
-      return '<div class="slide" style="width:50%; float:left; position: absolute; top: 0; bottom: 0;' + bgStyle + '">' + content + '</div>';
+    function buildSlide(content, bgImage) {
+      if (bgImage === undefined) {bgImage = '';}
+      return '<div class="slide" style="width: 50%; background-image: url(\'' + bgImage + '\')">' + content + '</div>';
     }
 
     // Build hash key based on url, if non provied current path will be used.
@@ -200,7 +203,9 @@
           $content.css('right', 'auto');
           slide.css('left', 'auto');
           slide.removeClass('left').addClass('current');
-          isRunningAnimating = false;
+          slide.css('backgroundImage', 'none');
+          $outer.css('backgroundImage', 'url(\'' + data.background + '\')');
+          isAnimationRunning = false;
         });
       }
       else if (direction == 'right') {
@@ -213,7 +218,7 @@
           $content.css('right', 'auto');
           slide.css('left', 'auto');
           slide.removeClass('right').addClass('current');
-          isRunningAnimating = false;
+          isAnimationRunning = false;
         });
       }
       else {
@@ -228,7 +233,7 @@
           slide.css('filter', 'alpha(opacity=100)')
           slide.css('opacity', '1');
           slide.removeClass('fade').addClass('current');
-          isRunningAnimating = false;
+          isAnimationRunning = false;
         });
       }
       updateActiveMenu(link);
