@@ -37,9 +37,9 @@
         options = opt;
       }
 
-      // Extract background information.
+      // Extract background image.
       $content = $(options.content);
-      var bgStyle = 'background-image:' + $content.css('background-image').replace(/"/g, "'") + ';background-size:' + $content.css('background-size').replace(/'/g, "'") + ';';
+      var bgStyle = 'background-image:' + $content.css('backgroundImage').replace(/"/g, "'") + ';';
 
       // Build wrapper content.
       var outer = $(options.outer);
@@ -54,7 +54,7 @@
       $('.slide', $content).addClass('current');
 
       // Remove old background.
-      $content.css('background-image', 'none');
+      $content.css('backgroundImage', 'none');
 
       // Get menu as jquery object.
       $menu = $(options.menu);
