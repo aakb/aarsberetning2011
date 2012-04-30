@@ -23,7 +23,7 @@
     var cache = {};
 
     var options = {
-      menu: '.menu-name-main-menu ul',
+      menu: '.region-menu ul',
       content: '#zone-content-wrapper', // Slider container.
       outer: '#section-content', // Overflow container.
       fadeSpeed: 600,
