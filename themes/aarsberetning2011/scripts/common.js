@@ -45,7 +45,7 @@
       // Build wrapper content.
       $outer = $(options.outer);
       $outer.css({'overflow-x':'hidden'});
-      $outer.css('background-image', $content.css('backgroundImage').replace(/"/g, "'"));
+      $outer.css('background-image', 'url(\'' + bgImage + '\')');
       $content.css({'width': '200%', 'position': 'absolute'});
 
       var slide = buildSlide($content.html(), bgImage);
