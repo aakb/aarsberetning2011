@@ -1,17 +1,17 @@
 (function ($) {
   /**
   * This function slides in the next page in the menu. If the page is more than
-  * one away it will slide faster. It loads content via ajax and saves a local 
+  * one away it will slide faster. It loads content via ajax and saves a local
   * copy to not ask the server more than once for content.
-  * 
-  * It assumes that the target for the animation is the ul with a tags inside 
+  *
+  * It assumes that the target for the animation is the ul with a tags inside
   * li's.
-  * 
+  *
   * Pattern: Revealing module
-  * 
+  *
   * Functions:
-  *   init - Init the object and takes an object litteral with menu 
-  *          (css selector), content (css selector), speed (page transition 
+  *   init - Init the object and takes an object litteral with menu
+  *          (css selector), content (css selector), speed (page transition
   *          speed).
   *   start - Activate the animations (mostly for development).
   *   stop - End the animation (mostly for development).
@@ -19,7 +19,7 @@
   var slider = (function() {
     var $menu = undefined;
     var $content = undefined;
-    var $outer = undefined;    
+    var $outer = undefined;
     var isAnimationRunning = false;
     var cache = {};
 
@@ -40,19 +40,18 @@
 
       // Extract background image.
       $content = $(options.content);
-      var bgImage = $content.css('backgroundImage').replace(/"/g, "'");
+      var bgImage = $content.css('backgroundImage').replace(/url\("(.+)"\)/, "$1");
 
       // Build wrapper content.
-      $outer = $(options.outer);      
+      $outer = $(options.outer);
       $outer.css({'overflow-x':'hidden'});
-      $outer.css('background-image', $content.css('backgroundImage').replace(/"/g, "'").replace("url('", "").replace("')", ""))
-      console.log($content.css('backgroundImage').replace(/"/g, "'"));
+      $outer.css('background-image', $content.css('backgroundImage').replace(/"/g, "'"));
       $content.css({'width': '200%', 'position': 'absolute'});
-   
+
       var slide = buildSlide($content.html(), bgImage);
       saveData($content.html(), bgImage, getHashKey());
       $content.html(slide);
-      
+
       // Add information to current slide.
       $('.slide', $content).addClass('current');
 
@@ -69,9 +68,9 @@
       $menu.prepend('<li><span class="arrow-nav prev"><a href="#previous">'+Drupal.t('Back')+'</a></span></li>');
       $menu.append('<li><span class="arrow-nav next"><a href="#next">'+Drupal.t('Forward')+'</a></span></li>');
     }
-        
+
     // Start the application.
-    function start() {     
+    function start() {
       // Load page if hash-tag is defined.
       var hash = getHashtag();
       if (hash != '') {
@@ -82,13 +81,13 @@
         }
       }
 
-      // Attache event listners to the target list.       
+      // Attache event listners to the target list.
       $menu.delegate('.leaf a', 'click', function(event) {
         event.stopPropagation();
         event.preventDefault();
         if (isAnimationRunning) {return;}
         isAnimationRunning = true;
-        var link = $(event.target); 
+        var link = $(event.target);
         fetchPage(link.attr('href'), link, 'fade');
       });
 
@@ -134,7 +133,7 @@
       }
       else {
         // The ajax query string is used to change theme in the backend.
-        $.get(url + '?ajax=1', function(data) {        
+        $.get(url + '?ajax=1', function(data) {
           data = saveData(data.content, data.background, key);
           animatePageLoad(data, link, direction);
         });
@@ -184,11 +183,11 @@
       $('a', $menu).removeClass('active');
       link.addClass('active');
     }
-    
+
     // Animate the page load (slide/fade).
     function animatePageLoad(data, link, direction) {
       var currentPage = $('.current', $content);
-      
+
       // Fix content by wrapping in slide div.
       var slide = $(buildSlide(data.content, data.background)).addClass(direction);
 
@@ -203,6 +202,8 @@
           $content.css('right', 'auto');
           slide.css('left', 'auto');
           slide.removeClass('left').addClass('current');
+
+          // Move background to fix scroll
           slide.css('backgroundImage', 'none');
           $outer.css('backgroundImage', 'url(\'' + data.background + '\')');
           isAnimationRunning = false;
@@ -210,7 +211,7 @@
       }
       else if (direction == 'right') {
         $content.css('right', '-100%');
-        $content.append(slide.css('left', '50%'));        
+        $content.append(slide.css('left', '50%'));
         $content.animate({'right':'0%'}, options.slideSpeed, function(){
           currentPage.remove();
 
@@ -218,13 +219,18 @@
           $content.css('right', 'auto');
           slide.css('left', 'auto');
           slide.removeClass('right').addClass('current');
+
+          // Move background to fix scroll
+          slide.css('backgroundImage', 'none');
+          $outer.css('backgroundImage', 'url(\'' + data.background + '\')');
+
           isAnimationRunning = false;
         });
       }
       else {
         // Remove current slide.
         currentPage.remove();
-        
+
         // Hide slide, append and fade in the slide.
         slide.hide();
         $content.append(slide);
@@ -233,6 +239,11 @@
           slide.css('filter', 'alpha(opacity=100)')
           slide.css('opacity', '1');
           slide.removeClass('fade').addClass('current');
+
+          // Move background to fix scroll
+          slide.css('backgroundImage', 'none');
+          $outer.css('backgroundImage', 'url(\'' + data.background + '\')');
+
           isAnimationRunning = false;
         });
       }
