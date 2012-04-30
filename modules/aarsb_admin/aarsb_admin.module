@@ -34,12 +34,3 @@ function _node_form_alter($form, &$form_state) {
   }
   return $form;
 }
-
-/**
- * Implements init.
- * Add jquery ui library. 
- */
-
-function aarsb_admin_init() {
-  drupal_add_library('system', 'ui');
-}

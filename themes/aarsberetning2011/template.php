@@ -4,6 +4,9 @@
  * Preprocess and alter functions for the theme.
  */
 
+/**
+ * @todo: MISSING DOCUMENTATION
+ */
 function aarsberetning2011_preprocess_block(&$vars) {
  if($vars['elements']['#block']->module == 'menu_block') {
    // Deactivated, it has to target the specifik menu block.

@@ -2,7 +2,7 @@
 
 $json = array(
   'content' => trim($page),
-  'background' => trim($dynamic_background),
+  'background' => isser($dynamic_background) ? trim($dynamic_background) : '',
 );
 
 header('Content-type: application/json');
