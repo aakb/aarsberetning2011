@@ -178,6 +178,7 @@ header {
 
 .page {
   .section-content {
+    @include background-size(cover);
     bottom: 0;
     left: 0;
     position: absolute;
