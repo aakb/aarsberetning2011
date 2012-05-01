@@ -297,6 +297,6 @@
     if (!$('body').hasClass('logged-in')) {
       slider.init();
       slider.start();
-    }
+    }   
   });
 }) (jQuery);
