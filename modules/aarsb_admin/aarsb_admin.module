@@ -13,14 +13,15 @@
  */
 function aarsb_admin_image_styles_alter(&$styles) {
   if (isset($styles['medium'])) {
-    $styles['content_image_top']['effects'][2]['data']['width'] = 125;
-    $styles['content_image_top']['effects'][2]['data']['height'] = 125;
+    $styles['medium']['effects'][2]['data']['width'] = 125;
+    $styles['medium']['effects'][2]['data']['height'] = 125;
   }
 
   if (isset($styles['large'])) {
-    $styles['spotbox_image']['effects'][4]['data']['width'] = 325;
-    $styles['spotbox_image']['effects'][4]['data']['height'] = 325;
+    $styles['large']['effects'][4]['data']['width'] = 325;
+    $styles['large']['effects'][4]['data']['height'] = 325;
   }
+  print_r($styles);
 }
 
 /**
