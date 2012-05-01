@@ -7,6 +7,23 @@
  */
     
 /**
+ * Implements hook_image_styles_alter().
+ *
+ * Cange image styles for select spotboxes and title images.
+ */
+function aarsb_admin_image_styles_alter(&$styles) {
+  if (isset($styles['medium'])) {
+    $styles['content_image_top']['effects'][2]['data']['width'] = 125;
+    $styles['content_image_top']['effects'][2]['data']['height'] = 125;
+  }
+
+  if (isset($styles['large'])) {
+    $styles['spotbox_image']['effects'][4]['data']['width'] = 325;
+    $styles['spotbox_image']['effects'][4]['data']['height'] = 325;
+  }
+}
+
+/**
  * Implements hook_form_alter().
  * 
  * @param string $form
@@ -16,7 +33,7 @@
 function aarsb_admin_form_alter(&$form, $form_state, $form_id) {
   if ($form_id == 'page_node_form') {
     $form['#after_build'][] = '_node_form_alter';
-  }  
+  } 
 }
 
 /**
