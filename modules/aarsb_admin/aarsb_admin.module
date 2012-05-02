@@ -9,18 +9,20 @@
 /**
  * Implements hook_image_styles_alter().
  *
- * Cange image styles for select spotboxes and title images.
+ * Change image styles.
  */
 function aarsb_admin_image_styles_alter(&$styles) {
+ 
   if (isset($styles['medium'])) {
-    $styles['medium']['effects'][2]['data']['width'] = 125;
-    $styles['medium']['effects'][2]['data']['height'] = 125;
+    $styles['medium']['effects'][0]['data']['width'] = 125;
+    $styles['medium']['effects'][0]['data']['height'] = 125;
   }
 
   if (isset($styles['large'])) {
-    $styles['large']['effects'][4]['data']['width'] = 325;
-    $styles['large']['effects'][4]['data']['height'] = 325;
+    $styles['large']['effects'][0]['data']['width'] = 325;
+    $styles['large']['effects'][0]['data']['height'] = 325;
   }
+  
 }
 
 /**
