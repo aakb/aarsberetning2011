@@ -14,8 +14,8 @@
 function aarsb_admin_image_styles_alter(&$styles) {
  
   if (isset($styles['medium'])) {
-    $styles['medium']['effects'][0]['data']['width'] = 125;
-    $styles['medium']['effects'][0]['data']['height'] = 125;
+    $styles['medium']['effects'][0]['data']['width'] = 150;
+    $styles['medium']['effects'][0]['data']['height'] = 150;
   }
 
   if (isset($styles['large'])) {
