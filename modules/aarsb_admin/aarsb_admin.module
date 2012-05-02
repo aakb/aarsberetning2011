@@ -21,7 +21,6 @@ function aarsb_admin_image_styles_alter(&$styles) {
     $styles['large']['effects'][4]['data']['width'] = 325;
     $styles['large']['effects'][4]['data']['height'] = 325;
   }
-  print_r($styles);
 }
 
 /**
