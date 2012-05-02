@@ -226,7 +226,11 @@ header .zone-branding .site-name a:active {
 
 /* line 104, ../sass/aarsberetning2011.scss */
 .zone-menu-wrapper {
-  background: rgba(0, 0, 0, 0.25);
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-color: transparent\9;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#80000000,endColorstr=#80000000);
+  zoom: 1;
   overflow: hidden;
   padding: 1.5em 0 1em;
   position: absolute;
@@ -342,9 +346,9 @@ header .zone-branding .site-name a:active {
 /* line 201, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper .zone-content .region-content-inner {
   background-color: white;
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(255, 255, 255, 0.9);
   background-color: transparent\9;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#bfffffff,endColorstr=#bfffffff);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#e6ffffff,endColorstr=#e6ffffff);
   zoom: 1;
   padding: 2em;
 }

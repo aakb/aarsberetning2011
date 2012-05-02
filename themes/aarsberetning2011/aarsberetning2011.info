@@ -13,6 +13,15 @@ regions[page_top] = "Page Top"
 regions[page_bottom] = "Page Bottom"
 regions[content] = "Content"
 
+; ----- / CUSTOM REGIONS / -----
+
+regions[branding] = Branding
+regions[secondary_menu] = Secondary Menu
+regions[menu] = Menu
+regions[header] = Header
+regions[sidebar] = Sidebar
+regions[footer] = Footer
+
 ; ----- / ZONES / -----
 
 zones[header] = 'Header'
@@ -22,15 +31,6 @@ zones[branding] = 'Branding'
 zones[menu] = 'Menu'
 zones[footer] = 'Footer'
 
-
-; ----- / CUSTOM REGIONS / -----
-
-regions[branding] = Branding
-regions[secondary_menu] = Secondary Menu
-regions[menu] = Menu
-regions[header] = Header
-regions[sidebar] = Sidebar
-regions[footer] = Footer
 
 ; ----- / OPTIONAL CSS / -----
 
@@ -71,7 +71,7 @@ settings[alpha_viewport_initial_scale] = '1'
 settings[alpha_viewport_min_scale] = '1'
 settings[alpha_viewport_max_scale] = '4'
 settings[alpha_viewport_user_scaleable] = '1'
-settings[alpha_primary_alpha_default] = 'normal'
+settings[alpha_primary_alpha_default] = 'wide'
 settings[alpha_layouts_alpha_default_fluid_responsive] = '1'
 settings[alpha_layouts_alpha_default_fluid_weight] = '0'
 settings[alpha_layouts_alpha_default_fluid_media] = 'all and (min-width: 740px) and (min-device-width: 740px), (max-device-width: 800px) and (min-width: 740px) and (orientation:landscape)'
@@ -298,7 +298,7 @@ settings[alpha_region_sidebar_columns] = '4'
 settings[alpha_region_sidebar_suffix] = '0'
 settings[alpha_region_sidebar_weight] = '0'
 settings[alpha_region_sidebar_position] = '0'
-settings[alpha_region_sidebar_css] = ''
+settings[alpha_region_sidebar_css] = 'always-stack'
 settings[alpha_region_sidebar_equal_height_element] = '0'
 settings[alpha_region_sidebar_equal_height_container] = '0'
 settings[alpha_zone_footer_wrapper] = '0'
