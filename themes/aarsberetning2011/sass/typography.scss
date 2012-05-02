@@ -1,10 +1,12 @@
 @import 'variables.scss';
+@import 'mixins.scss';
 
 body {
   color: $text-color;
   font-family: $text-font;
   font-size: $font-size-default;
   line-height: $font-size-default * 1.5;
+  @include selection(#000, $link-color);
   a {
     &:link {
       color: $link-color;

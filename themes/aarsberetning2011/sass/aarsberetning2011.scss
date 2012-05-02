@@ -93,8 +93,7 @@ header {
         }
         &:active {
           background-color: $link-color;
-          color: $text-color-light;
-          padding: .1em .1em 0;
+          color: $text-color;
         }
       }
     }
