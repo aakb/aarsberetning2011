@@ -76,8 +76,8 @@ function aarsberetning2011_page_alter(&$page) {
     
     // Check if we are on a static_page
     if ($node->type == 'page') {
-      // Move video sidebar.
       
+      // Move video to sidebar (media field, we'll keep it here for use later).      
       if (isset($page['content']['content']['content']['system_main']['nodes'][$node->nid]['field_video'])) {
 
         // Save video to a variable.
@@ -111,6 +111,41 @@ function aarsberetning2011_page_alter(&$page) {
         // If no image present, hide caption
         $page['content']['content']['content']['system_main']['nodes'][$node->nid]['field_video']['#access'] = FALSE;
       }
+      
+      // Move video to sidebar (this is the temporary video field used because of bug in Media).      
+      if (isset($page['content']['content']['content']['system_main']['nodes'][$node->nid]['field_video_custom'])) {
+
+        // Save video to a variable.
+        $video = $page['content']['content']['content']['system_main']['nodes'][$node->nid]['field_video_custom'];
+
+        // Remove video from the system_main block.
+        unset($page['content']['content']['content']['system_main']['nodes'][$node->nid]['field_video_custom']);
+
+        // Insert the video into another region instead.
+        $video['#weight'] = 0;
+        $page['content']['content']['sidebar']['field_video_custom'] = $video;
+
+        if (isset($page['content']['content']['content']['system_main']['nodes'][$node->nid]['field_video_custom'])) {
+          
+          // if caption exists, move it to header_first too.
+          $caption = $page['content']['content']['content']['system_main']['nodes'][$node->nid]['field_video_custom'];
+          // Place below title_image in markup.
+          $caption['#weight'] = 1;
+          $page['header']['header']['header_first']['field_image_caption'] = $caption;
+          $page['content']['content']['content']['system_main']['nodes'][$node->nid]['field_video_custom']['#access'] = FALSE;
+        }
+
+        // Check if standard properties of the region exists and add them as necessary.
+        if (!isset($page['content']['content']['sidebar']['#region']) && !isset($page['content']['content']['sidebar']['#theme_wrapper'])) {
+          $page['content']['content']['sidebar']['#region'] = 'sidebar';
+          $page['content']['content']['sidebar']['#theme_wrappers'] = array('region');
+        }
+        
+      } else if (isset($page['content']['content']['content']['system_main']['nodes'][$node->nid]['field_video_custom'])) {
+        
+        // If no image present, hide caption
+        $page['content']['content']['content']['system_main']['nodes'][$node->nid]['field_video_custom']['#access'] = FALSE;
+      }      
       
     }
     
