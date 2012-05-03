@@ -189,6 +189,7 @@ header {
       bottom: 0;
       position: absolute;
       top: 0;
+      width: 100%;
       .slide {
         @include background-size(cover);
         height: 100%;
