@@ -16,6 +16,28 @@ html {
 
 body {
   height: 100%;
+  &.no-js,
+  &.logged-in {
+    .zone-menu-wrapper {
+      nav {
+        li {
+          &.first,
+          &.last {
+            background-image: url('../images/nav-bullet.png');
+            background-repeat: no-repeat;
+          }
+          &.first {
+            background-position: left 12px;
+            padding-left: 1px;
+          }
+          &.last {
+            background-position: right 12px;
+            padding-right: 1px;
+          }
+        }
+      }
+    }
+  }
 }
 
 // Editor font styles
@@ -137,10 +159,6 @@ header {
                 background: url('../images/nav-active.png') no-repeat center 0;
               }
             }
-          }
-          &.first {
-          }
-          &.last {
           }
           &:hover {
             color: #fff;
