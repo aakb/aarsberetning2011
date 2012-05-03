@@ -123,8 +123,14 @@ body .content p {
   margin-bottom: 1em;
 }
 
+@media screen and (max-width: 1225px) {
+  /* line 4, ../sass/mediaqueries.scss */
+  .zone-menu-wrapper {
+    display: none;
+  }
+}
 @media screen and (max-width: 1200px) {
-  /* line 7, ../sass/mediaqueries.scss */
+  /* line 13, ../sass/mediaqueries.scss */
   .container-12 .region.always-stack {
     clear: both;
     margin-bottom: 2em;
@@ -133,7 +139,7 @@ body .content p {
   }
 }
 @media screen and (max-width: 768px) {
-  /* line 24, ../sass/mediaqueries.scss */
+  /* line 30, ../sass/mediaqueries.scss */
   .region {
     clear: both;
   }

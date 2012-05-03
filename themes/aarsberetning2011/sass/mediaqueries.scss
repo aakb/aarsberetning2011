@@ -1,5 +1,11 @@
 // Mediaquery styles.
 
+@media screen and (max-width: 1225px) {
+  .zone-menu-wrapper {
+    display: none;
+  }
+}
+
 // 1200
 @media screen and (max-width: 1200px) {
   .container-12 {
@@ -16,7 +22,7 @@
 
 // 1024
 @media screen and (max-width: 1024px) {
-
+  
 }
 
 // 768
