@@ -67,14 +67,18 @@ body {
     min-width: 200px;
     z-index: 100001;
     li {
-      background: url('../images/nav-arrow-small.png') no-repeat right top;
-      padding-right: $medium-padding * .5;
+      padding-right: $small-padding * 0.5;
       ul {
+        padding: 0;
         background: none;
-        padding-right: $medium-padding * .5;
         position: relative;
         li {
-          padding-right: $medium-padding;
+          padding-right: $small-padding * 0.5;
+          a {
+            &:after {
+              content: " -";
+            }
+          }
         }
       }    
     }
