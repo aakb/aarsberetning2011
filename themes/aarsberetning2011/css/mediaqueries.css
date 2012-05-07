@@ -51,20 +51,31 @@
   }
 }
 @media screen and (max-width: 768px) {
-  /* line 61, ../sass/mediaqueries.scss */
+  /* line 63, ../sass/mediaqueries.scss */
+  header .zone-branding .site-name {
+    margin-top: 3em;
+    margin-left: 1em;
+  }
+  /* line 66, ../sass/mediaqueries.scss */
+  header .zone-branding .site-name a {
+    font-size: 16.1px;
+    margin: auto;
+    -moz-transition-duration: 1s;
+  }
+
+  /* line 74, ../sass/mediaqueries.scss */
   .region {
     clear: both;
   }
 }
 @media screen and (max-width: 550px) {
-  /* line 70, ../sass/mediaqueries.scss */
+  /* line 83, ../sass/mediaqueries.scss */
   header .zone-branding .site-name {
     margin-top: 3em;
     margin-left: 1em;
   }
-  /* line 73, ../sass/mediaqueries.scss */
+  /* line 86, ../sass/mediaqueries.scss */
   header .zone-branding .site-name a {
-    font-size: 17.5px;
     margin: auto;
   }
 }
