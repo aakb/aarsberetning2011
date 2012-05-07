@@ -58,7 +58,7 @@ body {
   }
   ul {
     @include rgba-background(#fff, .9);
-    display: block;
+    display: none;
     padding: $small-padding;
     position: absolute;
     right: -4px;

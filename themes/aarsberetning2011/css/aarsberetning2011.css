@@ -180,7 +180,7 @@ body.no-js .zone-menu-wrapper nav li.last, body.logged-in .zone-menu-wrapper nav
   background-color: transparent\9;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#e6ffffff,endColorstr=#e6ffffff);
   zoom: 1;
-  display: block;
+  display: none;
   padding: 1em;
   position: absolute;
   right: -4px;
