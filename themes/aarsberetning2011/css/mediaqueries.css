@@ -62,19 +62,37 @@
     margin: auto;
     -moz-transition-duration: 1s;
   }
+  /* line 72, ../sass/mediaqueries.scss */
+  header .zone-branding .menu-dropdown {
+    background-color: #cccccc;
+    padding: 1em 2em;
+  }
+  /* line 75, ../sass/mediaqueries.scss */
+  header .zone-branding .menu-dropdown .block-title {
+    background-image: none;
+    padding: 0;
+  }
+  /* line 79, ../sass/mediaqueries.scss */
+  header .zone-branding .menu-dropdown li {
+    padding: 1em 2em;
+  }
+  /* line 81, ../sass/mediaqueries.scss */
+  header .zone-branding .menu-dropdown li li {
+    padding: 1em 0;
+  }
 
-  /* line 74, ../sass/mediaqueries.scss */
+  /* line 88, ../sass/mediaqueries.scss */
   .region {
     clear: both;
   }
 }
 @media screen and (max-width: 550px) {
-  /* line 83, ../sass/mediaqueries.scss */
+  /* line 97, ../sass/mediaqueries.scss */
   header .zone-branding .site-name {
     margin-top: 3em;
     margin-left: 1em;
   }
-  /* line 86, ../sass/mediaqueries.scss */
+  /* line 100, ../sass/mediaqueries.scss */
   header .zone-branding .site-name a {
     margin: auto;
   }

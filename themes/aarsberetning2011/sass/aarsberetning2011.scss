@@ -101,15 +101,12 @@ header {
   top: 0;
   width: 100%;
   .region-secondary-menu {
+    font-size: $font-size-default * .9;
     margin-top: $small-padding;
-    a,
-    h2,
-    span {
-      color: $text-secondary-color;
-      text-transform: uppercase;
-      font-size: $font-size-default * .9;
-      display: inline;
+    a {
+    color: $text-secondary-color;
     }
+    text-transform: uppercase;
     .region-secondary-menu-inner>nav,
     .region-secondary-menu-inner>div {
       float: right;

@@ -69,6 +69,20 @@
           -moz-transition-duration:1s;
         }
       }
+      .menu-dropdown {
+        background-color: $color-light;
+        padding: $small-padding $medium-padding;
+        .block-title {
+          background-image: none;
+          padding: 0;
+        }
+        li {
+          padding: $small-padding $medium-padding;
+          li {
+            padding: $small-padding 0;
+          }
+        }
+      }
     }
   }
   .region {
