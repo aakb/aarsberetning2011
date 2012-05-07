@@ -68,7 +68,8 @@
   header {
     .zone-branding {
       .site-name {
-        margin-top: $large-padding;
+        margin-top: $large-spacing;
+        margin-left: $small-spacing;
         a {
           font-size: $font-size-default * 1.25;
           margin: auto;

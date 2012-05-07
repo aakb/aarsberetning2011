@@ -60,8 +60,9 @@
   /* line 70, ../sass/mediaqueries.scss */
   header .zone-branding .site-name {
     margin-top: 3em;
+    margin-left: 1em;
   }
-  /* line 72, ../sass/mediaqueries.scss */
+  /* line 73, ../sass/mediaqueries.scss */
   header .zone-branding .site-name a {
     font-size: 17.5px;
     margin: auto;
