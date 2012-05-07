@@ -1,4 +1,4 @@
-// Mediaquery styles.
+@import "variables.scss";
 
 @media screen and (max-width: 1225px) {
   .zone-menu-wrapper {
@@ -32,7 +32,17 @@
   }
 }
 
-// 500
-@media screen and (max-width: 500px) {
-
+// 550
+@media screen and (max-width: 550px) {
+  header {
+    .zone-branding {
+      .site-name {
+        margin-top: $large-padding;
+        a {
+          font-size: $font-size-default * 1.25;
+          margin: auto;
+        }
+      }
+    }
+  }
 }

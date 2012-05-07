@@ -1,12 +1,32 @@
+@media screen and (max-width: 1225px) {
+  /* line 4, ../sass/mediaqueries.scss */
+  .zone-menu-wrapper {
+    display: none;
+  }
+}
 @media screen and (max-width: 1200px) {
-  /* line 5, ../sass/mediaqueries.scss */
+  /* line 13, ../sass/mediaqueries.scss */
+  .container-12 .region.always-stack {
+    clear: both;
+    margin-bottom: 2em;
+    min-height: auto;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  /* line 30, ../sass/mediaqueries.scss */
   .region {
     clear: both;
   }
 }
-@media screen and (max-width: 768px) {
-  /* line 17, ../sass/mediaqueries.scss */
-  .region {
-    clear: both;
+@media screen and (max-width: 550px) {
+  /* line 39, ../sass/mediaqueries.scss */
+  header .zone-branding .site-name {
+    margin-top: 3em;
+  }
+  /* line 41, ../sass/mediaqueries.scss */
+  header .zone-branding .site-name a {
+    font-size: 17.5px;
+    margin: auto;
   }
 }
