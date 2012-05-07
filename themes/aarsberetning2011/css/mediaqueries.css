@@ -3,28 +3,34 @@
   .zone-menu-wrapper {
     display: none;
   }
+
+  /* line 10, ../sass/mediaqueries.scss */
+  .page .section-content .zone-content-wrapper .zone-content {
+    padding-top: 2em;
+  }
 }
 @media screen and (max-width: 1200px) {
-  /* line 13, ../sass/mediaqueries.scss */
+  /* line 22, ../sass/mediaqueries.scss */
   .container-12 .region.always-stack {
     clear: both;
+    margin-left: 0;
     margin-bottom: 2em;
     min-height: auto;
     width: 100%;
   }
 }
 @media screen and (max-width: 768px) {
-  /* line 30, ../sass/mediaqueries.scss */
+  /* line 40, ../sass/mediaqueries.scss */
   .region {
     clear: both;
   }
 }
 @media screen and (max-width: 550px) {
-  /* line 39, ../sass/mediaqueries.scss */
+  /* line 49, ../sass/mediaqueries.scss */
   header .zone-branding .site-name {
     margin-top: 3em;
   }
-  /* line 41, ../sass/mediaqueries.scss */
+  /* line 51, ../sass/mediaqueries.scss */
   header .zone-branding .site-name a {
     font-size: 17.5px;
     margin: auto;

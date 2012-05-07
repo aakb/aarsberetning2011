@@ -4,6 +4,15 @@
   .zone-menu-wrapper {
     display: none;
   }
+  .page {
+    .section-content {
+      .zone-content-wrapper {
+        .zone-content {
+          padding-top: 2em;
+        }
+      }
+    }
+  }
 }
 
 // 1200
@@ -12,6 +21,7 @@
     .region {
       &.always-stack {
         clear: both;
+        margin-left: 0;
         margin-bottom: $medium-spacing;
         min-height: auto;
         width: 100%;
