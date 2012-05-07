@@ -58,6 +58,19 @@
 
 // 768
 @media screen and (max-width: 768px) {
+  header {
+    .zone-branding {
+      .site-name {
+        margin-top: $large-spacing;
+        margin-left: $small-spacing;
+        a {
+          font-size: $font-size-default * 1.15;
+          margin: auto;
+          -moz-transition-duration:1s;
+        }
+      }
+    }
+  }
   .region {
     clear: both;
   }
@@ -71,7 +84,6 @@
         margin-top: $large-spacing;
         margin-left: $small-spacing;
         a {
-          font-size: $font-size-default * 1.25;
           margin: auto;
         }
       }
