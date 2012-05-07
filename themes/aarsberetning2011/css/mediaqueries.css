@@ -10,7 +10,38 @@
   }
 }
 @media screen and (max-width: 1200px) {
-  /* line 22, ../sass/mediaqueries.scss */
+  /* line 20, ../sass/mediaqueries.scss */
+  header {
+    height: auto;
+    position: relative;
+  }
+
+  /* line 25, ../sass/mediaqueries.scss */
+  .zone-menu-wrapper,
+  .page {
+    position: relative;
+  }
+  /* line 27, ../sass/mediaqueries.scss */
+  .zone-menu-wrapper .section-content,
+  .page .section-content {
+    position: relative;
+    top: 1em;
+    overflow-x: visible !important;
+  }
+  /* line 31, ../sass/mediaqueries.scss */
+  .zone-menu-wrapper .section-content .zone-content-wrapper,
+  .page .section-content .zone-content-wrapper {
+    position: relative !important;
+    width: 100% !important;
+  }
+  /* line 34, ../sass/mediaqueries.scss */
+  .zone-menu-wrapper .section-content .zone-content-wrapper .slide,
+  .page .section-content .zone-content-wrapper .slide {
+    position: relative;
+    width: 100% !important;
+  }
+
+  /* line 43, ../sass/mediaqueries.scss */
   .container-12 .region.always-stack {
     clear: both;
     margin-left: 0;
@@ -20,17 +51,17 @@
   }
 }
 @media screen and (max-width: 768px) {
-  /* line 40, ../sass/mediaqueries.scss */
+  /* line 61, ../sass/mediaqueries.scss */
   .region {
     clear: both;
   }
 }
 @media screen and (max-width: 550px) {
-  /* line 49, ../sass/mediaqueries.scss */
+  /* line 70, ../sass/mediaqueries.scss */
   header .zone-branding .site-name {
     margin-top: 3em;
   }
-  /* line 51, ../sass/mediaqueries.scss */
+  /* line 72, ../sass/mediaqueries.scss */
   header .zone-branding .site-name a {
     font-size: 17.5px;
     margin: auto;

@@ -17,6 +17,27 @@
 
 // 1200
 @media screen and (max-width: 1200px) {
+  header {
+    height: auto;
+    position: relative;
+  }
+  .zone-menu-wrapper,
+  .page {
+    position: relative;
+    .section-content {
+      position: relative;
+      top: 1em;
+      overflow-x: visible !important;
+      .zone-content-wrapper {
+        position: relative !important;
+        width: 100% !important;
+        .slide {
+          position: relative;
+          width: 100% !important;
+        }
+      }
+    }
+  }
   .container-12 {
     .region {
       &.always-stack {
