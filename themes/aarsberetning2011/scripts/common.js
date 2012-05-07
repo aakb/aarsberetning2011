@@ -56,7 +56,7 @@
       $('.slide', $content).addClass('current');
 
       // Remove old background.
-      $content.css('backgroundImage', 'none');
+      // $content.css('backgroundImage', 'none');
 
       // Get menu as jquery object.
       $menu = $(options.menu);
