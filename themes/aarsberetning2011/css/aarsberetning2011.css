@@ -186,7 +186,7 @@ body.no-js .zone-menu-wrapper nav li.last, body.logged-in .zone-menu-wrapper nav
   right: -4px;
   text-align: right;
   top: auto;
-  width: 200px;
+  min-width: 200px;
   z-index: 100001;
 }
 /* line 69, ../sass/aarsberetning2011.scss */

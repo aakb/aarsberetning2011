@@ -64,7 +64,7 @@ body {
     right: -4px;
     text-align: right;
     top: auto;
-    width: 200px;
+    min-width: 200px;
     z-index: 100001;
     li {
       background: url('../images/nav-arrow-small.png') no-repeat right top;
