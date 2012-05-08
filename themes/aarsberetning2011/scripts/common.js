@@ -309,6 +309,5 @@
     
     // Adds event to the dropdown menus
     menuDropdown();
-    alert($(window).width());
   });
 }) (jQuery);
