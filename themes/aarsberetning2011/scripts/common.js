@@ -253,8 +253,8 @@
       // Add jTruncate to content.
       $('.content .field-name-field-body').jTruncate({
         length: 1000,
-        moreText: Drupal.t('Read more'),
-        lessText: Drupal.t('Less')
+        moreText: Drupal.t('Show Text'),
+        lessText: Drupal.t('Hide Text')
       });
       
     }
