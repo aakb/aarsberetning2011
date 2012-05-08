@@ -88,5 +88,28 @@
         }
       }
     }
+    .menu-dropdown {
+      background-color: $color-light;
+      padding: $small-padding $medium-padding;
+      .block-title {
+        background-image: none;
+        padding: 0;
+      }
+      ul {
+        top: 45px;
+        li {
+          padding: $small-padding $medium-padding;
+          li {
+            padding: 0;
+          }
+          ul {
+            top: 0;
+            li {
+              padding: $small-padding 0;
+            }
+          }
+        }
+      }
+    }
   }
 }

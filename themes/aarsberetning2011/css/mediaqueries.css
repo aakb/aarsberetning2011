@@ -78,4 +78,34 @@
   header .zone-branding .site-name a {
     margin: auto;
   }
+  /* line 91, ../sass/mediaqueries.scss */
+  header .menu-dropdown {
+    background-color: #cccccc;
+    padding: 1em 2em;
+  }
+  /* line 94, ../sass/mediaqueries.scss */
+  header .menu-dropdown .block-title {
+    background-image: none;
+    padding: 0;
+  }
+  /* line 98, ../sass/mediaqueries.scss */
+  header .menu-dropdown ul {
+    top: 45px;
+  }
+  /* line 100, ../sass/mediaqueries.scss */
+  header .menu-dropdown ul li {
+    padding: 1em 2em;
+  }
+  /* line 102, ../sass/mediaqueries.scss */
+  header .menu-dropdown ul li li {
+    padding: 0;
+  }
+  /* line 105, ../sass/mediaqueries.scss */
+  header .menu-dropdown ul li ul {
+    top: 0;
+  }
+  /* line 107, ../sass/mediaqueries.scss */
+  header .menu-dropdown ul li ul li {
+    padding: 1em 0;
+  }
 }
