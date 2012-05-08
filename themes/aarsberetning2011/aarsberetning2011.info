@@ -46,6 +46,7 @@ css[mediaqueries.css][options][weight] = '10'
 
 scripts[] = scripts/common.js
 scripts[] = scripts/flexi-background.js
+scripts[] = scripts/jquery.jtruncate.pack.js
 
 ; ----- / DEFAULT SETTINGS / -----
 

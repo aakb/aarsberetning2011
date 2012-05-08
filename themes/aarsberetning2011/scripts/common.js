@@ -104,7 +104,7 @@
         else {
           next();
         }
-      });
+      });      
     }
 
     // Used to store page content.
@@ -249,6 +249,14 @@
       }
       updateActiveMenu(link);
       addHashtag(getHashKey(link.attr('href')));
+
+      // Add jTruncate to content.
+      $('.content .field-name-field-body').jTruncate({
+        length: 1500,
+        moreText: Drupal.t('More'),
+        lessText: Drupal.t('Less')
+      });
+      
     }
 
     // Find the next element in the menu to load (used by next link).
@@ -289,11 +297,11 @@
       start: start
     };
   }());
-  
+
   // Add click event to dropdown menu classes
   function menuDropdown() {
     $('.menu-dropdown').click(function() {
-      var menu = $(this).children('.menu');      
+      var menu = $(this).children('.menu');
       menu.css('display', (menu.css('display') == 'none' ? 'block' : 'none'));
     });
   }
@@ -306,7 +314,7 @@
       slider.init();
       slider.start();
     }
-    
+
     // Adds event to the dropdown menus
     menuDropdown();
   });
