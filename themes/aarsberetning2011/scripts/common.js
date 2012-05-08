@@ -289,6 +289,15 @@
       start: start
     };
   }());
+  
+  //Add click event to dropdown menu classes
+  function menuDropdown() {
+    $('.menu-dropdown').click(function() {
+      var menu = $(this).children('.menu');
+      
+      menu.css('display', (menu.css('display') == 'none' ? 'block' : 'none'));
+    });
+  }
 
   // Load the moduel and start the fun.
   $(document).ready(function() {
@@ -297,6 +306,8 @@
     if (!$('body').hasClass('logged-in')) {
       slider.init();
       slider.start();
-    }   
+    }
+    
+    menuDropdown();
   });
 }) (jQuery);
