@@ -1,11 +1,10 @@
 ; ----- / BASIC INFO / -----
 
-name = 'Aarsberetning 2011'
-description = 'Theme for Aarsberetning 2011.'
-core = '7.x'
-engine = 'phptemplate'
-screenshot = 'screenshot.png'
-base theme = 'itkore'
+name = Aarsberetning 2011
+description = Theme for Aarsberetning 2011.
+core = 7.x
+screenshot = screenshot.png
+base theme = itkore
 
 ; ---- / REQUIRED REGIONS / -----
 
