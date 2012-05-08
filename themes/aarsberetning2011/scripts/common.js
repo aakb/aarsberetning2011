@@ -290,16 +290,15 @@
     };
   }());
   
-  //Add click event to dropdown menu classes
+  // Add click event to dropdown menu classes
   function menuDropdown() {
     $('.menu-dropdown').click(function() {
-      var menu = $(this).children('.menu');
-      
+      var menu = $(this).children('.menu');      
       menu.css('display', (menu.css('display') == 'none' ? 'block' : 'none'));
     });
   }
 
-  // Load the moduel and start the fun.
+  // Load the module and start the fun.
   $(document).ready(function() {
     // Don't run code for logged in users, as it give problems with node edit
     // and messages from the system.
@@ -308,6 +307,7 @@
       slider.start();
     }
     
+    // Adds event to the dropdown menus
     menuDropdown();
   });
 }) (jQuery);
