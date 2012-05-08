@@ -1,47 +1,47 @@
 @media screen and (max-width: 1225px) {
-  /* line 4, ../sass/mediaqueries.scss */
+  /* line 5, ../sass/mediaqueries.scss */
   .zone-menu-wrapper {
     display: none;
   }
 
-  /* line 10, ../sass/mediaqueries.scss */
+  /* line 11, ../sass/mediaqueries.scss */
   .page .section-content .zone-content-wrapper .zone-content {
     padding-top: 2em;
   }
 }
 @media screen and (max-width: 1200px) {
-  /* line 20, ../sass/mediaqueries.scss */
+  /* line 21, ../sass/mediaqueries.scss */
   header {
     height: auto;
     position: relative;
   }
 
-  /* line 25, ../sass/mediaqueries.scss */
+  /* line 26, ../sass/mediaqueries.scss */
   .zone-menu-wrapper,
   .page {
     position: relative;
   }
-  /* line 27, ../sass/mediaqueries.scss */
+  /* line 28, ../sass/mediaqueries.scss */
   .zone-menu-wrapper .section-content,
   .page .section-content {
     position: relative;
     top: 1em;
     overflow-x: visible !important;
   }
-  /* line 31, ../sass/mediaqueries.scss */
+  /* line 32, ../sass/mediaqueries.scss */
   .zone-menu-wrapper .section-content .zone-content-wrapper,
   .page .section-content .zone-content-wrapper {
     position: relative !important;
     width: 100% !important;
   }
-  /* line 34, ../sass/mediaqueries.scss */
+  /* line 35, ../sass/mediaqueries.scss */
   .zone-menu-wrapper .section-content .zone-content-wrapper .slide,
   .page .section-content .zone-content-wrapper .slide {
     position: relative;
     width: 100% !important;
   }
 
-  /* line 43, ../sass/mediaqueries.scss */
+  /* line 44, ../sass/mediaqueries.scss */
   .container-12 .region.always-stack {
     clear: both;
     margin-left: 0;
@@ -51,61 +51,65 @@
   }
 }
 @media screen and (max-width: 768px) {
-  /* line 63, ../sass/mediaqueries.scss */
+  /* line 64, ../sass/mediaqueries.scss */
   header .zone-branding .site-name {
     margin-top: 3em;
     margin-left: 1em;
   }
-  /* line 66, ../sass/mediaqueries.scss */
+  /* line 67, ../sass/mediaqueries.scss */
   header .zone-branding .site-name a {
     font-size: 16.1px;
     margin: auto;
+    -webkit-transition-duration: 1s;
     -moz-transition-duration: 1s;
+    -ms-transition-duration: 1s;
+    -o-transition-duration: 1s;
+    transition-duration: 1s;
+  }
+  /* line 74, ../sass/mediaqueries.scss */
+  header .menu-dropdown {
+    background-color: #cccccc;
+    padding: 1em 2em;
+  }
+  /* line 77, ../sass/mediaqueries.scss */
+  header .menu-dropdown .block-title {
+    background-image: none;
+    padding: 0;
+  }
+  /* line 81, ../sass/mediaqueries.scss */
+  header .menu-dropdown ul {
+    top: 45px;
+  }
+  /* line 83, ../sass/mediaqueries.scss */
+  header .menu-dropdown ul li {
+    padding: 1em 2em;
+  }
+  /* line 85, ../sass/mediaqueries.scss */
+  header .menu-dropdown ul li li {
+    padding: 0;
+  }
+  /* line 88, ../sass/mediaqueries.scss */
+  header .menu-dropdown ul li ul {
+    top: 0;
+  }
+  /* line 90, ../sass/mediaqueries.scss */
+  header .menu-dropdown ul li ul li {
+    padding: 1em 0;
   }
 
-  /* line 74, ../sass/mediaqueries.scss */
+  /* line 98, ../sass/mediaqueries.scss */
   .region {
     clear: both;
   }
 }
 @media screen and (max-width: 550px) {
-  /* line 83, ../sass/mediaqueries.scss */
+  /* line 107, ../sass/mediaqueries.scss */
   header .zone-branding .site-name {
     margin-top: 3em;
     margin-left: 1em;
   }
-  /* line 86, ../sass/mediaqueries.scss */
+  /* line 110, ../sass/mediaqueries.scss */
   header .zone-branding .site-name a {
     margin: auto;
-  }
-  /* line 91, ../sass/mediaqueries.scss */
-  header .menu-dropdown {
-    background-color: #cccccc;
-    padding: 1em 2em;
-  }
-  /* line 94, ../sass/mediaqueries.scss */
-  header .menu-dropdown .block-title {
-    background-image: none;
-    padding: 0;
-  }
-  /* line 98, ../sass/mediaqueries.scss */
-  header .menu-dropdown ul {
-    top: 45px;
-  }
-  /* line 100, ../sass/mediaqueries.scss */
-  header .menu-dropdown ul li {
-    padding: 1em 2em;
-  }
-  /* line 102, ../sass/mediaqueries.scss */
-  header .menu-dropdown ul li li {
-    padding: 0;
-  }
-  /* line 105, ../sass/mediaqueries.scss */
-  header .menu-dropdown ul li ul {
-    top: 0;
-  }
-  /* line 107, ../sass/mediaqueries.scss */
-  header .menu-dropdown ul li ul li {
-    padding: 1em 0;
   }
 }
