@@ -71,6 +71,7 @@ body {
     li {
       padding-right: $small-padding * 0.5;
       ul {
+        display: block;
         padding: 0;
         background: none;
         position: relative;
