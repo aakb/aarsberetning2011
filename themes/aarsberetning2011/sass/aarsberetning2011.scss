@@ -51,6 +51,7 @@ body {
 }
 
 .menu-dropdown {
+  cursor: pointer;
   .block-title {
     background: url('../images/nav-arrow-small.png') no-repeat right top;
     padding-right: $small-padding * 1.75;
