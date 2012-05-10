@@ -236,6 +236,9 @@ header {
         margin-left: $small-spacing;
       }
     }
+    strong {
+      font-weight: bold;
+    }
     .zone-content-wrapper {
       background: url('../images/e-reolen.jpg') no-repeat;
       @include background-size(cover);

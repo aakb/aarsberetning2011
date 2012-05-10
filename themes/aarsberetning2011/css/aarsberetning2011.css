@@ -379,6 +379,10 @@ header .zone-branding .site-name a:active {
   margin-left: 1em;
 }
 /* line 239, ../sass/aarsberetning2011.scss */
+.page .section-content strong {
+  font-weight: bold;
+}
+/* line 242, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper {
   background: url("../images/e-reolen.jpg") no-repeat;
   -webkit-background-size: cover;
@@ -390,7 +394,7 @@ header .zone-branding .site-name a:active {
   top: 0;
   width: 100%;
 }
-/* line 246, ../sass/aarsberetning2011.scss */
+/* line 249, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper .slide {
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -399,12 +403,12 @@ header .zone-branding .site-name a:active {
   height: 100%;
   position: absolute;
 }
-/* line 251, ../sass/aarsberetning2011.scss */
+/* line 254, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper .zone-content {
   margin: auto;
   padding-top: 11em;
 }
-/* line 254, ../sass/aarsberetning2011.scss */
+/* line 257, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper .zone-content .region-content-inner {
   background-color: white;
   background-color: rgba(255, 255, 255, 0.9);
@@ -413,12 +417,12 @@ header .zone-branding .site-name a:active {
   zoom: 1;
   padding: 2em;
 }
-/* line 258, ../sass/aarsberetning2011.scss */
+/* line 261, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper .zone-content .region-sidebar {
   overflow: hidden;
 }
 
-/* line 269, ../sass/aarsberetning2011.scss */
+/* line 272, ../sass/aarsberetning2011.scss */
 .file-video iframe,
 .file-video div {
   max-width: 100%;
