@@ -32,19 +32,6 @@ function aarsberetning2011_preprocess_html(&$variables) {
 
 
 /**
- * Implements template_links__locale_block();
- * 
- * Removes the active language from the language menu
- * 
- */
-function aarsberetning2011_links__locale_block($variables) {
-  global $language;
-  unset($variables['links'][$language->language]);
-
-  return theme('links', $variables);
-}
-
-/**
  * Implements template_menu_link().
  *
  * Adds classes based on menu level to nested menus.
