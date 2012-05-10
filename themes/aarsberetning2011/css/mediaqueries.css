@@ -51,12 +51,17 @@
   }
 }
 @media screen and (max-width: 779px) {
-  /* line 64, ../sass/mediaqueries.scss */
+  /* line 63, ../sass/mediaqueries.scss */
+  header .zone-branding {
+    position: relative;
+    top: -30px;
+  }
+  /* line 66, ../sass/mediaqueries.scss */
   header .zone-branding .site-name {
     margin-top: 3em;
     margin-left: 1em;
   }
-  /* line 67, ../sass/mediaqueries.scss */
+  /* line 69, ../sass/mediaqueries.scss */
   header .zone-branding .site-name a {
     font-size: 16.1px;
     margin: auto;
@@ -67,6 +72,11 @@
     transition-duration: 1s;
   }
   /* line 76, ../sass/mediaqueries.scss */
+  header .region-secondary-menu-inner {
+    position: relative;
+    top: 70px;
+  }
+  /* line 79, ../sass/mediaqueries.scss */
   header .region-secondary-menu-inner .block-locale-language, header .region-secondary-menu-inner .menu-dropdown {
     background-color: #cccccc;
     -webkit-border-radius: 5px;
@@ -76,51 +86,51 @@
     border-radius: 5px;
     padding: 1em 2em;
   }
-  /* line 81, ../sass/mediaqueries.scss */
+  /* line 84, ../sass/mediaqueries.scss */
   header .region-secondary-menu-inner .block-locale-language {
     border: 0;
   }
-  /* line 85, ../sass/mediaqueries.scss */
+  /* line 88, ../sass/mediaqueries.scss */
   header .menu-dropdown {
     position: relative;
     z-index: 1000001;
   }
-  /* line 88, ../sass/mediaqueries.scss */
+  /* line 91, ../sass/mediaqueries.scss */
   header .menu-dropdown ul {
     background-color: #cccccc;
     padding-top: 45px;
     top: 0;
     z-index: -1;
   }
-  /* line 93, ../sass/mediaqueries.scss */
+  /* line 96, ../sass/mediaqueries.scss */
   header .menu-dropdown ul li {
     padding: 1em 2em;
   }
-  /* line 95, ../sass/mediaqueries.scss */
+  /* line 98, ../sass/mediaqueries.scss */
   header .menu-dropdown ul li li {
     padding: 0;
   }
-  /* line 98, ../sass/mediaqueries.scss */
+  /* line 101, ../sass/mediaqueries.scss */
   header .menu-dropdown ul li ul {
     top: 0;
   }
-  /* line 100, ../sass/mediaqueries.scss */
+  /* line 103, ../sass/mediaqueries.scss */
   header .menu-dropdown ul li ul li {
     padding: 1em 0;
   }
 
-  /* line 108, ../sass/mediaqueries.scss */
+  /* line 111, ../sass/mediaqueries.scss */
   .region {
     clear: both;
   }
 }
 @media screen and (max-width: 550px) {
-  /* line 117, ../sass/mediaqueries.scss */
+  /* line 120, ../sass/mediaqueries.scss */
   header .zone-branding .site-name {
     margin-top: 3em;
     margin-left: 1em;
   }
-  /* line 120, ../sass/mediaqueries.scss */
+  /* line 123, ../sass/mediaqueries.scss */
   header .zone-branding .site-name a {
     margin: auto;
   }

@@ -61,6 +61,8 @@
 @media screen and (max-width: 779px) {
   header {
     .zone-branding {
+      position: relative;
+      top: -30px;
       .site-name {
         margin-top: $large-spacing;
         margin-left: $small-spacing;
@@ -72,7 +74,8 @@
       }
     }
     .region-secondary-menu-inner {
-      
+      position: relative;
+      top: 70px;
       .block-locale-language, .menu-dropdown {
         background-color: $color-light;
         @include border-radius(5px);
