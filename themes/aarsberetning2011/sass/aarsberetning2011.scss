@@ -42,6 +42,7 @@ body {
     margin-top: 0;
   }
 }
+
 .align-left {
   float: left;
   margin-right: 1em;
@@ -229,6 +230,12 @@ header {
     position: absolute;
     right: 0;
     top: 7em;
+    ul {
+      li {
+        list-style: circle;
+        margin-left: $small-spacing;
+      }
+    }
     .zone-content-wrapper {
       background: url('../images/e-reolen.jpg') no-repeat;
       @include background-size(cover);
