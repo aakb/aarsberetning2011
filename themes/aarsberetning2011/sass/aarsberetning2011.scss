@@ -112,6 +112,11 @@ header {
     .block-locale-language {
       border-right: 1px solid $color-light;
       padding-right: $small-spacing;
+      ul {
+        li {
+          list-style: none;        
+        }
+      }
     }
   }
   .zone-branding {
