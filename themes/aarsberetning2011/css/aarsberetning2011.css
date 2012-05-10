@@ -118,6 +118,15 @@ body h1.title {
 body .content p {
   margin-bottom: 1em;
 }
+/* line 38, ../sass/typography.scss */
+body .content ul li {
+  list-style: square;
+  margin-left: 1em;
+}
+/* line 43, ../sass/typography.scss */
+body .content strong {
+  font-weight: bold;
+}
 
 /* line 7, ../sass/aarsberetning2011.scss */
 html {
@@ -373,16 +382,7 @@ header .zone-branding .site-name a:active {
   right: 0;
   top: 7em;
 }
-/* line 234, ../sass/aarsberetning2011.scss */
-.page .section-content ul li {
-  list-style: square;
-  margin-left: 1em;
-}
-/* line 239, ../sass/aarsberetning2011.scss */
-.page .section-content strong {
-  font-weight: bold;
-}
-/* line 242, ../sass/aarsberetning2011.scss */
+/* line 233, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper {
   background: url("../images/e-reolen.jpg") no-repeat;
   -webkit-background-size: cover;
@@ -394,7 +394,7 @@ header .zone-branding .site-name a:active {
   top: 0;
   width: 100%;
 }
-/* line 249, ../sass/aarsberetning2011.scss */
+/* line 240, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper .slide {
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -403,12 +403,12 @@ header .zone-branding .site-name a:active {
   height: 100%;
   position: absolute;
 }
-/* line 254, ../sass/aarsberetning2011.scss */
+/* line 245, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper .zone-content {
   margin: auto;
   padding-top: 11em;
 }
-/* line 257, ../sass/aarsberetning2011.scss */
+/* line 248, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper .zone-content .region-content-inner {
   background-color: white;
   background-color: rgba(255, 255, 255, 0.9);
@@ -417,12 +417,12 @@ header .zone-branding .site-name a:active {
   zoom: 1;
   padding: 2em;
 }
-/* line 261, ../sass/aarsberetning2011.scss */
+/* line 252, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper .zone-content .region-sidebar {
   overflow: hidden;
 }
 
-/* line 272, ../sass/aarsberetning2011.scss */
+/* line 263, ../sass/aarsberetning2011.scss */
 .file-video iframe,
 .file-video div {
   max-width: 100%;

@@ -230,15 +230,6 @@ header {
     position: absolute;
     right: 0;
     top: 7em;
-    ul {
-      li {
-        list-style: square;
-        margin-left: $small-spacing;
-      }
-    }
-    strong {
-      font-weight: bold;
-    }
     .zone-content-wrapper {
       background: url('../images/e-reolen.jpg') no-repeat;
       @include background-size(cover);

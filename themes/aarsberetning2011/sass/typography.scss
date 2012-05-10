@@ -34,5 +34,14 @@ body {
     p {
       margin-bottom: $small-spacing;
     }
+    ul {
+      li {
+        list-style: square;
+        margin-left: $small-spacing;
+      }
+    }
+    strong {
+      font-weight: bold;
+    }
   }
 }
