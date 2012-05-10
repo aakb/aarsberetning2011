@@ -56,6 +56,19 @@ function aarsberetning2011_menu_link(array $variables) {
   }
 }
 
+/**
+ *
+ * Implements function for removing the link to the active language in the language block.
+ *  
+ */
+
+function aarsberetning2011_links__locale_block($variables) {
+  global $language;
+  unset($variables['links'][$language->language]);
+
+  return theme('links', $variables);
+}
+
 function aarsberetning2011_page_alter(&$page) {
 
  // Check if we are on a node page.
