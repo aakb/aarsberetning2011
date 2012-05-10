@@ -50,6 +50,9 @@ function aarsb_admin_ajax($nid) {
     $data['image'] = file_create_url($image->uri);
   }
 
+  $data['translations'] = translation_node_get_translations($node->tnid);
+  $data['language'] = $node->language;
+
   return drupal_json_output($data);
 }
 
