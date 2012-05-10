@@ -51,7 +51,7 @@
       var slide = buildSlide($content.html(), bgImage);
       saveData($content.html(), bgImage, getHashKey());
       $content.html(slide);
-
+     
       // Add information to current slide.
       $('.slide', $content).addClass('current');
 
