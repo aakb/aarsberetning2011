@@ -58,9 +58,11 @@
 }
 
 // 768
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 779px) {
   header {
     .zone-branding {
+      position: relative;
+      top: -30px;
       .site-name {
         margin-top: $large-spacing;
         margin-left: $small-spacing;
@@ -71,15 +73,26 @@
         }
       }
     }
-    .menu-dropdown {
-      background-color: $color-light;
-      padding: $small-padding $medium-padding;
-      .block-title {
-        background-image: none;
-        padding: 0;
+    .region-secondary-menu-inner {
+      position: relative;
+      top: 70px;
+      .block-locale-language, .menu-dropdown {
+        background-color: $color-light;
+        @include border-radius(5px);
+        padding: $small-padding $medium-padding;
       }
+      .block-locale-language {
+        border: 0;
+      }
+    }
+    .menu-dropdown {
+      position: relative;
+      z-index: 1000001;
       ul {
-        top: 45px;
+        background-color: $color-light;
+        padding-top: 45px;
+        top: 0;
+        z-index: -1;
         li {
           padding: $small-padding $medium-padding;
           li {
