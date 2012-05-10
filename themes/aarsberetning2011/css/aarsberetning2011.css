@@ -375,7 +375,7 @@ header .zone-branding .site-name a:active {
 }
 /* line 234, ../sass/aarsberetning2011.scss */
 .page .section-content ul li {
-  list-style: circle;
+  list-style: square;
   margin-left: 1em;
 }
 /* line 239, ../sass/aarsberetning2011.scss */
