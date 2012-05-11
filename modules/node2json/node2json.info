@@ -1,4 +1,4 @@
-name = JSON Node
+name = Node2JSON
 description = Render a nodes field and return them as JSON.
 core = 7.x
 

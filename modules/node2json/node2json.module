@@ -16,7 +16,7 @@ function node2json_menu() {
   $items['node2json/%'] = array(
     'title' => 'JSON node Ajax callback',
     'description' => 'Ajax callback that returns node information as json.',
-    'page callback' => 'jsonnode_ajax',
+    'page callback' => 'node2json_ajax',
     'page arguments' => array(1),
     'access callback' => TRUE,
     'type' => MENU_CALLBACK,
