@@ -30,22 +30,22 @@ body {
       margin-left: -2px; // Fix left spacing when using font from typekit.
     }
   }
-  h2,
-  h3,
-  h4 {
-    font-weight: bold;
-    margin-bottom: $small-spacing * .1;
-  }
-  h2 {
-    font-size: $font-size-medium;
-  }
-  h3 {
-    font-size: $font-size-small;
-  }
-  h4 {
-    font-size: $font-size-small * 0.9;
-  }
   .content {
+    h2,
+    h3,
+    h4 {
+      font-weight: bold;
+      margin-bottom: $small-spacing * .1;
+    }
+    h2 {
+      font-size: $font-size-medium;
+    }
+    h3 {
+      font-size: $font-size-small;
+    }
+    h4 {
+      font-size: $font-size-small * 0.9;
+    }
     p {
       margin-bottom: $small-spacing;
     }

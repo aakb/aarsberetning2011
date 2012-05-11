@@ -114,23 +114,23 @@ body h1.title {
   margin-bottom: 0.9em;
   margin-left: -2px;
 }
-/* line 35, ../sass/typography.scss */
-body h2,
-body h3,
-body h4 {
+/* line 36, ../sass/typography.scss */
+body .content h2,
+body .content h3,
+body .content h4 {
   font-weight: bold;
   margin-bottom: 0.1em;
 }
-/* line 39, ../sass/typography.scss */
-body h2 {
+/* line 40, ../sass/typography.scss */
+body .content h2 {
   font-size: 21px;
 }
-/* line 42, ../sass/typography.scss */
-body h3 {
+/* line 43, ../sass/typography.scss */
+body .content h3 {
   font-size: 17.5px;
 }
-/* line 45, ../sass/typography.scss */
-body h4 {
+/* line 46, ../sass/typography.scss */
+body .content h4 {
   font-size: 15.75px;
 }
 /* line 49, ../sass/typography.scss */
