@@ -39,6 +39,9 @@
         options = opt;
       }
 
+      // Preload the background images.
+      backgroundPreload();
+
       // Extract background image.
       $content = $(options.content);
       var bgImage = $content.css('backgroundImage').replace(/url\("(.+)"\)/, "$1");
@@ -71,6 +74,15 @@
       $menu.prepend('<li><span class="arrow-nav prev"><a href="#previous">'+Drupal.t('Back')+'</a></span></li>');
       $menu.append('<li><span class="arrow-nav next"><a href="#next">'+Drupal.t('Forward')+'</a></span></li>');
     }
+
+    // Preload all background images to make transitions smother.
+    function backgroundPreload() {      
+      $.get('node2json/preload', function(data) {
+        $(data).each(function() {
+          $('<img/>')[0].src = this;
+         });
+      });
+    }  
 
     // Start the application.
     function start() {

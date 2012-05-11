@@ -22,7 +22,37 @@ function node2json_menu() {
     'type' => MENU_CALLBACK,
   );
 
+   $items['node2json/preload'] = array(
+    'title' => 'JSON preload',
+    'description' => 'Preload images from dynamic background',
+    'page callback' => 'node2json_backgrounds',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+
   return $items;
+}
+
+/**
+ * Loads all node dynamic backgrounds and return them as an encode json array.
+ *  
+ * @TODO Optimize image loading with nid's, so the ajax callback could skip 
+ * that step.
+ */
+function node2json_backgrounds() {
+  $query = db_select('dynamic_background_usage', 'dbu');
+  $query->join('file_managed', 'fm', 'dbu.fid = fm.fid');
+  $query->fields('dbu', array('fid'))
+        ->fields('fm', array('uri'))
+        ->condition('dbu.type', 'node', '=');
+  $result = $query->execute();
+  if ($result) {
+    foreach ($result as $row) {
+      $files[] = file_create_url($row->uri);
+    }
+  }
+
+  return drupal_json_output($files);
 }
 
 /**
