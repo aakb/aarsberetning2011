@@ -10,10 +10,10 @@
 /**
  * Implements hook_menu().
  */
-function jsonnode_menu() {
+function node2json_menu() {
   $items = array();
 
-  $items['ajax/%'] = array(
+  $items['node2json/%'] = array(
     'title' => 'JSON node Ajax callback',
     'description' => 'Ajax callback that returns node information as json.',
     'page callback' => 'jsonnode_ajax',
@@ -34,7 +34,7 @@ function jsonnode_menu() {
  * @return string
  *  JSON encode representation of the node. 
  */
-function jsonnode_ajax($nid) {
+function node2json_ajax($nid) {
   // Load node.
   if (!is_numeric($nid)) {
     $nid = substr(drupal_get_normal_path($nid), 5);

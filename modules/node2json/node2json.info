@@ -2,7 +2,7 @@ name = JSON Node
 description = Render a nodes field and return them as JSON.
 core = 7.x
 
-files[] = jsonnode.module
+files[] = node2json.module
 
 dependencies[] = translation
 dependencies[] = dynamic_background
