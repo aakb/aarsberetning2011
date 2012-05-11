@@ -200,6 +200,13 @@
       return $('.slide', slide);
     }
 
+    // Re-initialize 
+    function fixVideos() {
+      $(".file-video").fitVids({customSelector: "iframe[src^='']"});
+      $(".field-name-field-video").fitVids({customSelector: "iframe[src^='']"});
+      $(".field-name-field-video-custom").fitVids({customSelector: "iframe[src^='']"}); 
+    }
+    
     // Animate the page load (slide/fade).
     function animatePageLoad(data, link, direction) {
       var currentPage = $('.current', $content);
@@ -211,6 +218,7 @@
         // Move content wrapper ( <- ) to show current.
         currentPage.css('right', '0%');
         $content.prepend(slide.css('left', '0%'));
+        fixVideos();
         $content.css('right', '0%').animate({right:'-100%'}, options.slideSpeed, function(){
           currentPage.remove();
 
@@ -228,6 +236,7 @@
       else if (direction == 'right') {
         $content.css('right', '-100%');
         $content.append(slide.css('left', '50%'));
+        fixVideos();
         $content.animate({'right':'0%'}, options.slideSpeed, function(){
           currentPage.remove();
 
@@ -250,6 +259,7 @@
         // Hide slide, append and fade in the slide.
         slide.hide();
         $content.append(slide);
+        fixVideos();
         slide.fadeIn(options.fadeSpeed, function() {
           // Work around when to faste menu clicks, which lead to 0.001232 opacity).
           slide.css('filter', 'alpha(opacity=100)')
