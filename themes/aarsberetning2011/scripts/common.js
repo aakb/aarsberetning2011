@@ -75,14 +75,14 @@
       $menu.append('<li><span class="arrow-nav next"><a href="#next">'+Drupal.t('Forward')+'</a></span></li>');
     }
 
-    // Preload all background images to make transitions smother.
-    function backgroundPreload() {      
+    // Preload all background images to make transitions smoother.
+    function backgroundPreload() {
       $.get('node2json/preload', function(data) {
         $(data).each(function() {
           $('<img/>')[0].src = this;
          });
       });
-    }  
+    }
 
     // Start the application.
     function start() {
@@ -249,18 +249,24 @@
         $content.prepend(slide.css('left', '0%'));
         fixVideos();
         updateLanguageSwitch(data.translations);
-        $content.css('right', '0%').animate({right:'-100%'}, options.slideSpeed, function(){
-          currentPage.remove();
+        $content.css('right', '0%').animate(
+          {right:'-100%'},
+          {
+            duration: options.slideSpeed,
+            easing: 'easeOutCubic',
+            complete: function(){
+              currentPage.remove();
 
-          // Reset slider.
-          $content.css('right', 'auto');
-          slide.css('left', 'auto');
-          slide.removeClass('left').addClass('current');
+              // Reset slider.
+              $content.css('right', 'auto');
+              slide.css('left', 'auto');
+              slide.removeClass('left').addClass('current');
 
-          // Move background to fix scroll
-          slide.css('backgroundImage', 'none');
-          $outer.css('backgroundImage', 'url(\'' + data.background + '\')');
-          isAnimationRunning = false;
+              // Move background to fix scroll
+              slide.css('backgroundImage', 'none');
+              $outer.css('backgroundImage', 'url(\'' + data.background + '\')');
+              isAnimationRunning = false;
+            }
         });
       }
       else if (direction == 'right') {
@@ -268,19 +274,25 @@
         $content.append(slide.css('left', '50%'));
         fixVideos();
         updateLanguageSwitch(data.translations);
-        $content.animate({'right':'0%'}, options.slideSpeed, function(){
-          currentPage.remove();
+        $content.animate(
+          {'right':'0%'},
+          {
+            duration: options.slideSpeed,
+            easing: 'easeOutCubic',
+            complete: function(){
+              currentPage.remove();
 
-          // Reset slider.
-          $content.css('right', 'auto');
-          slide.css('left', 'auto');
-          slide.removeClass('right').addClass('current');
+              // Reset slider.
+              $content.css('right', 'auto');
+              slide.css('left', 'auto');
+              slide.removeClass('right').addClass('current');
 
-          // Move background to fix scroll
-          slide.css('backgroundImage', 'none');
-          $outer.css('backgroundImage', 'url(\'' + data.background + '\')');
+              // Move background to fix scroll
+              slide.css('backgroundImage', 'none');
+              $outer.css('backgroundImage', 'url(\'' + data.background + '\')');
 
-          isAnimationRunning = false;
+              isAnimationRunning = false;
+            }
         });
       }
       else {
