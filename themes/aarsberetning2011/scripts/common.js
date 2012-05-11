@@ -51,13 +51,13 @@
 
       // Wrap inner in slide div.
       $content.wrapInner('<div class="slide current" style="width: 50%"></div>');
-     
+
       // Create fragment that can be used to build slids.
       $fragment = $content.clone();
       $('#region-content .content', $fragment).html('');
       $('#region-sidebar .region-inner', $fragment).html('');
       $('.slide', $fragment).removeClass('current');
-     
+
       // Remove old background.
       $content.css('backgroundImage', 'none');
 
@@ -107,7 +107,7 @@
         else {
           next();
         }
-      });      
+      });
     }
 
     // Used to store page content.
@@ -117,7 +117,7 @@
         'content' : raw.field_body,
         'sidebar' : raw.field_video_custom,
         'background' : raw.image,
-        'translation' : raw.translations,
+        'translations' : raw.translations,
         'language' : raw.language
       }
       cache[key] = data;
@@ -135,7 +135,7 @@
     // Ajax call to get page content.
     function fetchPage(url, link, direction) {
       var path = url == '/' ? '/radmandens-forord' : url;
-      
+
       // Try to get content from cache.
       var key = getHashKey(path);
       var content = loadData(key);
@@ -200,13 +200,26 @@
       return $('.slide', slide);
     }
 
-    // Re-initialize 
+    // Re-initialize fitVids on slide.
     function fixVideos() {
       $(".file-video").fitVids({customSelector: "iframe[src^='']"});
       $(".field-name-field-video").fitVids({customSelector: "iframe[src^='']"});
-      $(".field-name-field-video-custom").fitVids({customSelector: "iframe[src^='']"}); 
+      $(".field-name-field-video-custom").fitVids({customSelector: "iframe[src^='']"});
     }
-    
+
+    // Update languge switch url.
+    function updateLanguageSwitch(translations) {
+      var url;
+      var lang_switch = $('.language-switcher-locale-url li');
+      if (lang_switch.hasClass('en')) {
+        url = 'en/node/' + translations.en.nid;
+      }
+      else {
+        url = 'da/node/' + translations.da.nid;
+      }
+      $('.language-link').attr('href', url);
+    }
+
     // Animate the page load (slide/fade).
     function animatePageLoad(data, link, direction) {
       var currentPage = $('.current', $content);
@@ -219,6 +232,7 @@
         currentPage.css('right', '0%');
         $content.prepend(slide.css('left', '0%'));
         fixVideos();
+        updateLanguageSwitch(data.translations);
         $content.css('right', '0%').animate({right:'-100%'}, options.slideSpeed, function(){
           currentPage.remove();
 
@@ -237,6 +251,7 @@
         $content.css('right', '-100%');
         $content.append(slide.css('left', '50%'));
         fixVideos();
+        updateLanguageSwitch(data.translations);
         $content.animate({'right':'0%'}, options.slideSpeed, function(){
           currentPage.remove();
 
@@ -260,6 +275,7 @@
         slide.hide();
         $content.append(slide);
         fixVideos();
+        updateLanguageSwitch(data.translations);
         slide.fadeIn(options.fadeSpeed, function() {
           // Work around when to faste menu clicks, which lead to 0.001232 opacity).
           slide.css('filter', 'alpha(opacity=100)')
@@ -282,7 +298,7 @@
         moreText: Drupal.t('Read more'),
         lessText: Drupal.t('Hide')
       });
-      
+
     }
 
     // Find the next element in the menu to load (used by next link).
