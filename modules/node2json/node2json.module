@@ -1,0 +1,72 @@
+<?php
+
+/**
+ * @file
+ * Json node module exposes the path ajax/%, whihc can be used to render a nodes
+ * fields and return them as json. The returned json also contins information
+ * from dynamic background and node translation.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function node2json_menu() {
+  $items = array();
+
+  $items['node2json/%'] = array(
+    'title' => 'JSON node Ajax callback',
+    'description' => 'Ajax callback that returns node information as json.',
+    'page callback' => 'node2json_ajax',
+    'page arguments' => array(1),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+/**
+ * Loads information about the node and returns the information as an json 
+ * encoded string.
+ * 
+ * @param string $nid
+ *  Node path or node id.
+ * @return string
+ *  JSON encode representation of the node. 
+ */
+function node2json_ajax($nid) {
+  // Load node.
+  if (!is_numeric($nid)) {
+    $nid = substr(drupal_get_normal_path($nid), 5);
+  }
+  $node = node_load($nid);
+  $node_array = node_view($node, $view_mode = 'full');
+
+  // Render the nodes field.
+  $data = array();
+  foreach ($node_array as $key => $value) {
+    if (strstr($key, 'field_')) {
+      $data[$key] = drupal_render($node_array[$key]);
+    }
+  }
+  $data['page_title'] = $node->title;
+  
+  // Get dynamic background image for the node.
+  $data['image'] = FALSE;
+  $image = dynamic_background_active_image('node', $nid);
+  if ($image) {
+    // Load image style settings.
+    $image_style = variable_get('dynamic_background_node_image_style', FALSE);
+    if ($image_style && $image_style['style']) {
+      $image->uri = image_style_path($image_style['style'], $image->uri);
+    }
+    $data['image'] = file_create_url($image->uri);
+  }
+
+  // Find translation information about the node.
+  $data['translations'] = translation_node_get_translations($node->tnid);
+  $data['language'] = $node->language;
+
+  // Return the information collected from the node.
+  return drupal_json_output($data);
+}
