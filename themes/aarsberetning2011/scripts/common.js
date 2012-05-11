@@ -17,11 +17,12 @@
   *   stop - End the animation (mostly for development).
   */
   var slider = (function() {
-    var $menu = undefined;
-    var $content = undefined;
-    var $outer = undefined;
+    var $menu;
+    var $content;
+    var $outer;
     var isAnimationRunning = false;
     var cache = {};
+    var $fragment;
 
     var options = {
       menu: '.region-menu ul',
@@ -48,13 +49,15 @@
       $outer.css('background-image', 'url(\'' + bgImage + '\')');
       $content.css({'width': '200%', 'position': 'absolute'});
 
-      var slide = buildSlide($content.html(), bgImage);
-      saveData($content.html(), bgImage, getHashKey());
-      $content.html(slide);
+      // Wrap inner in slide div.
+      $content.wrapInner('<div class="slide current" style="width: 50%"></div>');
      
-      // Add information to current slide.
-      $('.slide', $content).addClass('current');
-
+      // Create fragment that can be used to build slids.
+      $fragment = $content.clone();
+      $('#region-content .content', $fragment).html('');
+      $('#region-sidebar .region-inner', $fragment).html('');
+      $('.slide', $fragment).removeClass('current');
+     
       // Remove old background.
       $content.css('backgroundImage', 'none');
 
@@ -108,8 +111,15 @@
     }
 
     // Used to store page content.
-    function saveData(content, bgImage, key) {
-      var data = {'background': bgImage, 'content' : content};
+    function saveData(raw, key) {
+      var data = {
+        'page_title' : raw.page_title,
+        'content' : raw.field_body,
+        'sidebar' : raw.field_video_custom,
+        'background' : raw.image,
+        'translation' : raw.translations,
+        'language' : raw.language
+      }
       cache[key] = data;
       return data;
     }
@@ -124,8 +134,10 @@
 
     // Ajax call to get page content.
     function fetchPage(url, link, direction) {
+      var path = url == '/' ? '/radmandens-forord' : url;
+      
       // Try to get content from cache.
-      var key = getHashKey(url);
+      var key = getHashKey(path);
       var content = loadData(key);
       if (content !== null) {
         // Found content in cache.
@@ -133,18 +145,12 @@
       }
       else {
         // The ajax query string is used to change theme in the backend.
-        $.get(url + '?ajax=1', function(data) {
-          data = saveData(data.content, data.background, key);
+        $.get('node2json' + path, function(data) {
+          data = saveData(data, key);
           animatePageLoad(data, link, direction);
         });
       }
       addHashtag(key);
-    }
-
-    // Build slide div.
-    function buildSlide(content, bgImage) {
-      if (bgImage === undefined) {bgImage = '';}
-      return '<div class="slide" style="width: 50%; background-image: url(\'' + bgImage + '\')">' + content + '</div>';
     }
 
     // Build hash key based on url, if non provied current path will be used.
@@ -184,12 +190,22 @@
       link.addClass('active');
     }
 
+    // Build slide div.
+    function buildSlide(data, slide_class) {
+      var slide = $fragment.clone();
+      $('#region-content .content', slide).html(data.content);
+      $('#region-sidebar .region-inner', slide).html(data.sidebar);
+      $('#page-title', slide).html(data.page_title);
+      $('.slide', slide).removeClass(slide_class).css('backgroundImage', 'url(\'' + data.background + '\')');
+      return $('.slide', slide);
+    }
+
     // Animate the page load (slide/fade).
     function animatePageLoad(data, link, direction) {
       var currentPage = $('.current', $content);
 
       // Fix content by wrapping in slide div.
-      var slide = $(buildSlide(data.content, data.background)).addClass(direction);
+      var slide = buildSlide(data, direction);
 
       if (direction == 'left') {
         // Move content wrapper ( <- ) to show current.
