@@ -210,14 +210,16 @@
     // Update languge switch url.
     function updateLanguageSwitch(translations) {
       var url;
-      var lang_switch = $('.language-switcher-locale-url li');
-      if (lang_switch.hasClass('en')) {
-        url = 'en/node/' + translations.en.nid;
+      if (translations != null) {
+        var lang_switch = $('.language-switcher-locale-url li');
+        if (lang_switch.hasClass('en')) {
+          url = 'en/node/' + translations.en.nid;
+        }
+        else {
+          url = 'da/node/' + translations.da.nid;
+        }
+        $('.language-link').attr('href', url);
       }
-      else {
-        url = 'da/node/' + translations.da.nid;
-      }
-      $('.language-link').attr('href', url);
     }
 
     // Animate the page load (slide/fade).
