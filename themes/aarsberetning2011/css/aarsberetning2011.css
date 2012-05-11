@@ -114,16 +114,35 @@ body h1.title {
   margin-bottom: 0.9em;
   margin-left: -2px;
 }
-/* line 34, ../sass/typography.scss */
+/* line 35, ../sass/typography.scss */
+body h2,
+body h3,
+body h4 {
+  font-weight: bold;
+  margin-bottom: 0.1em;
+}
+/* line 39, ../sass/typography.scss */
+body h2 {
+  font-size: 21px;
+}
+/* line 42, ../sass/typography.scss */
+body h3 {
+  font-size: 17.5px;
+}
+/* line 45, ../sass/typography.scss */
+body h4 {
+  font-size: 15.75px;
+}
+/* line 49, ../sass/typography.scss */
 body .content p {
   margin-bottom: 1em;
 }
-/* line 38, ../sass/typography.scss */
+/* line 53, ../sass/typography.scss */
 body .content ul li {
   list-style: square;
   margin-left: 1em;
 }
-/* line 43, ../sass/typography.scss */
+/* line 58, ../sass/typography.scss */
 body .content strong {
   font-weight: bold;
 }
