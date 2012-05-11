@@ -186,8 +186,10 @@
 
     // Update active class in the menu.
     function updateActiveMenu(link) {
-      $('a', $menu).removeClass('active');
-      link.addClass('active');
+      $('a', $menu).removeClass('active').removeClass('active-trail');
+      $('li.active', $menu).removeClass('active').removeClass('active-trail');
+      link.addClass('active').addClass('active-trail');
+      link.parent().parent().addClass('active').addClass('active-trail');
     }
 
     // Build slide div.
