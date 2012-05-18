@@ -6,3 +6,36 @@ body {
 #zone-content-wrapper {
   width: 100%;
 }
+
+// Fix menu in IE 7
+.section-header {
+  z-index: 11px;
+}
+
+.zone-menu-wrapper {
+  left: 0;
+}
+
+// background-size: cover in IE: http://kimili.com/journal/the-flexible-scalable-background-image-redux
+
+img#expando {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  -ms-interpolation-mode: bicubic;
+}
+
+.wide img#expando,
+.tall img#expando {
+  display: block;
+}
+
+.wide img#expando {
+  height: auto;
+  width: 100%;
+}
+
+.tall img#expando {
+  height: 100%;
+  width: auto;
+}
