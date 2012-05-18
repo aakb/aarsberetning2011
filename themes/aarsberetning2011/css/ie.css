@@ -8,17 +8,18 @@ body {
   width: 100%;
 }
 
-/* line 11, ../sass/ie.scss */
-.section-header {
+/* line 12, ../sass/ie.scss */
+.section-header,
+.region-secondary-menu {
   z-index: 11;
 }
 
-/* line 15, ../sass/ie.scss */
+/* line 16, ../sass/ie.scss */
 .zone-menu-wrapper {
   left: 0;
 }
 
-/* line 21, ../sass/ie.scss */
+/* line 22, ../sass/ie.scss */
 img#expando {
   display: none;
   position: absolute;
@@ -26,19 +27,19 @@ img#expando {
   -ms-interpolation-mode: bicubic;
 }
 
-/* line 29, ../sass/ie.scss */
+/* line 30, ../sass/ie.scss */
 .wide img#expando,
 .tall img#expando {
   display: block;
 }
 
-/* line 33, ../sass/ie.scss */
+/* line 34, ../sass/ie.scss */
 .wide img#expando {
   height: auto;
   width: 100%;
 }
 
-/* line 38, ../sass/ie.scss */
+/* line 39, ../sass/ie.scss */
 .tall img#expando {
   height: 100%;
   width: auto;

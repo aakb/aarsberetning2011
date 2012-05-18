@@ -7,8 +7,9 @@ body {
   width: 100%;
 }
 
-// Fix menu in IE 7
-.section-header {
+// Fix menus in IE 7
+.section-header,
+.region-secondary-menu {
   z-index: 11;
 }
 
