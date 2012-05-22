@@ -90,21 +90,21 @@
     clear: both;
   }
 }
-@media screen and (max-width: 720px) {
-  /* line 95, ../sass/mediaqueries.scss */
-  header .region-secondary-menu {
-    position: relative;
-    top: 100px;
-  }
-}
 @media screen and (max-width: 550px) {
-  /* line 106, ../sass/mediaqueries.scss */
+  /* line 96, ../sass/mediaqueries.scss */
   header .zone-branding .site-name {
     margin-top: 3em;
     margin-left: 1em;
   }
-  /* line 109, ../sass/mediaqueries.scss */
+  /* line 99, ../sass/mediaqueries.scss */
   header .zone-branding .site-name a {
     margin: auto;
+  }
+}
+@media screen and (max-width: 360px) {
+  /* line 110, ../sass/mediaqueries.scss */
+  header .region-secondary-menu {
+    position: relative;
+    top: 100px;
   }
 }

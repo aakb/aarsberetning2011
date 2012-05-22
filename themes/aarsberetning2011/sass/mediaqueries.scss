@@ -89,16 +89,6 @@
   }
 }
 
-//720
-@media screen and (max-width: 720px) {
-  header {
-    .region-secondary-menu {
-      position: relative;
-      top: 100px;
-    }
-  }
-}
-
 // 550
 @media screen and (max-width: 550px) {
   header {
@@ -110,6 +100,16 @@
           margin: auto;
         }
       }
+    }
+  }
+}
+
+//360
+@media screen and (max-width: 360px) {
+  header {
+    .region-secondary-menu {
+      position: relative;
+      top: 100px;
     }
   }
 }
