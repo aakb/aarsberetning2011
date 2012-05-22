@@ -419,7 +419,11 @@
             "text": " - " + $(this).text()
           }).appendTo("select:last");
         });
-
+        
+        // To make dropdown actually work
+        $("select", source).change(function() {
+          window.location = $(this).find("option:selected").val();
+        });
       });
     }
   }
