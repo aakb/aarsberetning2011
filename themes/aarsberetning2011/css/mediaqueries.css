@@ -108,7 +108,7 @@
     top: -30px;
   }
   /* line 113, ../sass/mediaqueries.scss */
-  header .region-branding .site-name {
-    font-size: 7px;
+  header .region-branding .site-name a {
+    font-size: 10.5px;
   }
 }

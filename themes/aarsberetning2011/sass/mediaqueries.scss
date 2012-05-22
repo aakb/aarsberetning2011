@@ -110,8 +110,8 @@
   header {
     .region-branding {
       top: -30px;
-      .site-name {
-        font-size: $font-size-default * 0.5;
+      .site-name a {
+        font-size: $font-size-default * 0.75;
       }
     }
   }
