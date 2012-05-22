@@ -91,12 +91,17 @@
   }
 }
 @media screen and (max-width: 550px) {
-  /* line 96, ../sass/mediaqueries.scss */
+  /* line 95, ../sass/mediaqueries.scss */
+  header .region-secondary-menu {
+    position: relative;
+    top: 100px;
+  }
+  /* line 100, ../sass/mediaqueries.scss */
   header .zone-branding .site-name {
     margin-top: 3em;
     margin-left: 1em;
   }
-  /* line 99, ../sass/mediaqueries.scss */
+  /* line 103, ../sass/mediaqueries.scss */
   header .zone-branding .site-name a {
     margin: auto;
   }
