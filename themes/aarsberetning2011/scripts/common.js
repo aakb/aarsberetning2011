@@ -146,7 +146,7 @@
 
     // Ajax call to get page content.
     function fetchPage(url, link, direction) {
-      var path = url == '/' ? '/radmandens-forord' : url;
+      var path = url == '/' ? '/forord' : url;
 
       // Try to get content from cache.
       var key = getHashKey(path);
