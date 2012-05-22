@@ -103,6 +103,10 @@ header {
       color: $text-color;
     }
     text-transform: uppercase;
+    .mobile-menu {
+      display: none;
+      float: right;
+    }
     .region-secondary-menu-inner>nav,
     .region-secondary-menu-inner>div {
       float: right;

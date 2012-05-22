@@ -73,38 +73,14 @@
         }
       }
     }
-    .region-secondary-menu-inner {
+    .region-secondary-menu {
       position: relative;
-      top: 70px;
-      .block-locale-language, .menu-dropdown {
-        background-color: $color-light;
-        @include border-radius(5px);
-        padding: $small-padding $medium-padding;
+      top: 50px;
+      .menu-dropdown {
+        display: none;
       }
-      .block-locale-language {
-        border: 0;
-      }
-    }
-    .menu-dropdown {
-      position: relative;
-      z-index: 1000001;
-      ul {
-        background-color: $color-light;
-        padding-top: 45px;
-        top: 0;
-        z-index: -1;
-        li {
-          padding: $small-padding $medium-padding;
-          li {
-            padding: 0;
-          }
-          ul {
-            top: 0;
-            li {
-              padding: $small-padding 0;
-            }
-          }
-        }
+      .mobile-menu {
+        display: block;
       }
     }
   }
