@@ -101,3 +101,9 @@
     margin: auto;
   }
 }
+@media screen and (max-width: 400px) {
+  /* line 109, ../sass/mediaqueries.scss */
+  .zone-branding {
+    top: -20px;
+  }
+}
