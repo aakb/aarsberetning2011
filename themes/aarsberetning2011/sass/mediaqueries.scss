@@ -62,13 +62,14 @@
   header {
     .zone-branding {
       position: relative;
-      top: -30px;
+      top: -10px;
       .site-name {
         margin-top: $large-spacing;
         margin-left: $small-spacing;
         a {
           font-size: $font-size-default * 1.15;
           margin: auto;
+          width: 100%;
           @include transition-duration(1s);
         }
       }
@@ -104,12 +105,12 @@
   }
 }
 
-//360
-@media screen and (max-width: 360px) {
+//400
+@media screen and (max-width: 400px) {
   header {
     .region-secondary-menu {
       position: relative;
-      top: 100px;
+      top: 80px;
     }
   }
 }
