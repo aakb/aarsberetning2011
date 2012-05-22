@@ -75,7 +75,7 @@
   /* line 77, ../sass/mediaqueries.scss */
   header .region-secondary-menu {
     position: relative;
-    top: 60px;
+    top: 45px;
   }
   /* line 80, ../sass/mediaqueries.scss */
   header .region-secondary-menu .menu-dropdown {
@@ -106,5 +106,9 @@
   /* line 111, ../sass/mediaqueries.scss */
   header .region-branding {
     top: -30px;
+  }
+  /* line 113, ../sass/mediaqueries.scss */
+  header .region-branding .site-name {
+    font-size: 14px;
   }
 }
