@@ -52,17 +52,17 @@
 }
 @media screen and (max-width: 779px) {
   /* line 63, ../sass/mediaqueries.scss */
-  header .zone-branding {
+  header .region-branding {
     position: relative;
     top: -10px;
   }
   /* line 66, ../sass/mediaqueries.scss */
-  header .zone-branding .site-name {
+  header .region-branding .site-name {
     margin-top: 3em;
     margin-left: 1em;
   }
   /* line 69, ../sass/mediaqueries.scss */
-  header .zone-branding .site-name a {
+  header .region-branding .site-name a {
     font-size: 16.1px;
     margin: auto;
     -webkit-transition-duration: 1s;
@@ -92,18 +92,18 @@
 }
 @media screen and (max-width: 550px) {
   /* line 96, ../sass/mediaqueries.scss */
-  header .zone-branding .site-name {
+  header .region-branding .site-name {
     margin-top: 3em;
     margin-left: 1em;
   }
   /* line 99, ../sass/mediaqueries.scss */
-  header .zone-branding .site-name a {
+  header .region-branding .site-name a {
     margin: auto;
   }
 }
 @media screen and (max-width: 400px) {
   /* line 109, ../sass/mediaqueries.scss */
-  .zone-branding {
+  .region-branding {
     top: -20px;
   }
 }

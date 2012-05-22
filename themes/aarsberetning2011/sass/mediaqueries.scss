@@ -60,7 +60,7 @@
 // 768
 @media screen and (max-width: 779px) {
   header {
-    .zone-branding {
+    .region-branding {
       position: relative;
       top: -10px;
       .site-name {
@@ -92,7 +92,7 @@
 // 550
 @media screen and (max-width: 550px) {
   header {
-    .zone-branding {
+    .region-branding {
       .site-name {
         margin-top: $large-spacing;
         margin-left: $small-spacing;
@@ -106,7 +106,7 @@
 
 //400
 @media screen and (max-width: 400px) {
-  .zone-branding {
+  .region-branding {
     top: -20px;
   }
 }
