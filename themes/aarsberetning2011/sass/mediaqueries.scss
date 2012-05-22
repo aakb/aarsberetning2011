@@ -69,6 +69,7 @@
         a {
           font-size: $font-size-default * 1.15;
           margin: auto;
+          text-decoration: none;
           @include transition-duration(1s);
         }
       }
@@ -107,6 +108,7 @@
 //400
 @media screen and (max-width: 400px) {
   .region-branding {
+position:relative;
     top: -60px;
 background-color: Red;
   }
