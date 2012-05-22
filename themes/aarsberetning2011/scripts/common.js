@@ -442,7 +442,7 @@
       slider.init();
       slider.start();
     }
-    
+    alert($(window).width())
     // Adds event to the dropdown menus
     menuDropdown();
     menuToSelect(".region-secondary-menu-inner");   
