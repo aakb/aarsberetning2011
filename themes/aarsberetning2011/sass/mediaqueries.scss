@@ -76,7 +76,7 @@
     }
     .region-secondary-menu {
       position: relative;
-      top: 45px;
+      top: 35px;
       .menu-dropdown {
         display: none;
       }
@@ -114,5 +114,8 @@
         font-size: $font-size-default * .9;
       }
     }
+.region-secondary-menu {
+  right: $medium-padding;
+}
   }
 }
