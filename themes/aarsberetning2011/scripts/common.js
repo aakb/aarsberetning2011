@@ -45,7 +45,7 @@
       // Extract background image.
       $content = $(options.content);
       var bgImage = $content.css('backgroundImage').replace(/url\((.+)\)/, "$1").replace(/"/g, "");
-      alert(bgImage);
+      
       // Build wrapper content.
       $outer = $(options.outer);
       $outer.css({'overflow-x':'hidden'});
