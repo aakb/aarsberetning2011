@@ -69,7 +69,6 @@
         a {
           font-size: $font-size-default * 1.15;
           margin: auto;
-          width: 100%;
           @include transition-duration(1s);
         }
       }
@@ -107,13 +106,5 @@
 
 //400
 @media screen and (max-width: 400px) {
-  header {
-    .region-secondary-menu {
-      position: relative;
-      top: 80px;
-    }
-    .zone-branding {
-      top: -20px;
-    }
-  }
+  
 }

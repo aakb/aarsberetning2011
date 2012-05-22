@@ -65,51 +65,39 @@
   header .zone-branding .site-name a {
     font-size: 16.1px;
     margin: auto;
-    width: 100%;
     -webkit-transition-duration: 1s;
     -moz-transition-duration: 1s;
     -ms-transition-duration: 1s;
     -o-transition-duration: 1s;
     transition-duration: 1s;
   }
-  /* line 77, ../sass/mediaqueries.scss */
+  /* line 76, ../sass/mediaqueries.scss */
   header .region-secondary-menu {
     position: relative;
     top: 60px;
   }
-  /* line 80, ../sass/mediaqueries.scss */
+  /* line 79, ../sass/mediaqueries.scss */
   header .region-secondary-menu .menu-dropdown {
     display: none;
   }
-  /* line 83, ../sass/mediaqueries.scss */
+  /* line 82, ../sass/mediaqueries.scss */
   header .region-secondary-menu .mobile-menu {
     display: block;
   }
 
-  /* line 88, ../sass/mediaqueries.scss */
+  /* line 87, ../sass/mediaqueries.scss */
   .region {
     clear: both;
   }
 }
 @media screen and (max-width: 550px) {
-  /* line 97, ../sass/mediaqueries.scss */
+  /* line 96, ../sass/mediaqueries.scss */
   header .zone-branding .site-name {
     margin-top: 3em;
     margin-left: 1em;
   }
-  /* line 100, ../sass/mediaqueries.scss */
+  /* line 99, ../sass/mediaqueries.scss */
   header .zone-branding .site-name a {
     margin: auto;
-  }
-}
-@media screen and (max-width: 400px) {
-  /* line 111, ../sass/mediaqueries.scss */
-  header .region-secondary-menu {
-    position: relative;
-    top: 80px;
-  }
-  /* line 115, ../sass/mediaqueries.scss */
-  header .zone-branding {
-    top: -20px;
   }
 }
