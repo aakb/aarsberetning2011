@@ -92,10 +92,6 @@
 // 550
 @media screen and (max-width: 550px) {
   header {
-    .region-secondary-menu {
-      position: relative;
-      top: 100px;
-    }
     .zone-branding {
       .site-name {
         margin-top: $large-spacing;
@@ -104,6 +100,16 @@
           margin: auto;
         }
       }
+    }
+  }
+}
+
+//320
+@media screen and (max-width: 320px) {
+  header {
+    .region-secondary-menu {
+      position: relative;
+      top: 100px;
     }
   }
 }
