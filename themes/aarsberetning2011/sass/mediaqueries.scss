@@ -107,9 +107,9 @@
 
 //400
 @media screen and (max-width: 400px) {
-  .region-branding {
-position:absolute;
-    top: 200px;
-background-color: Red;
+  header {
+    .region-branding {
+      top: -10px;
+    }
   }
 }

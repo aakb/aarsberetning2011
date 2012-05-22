@@ -103,10 +103,8 @@
   }
 }
 @media screen and (max-width: 400px) {
-  /* line 110, ../sass/mediaqueries.scss */
-  .region-branding {
-    position: absolute;
-    top: 200px;
-    background-color: Red;
+  /* line 111, ../sass/mediaqueries.scss */
+  header .region-branding {
+    top: -10px;
   }
 }
