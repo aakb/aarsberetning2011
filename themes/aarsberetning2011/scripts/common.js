@@ -403,7 +403,6 @@
 
       // Populate dropdown with menu items
       $(source).each(function() {
-
         var el = $(this);
 
         children    = el.find("li");
@@ -414,9 +413,17 @@
         }).appendTo("select:last");
 
         children.find("a").each(function() {
+          var href = $(this).attr("href");
+          var selected = '';
+          
+          if(document.location.href.indexOf(href) > -1) {
+            selected = 'selected"';
+          }
+            
           $("<option />", {
-            "value" : $(this).attr("href"),
-            "text": " - " + $(this).text()
+            "value" : href,
+            "text" : " - " + $(this).text(),
+            "selected" : selected
           }).appendTo("select:last");
         });
         
