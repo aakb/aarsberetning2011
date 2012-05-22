@@ -108,4 +108,8 @@
     position: relative;
     top: 80px;
   }
+  /* line 115, ../sass/mediaqueries.scss */
+  header .zone-branding {
+    top: -20px;
+  }
 }
