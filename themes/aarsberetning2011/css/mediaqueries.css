@@ -105,5 +105,6 @@
   /* line 109, ../sass/mediaqueries.scss */
   .region-branding {
     top: -40px;
+    background-color: Red;
   }
 }
