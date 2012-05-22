@@ -413,17 +413,9 @@
         }).appendTo("select:last");
 
         children.find("a").each(function() {
-          var href = $(this).attr("href");
-          var selected = '';
-          
-          if(document.location.href.indexOf(href) > -1) {
-            selected = 'selected"';
-          }
-            
           $("<option />", {
-            "value" : href,
-            "text" : " - " + $(this).text(),
-            "selected" : selected
+            "value" : $(this).attr("href"),
+            "text" : " - " + $(this).text()
           }).appendTo("select:last");
         });
         
