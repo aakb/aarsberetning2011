@@ -104,7 +104,7 @@
 @media screen and (max-width: 400px) {
   /* line 109, ../sass/mediaqueries.scss */
   .region-branding {
-    top: -40px;
+    top: -60px;
     background-color: Red;
   }
 }
