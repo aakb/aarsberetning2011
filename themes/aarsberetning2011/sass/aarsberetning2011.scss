@@ -54,14 +54,14 @@ body {
 .menu-dropdown {
   cursor: pointer;
   .block-title {
-    background: url('../images/nav-arrow-small.png') no-repeat right 1px;
+    background: url('../images/nav-arrow-small.png') no-repeat right 2px;
     padding-right: $small-padding * 1.75;
     &:hover {
       text-decoration: underline;
     }
   }
   ul {
-    @include rgba-background(#fff, .9);
+    @include rgba-background($color-lighter, .9);
     display: none;
     padding: $small-padding;
     position: absolute;
@@ -80,9 +80,8 @@ body {
         li {
           padding-right: $small-padding * 0.5;
           a {
-            &:after {
-              content: " -";
-            }
+            color: $text-secondary-color;
+            font-size: $font-size-default * .8;
           }
         }
       }    
@@ -91,7 +90,7 @@ body {
 }
 
 header {
-  background: #fff;
+  background: $color-lighter;
   height: 7em;
   left: 0;
   position: absolute;
@@ -101,9 +100,13 @@ header {
     font-size: $font-size-default * .9;
     margin-top: $small-padding;
     a {
-    color: $text-secondary-color;
+      color: $text-color;
     }
     text-transform: uppercase;
+    .mobile-menu {
+      display: none;
+      float: right;
+    }
     .region-secondary-menu-inner>nav,
     .region-secondary-menu-inner>div {
       float: right;

@@ -52,86 +52,67 @@
 }
 @media screen and (max-width: 779px) {
   /* line 63, ../sass/mediaqueries.scss */
-  header .zone-branding {
+  header .region-branding {
     position: relative;
-    top: -30px;
+    top: -10px;
   }
   /* line 66, ../sass/mediaqueries.scss */
-  header .zone-branding .site-name {
+  header .region-branding .site-name {
     margin-top: 3em;
     margin-left: 1em;
   }
   /* line 69, ../sass/mediaqueries.scss */
-  header .zone-branding .site-name a {
+  header .region-branding .site-name a {
     font-size: 16.1px;
     margin: auto;
+    text-decoration: none;
     -webkit-transition-duration: 1s;
     -moz-transition-duration: 1s;
     -ms-transition-duration: 1s;
     -o-transition-duration: 1s;
     transition-duration: 1s;
   }
-  /* line 76, ../sass/mediaqueries.scss */
-  header .region-secondary-menu-inner {
+  /* line 77, ../sass/mediaqueries.scss */
+  header .region-secondary-menu {
     position: relative;
-    top: 70px;
+    top: 35px;
   }
-  /* line 79, ../sass/mediaqueries.scss */
-  header .region-secondary-menu-inner .block-locale-language, header .region-secondary-menu-inner .menu-dropdown {
-    background-color: #cccccc;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-    border-radius: 5px;
-    padding: 1em 2em;
+  /* line 80, ../sass/mediaqueries.scss */
+  header .region-secondary-menu .menu-dropdown {
+    display: none;
   }
-  /* line 84, ../sass/mediaqueries.scss */
-  header .region-secondary-menu-inner .block-locale-language {
-    border: 0;
-  }
-  /* line 88, ../sass/mediaqueries.scss */
-  header .menu-dropdown {
-    position: relative;
-    z-index: 1000001;
-  }
-  /* line 91, ../sass/mediaqueries.scss */
-  header .menu-dropdown ul {
-    background-color: #cccccc;
-    padding-top: 45px;
-    top: 0;
-    z-index: -1;
-  }
-  /* line 96, ../sass/mediaqueries.scss */
-  header .menu-dropdown ul li {
-    padding: 1em 2em;
-  }
-  /* line 98, ../sass/mediaqueries.scss */
-  header .menu-dropdown ul li li {
-    padding: 0;
-  }
-  /* line 101, ../sass/mediaqueries.scss */
-  header .menu-dropdown ul li ul {
-    top: 0;
-  }
-  /* line 103, ../sass/mediaqueries.scss */
-  header .menu-dropdown ul li ul li {
-    padding: 1em 0;
+  /* line 83, ../sass/mediaqueries.scss */
+  header .region-secondary-menu .mobile-menu {
+    display: block;
   }
 
-  /* line 111, ../sass/mediaqueries.scss */
+  /* line 88, ../sass/mediaqueries.scss */
   .region {
     clear: both;
   }
 }
 @media screen and (max-width: 550px) {
-  /* line 120, ../sass/mediaqueries.scss */
-  header .zone-branding .site-name {
+  /* line 97, ../sass/mediaqueries.scss */
+  header .region-branding .site-name {
     margin-top: 3em;
     margin-left: 1em;
   }
-  /* line 123, ../sass/mediaqueries.scss */
-  header .zone-branding .site-name a {
+  /* line 100, ../sass/mediaqueries.scss */
+  header .region-branding .site-name a {
     margin: auto;
+  }
+}
+@media screen and (max-width: 400px) {
+  /* line 111, ../sass/mediaqueries.scss */
+  header .region-branding {
+    top: -30px;
+  }
+  /* line 113, ../sass/mediaqueries.scss */
+  header .region-branding .site-name a {
+    font-size: 12.6px;
+  }
+  /* line 117, ../sass/mediaqueries.scss */
+  header .region-secondary-menu {
+    right: 1em;
   }
 }

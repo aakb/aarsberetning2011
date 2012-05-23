@@ -44,8 +44,8 @@
 
       // Extract background image.
       $content = $(options.content);
-      var bgImage = $content.css('backgroundImage').replace(/url\("(.+)"\)/, "$1");
-
+      var bgImage = $content.css('backgroundImage').replace(/url\((.+)\)/, "$1").replace(/"/g, "");
+      
       // Build wrapper content.
       $outer = $(options.outer);
       $outer.css({'overflow-x':'hidden'});
@@ -146,7 +146,7 @@
 
     // Ajax call to get page content.
     function fetchPage(url, link, direction) {
-      var path = url == '/' ? '/radmandens-forord' : url;
+      var path = url == '/' ? '/forord' : url;
 
       // Try to get content from cache.
       var key = getHashKey(path);
@@ -375,7 +375,57 @@
       menu.css('display', (menu.css('display') == 'none' ? 'block' : 'none'));
     });
   }
+  
+  /**
+   * Defines function().
+   * Creates <select /> from menu block.
+   */
+  function menuToSelect(source) {
+    
+    // Make sure there is a reason to create the menu.
+    if ($(source).find("ul").length) {
+      // Create wrapper for mobile menu.
+      $("<div />", {
+        "class" : "mobile-menu"
+      }).prependTo(source);
+      
 
+      // Create the dropdown base
+      $("<select />", {
+      }).appendTo(".mobile-menu", $(source));
+
+      // Create default option "Go to..."
+      $("<option />", {
+         "selected": "selected",
+         "value"   : "",
+         "text"    : Drupal.t('Menu')
+      }).appendTo($("select", source));
+
+      // Populate dropdown with menu items
+      $(source).each(function() {
+        var el = $(this);
+
+        children    = el.find("li");
+
+        $("<option />", {
+          "value" : el.find("> h2 > a").attr("href"),
+          "text"  : el.find("> h2 > a").text()
+        }).appendTo("select:last");
+
+        children.find("a").each(function() {
+          $("<option />", {
+            "value" : $(this).attr("href"),
+            "text" : " - " + $(this).text()
+          }).appendTo("select:last");
+        });
+        
+        // To make dropdown actually work
+        $("select", source).change(function() {
+          window.location = $(this).find("option:selected").val();
+        });
+      });
+    }
+  }
   // Load the module and start the fun.
   $(document).ready(function() {
     // Don't run code for logged in users, as it give problems with node edit
@@ -384,8 +434,9 @@
       slider.init();
       slider.start();
     }
-
+    
     // Adds event to the dropdown menus
     menuDropdown();
+    menuToSelect(".region-secondary-menu-inner");   
   });
 }) (jQuery);
