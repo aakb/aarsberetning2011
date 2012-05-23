@@ -126,7 +126,7 @@
     function saveData(raw, key) {
       var data = {
         'page_title' : raw.page_title,
-        'content' : raw.field_title_image + "\n" + raw.field_body,
+        'content' : (raw.field_title_image == undefined ? '' : raw.field_title_image + "\n") + raw.field_body,
         'sidebar' : raw.field_video_custom,
         'background' : raw.image,
         'translations' : raw.translations,
@@ -216,8 +216,6 @@
 
     // Re-initialize fitVids on slide.
     function fixVideos() {
-      $(".file-video").fitVids({customSelector: "iframe[src^='']"});
-      $(".field-name-field-video").fitVids({customSelector: "iframe[src^='']"});
       $(".field-name-field-video-custom").fitVids({customSelector: "iframe[src^='']"});
     }
 
