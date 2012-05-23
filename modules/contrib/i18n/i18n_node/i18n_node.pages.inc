@@ -111,7 +111,7 @@ function i18n_node_translation_overview($node) {
  */
 function i18n_node_translation_link($text, $path, $langcode, $options = array()) {
   // We may want to switch interface for translation (core default) or not
-  if (variable_get_value('i18n_node_translation_switch')) {
+  if (variable_get('i18n_node_translation_switch')) {
     $type = variable_get('translation_language_type', LANGUAGE_TYPE_INTERFACE);
     $links = language_negotiation_get_switch_links($type, $path);
     // When node not published, links don't have href so we use path instead
