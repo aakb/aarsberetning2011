@@ -126,7 +126,7 @@
     function saveData(raw, key) {
       var data = {
         'page_title' : raw.page_title,
-        'content' : raw.field_body,
+        'content' : raw.field_title_image + "\n" + raw.field_body,
         'sidebar' : raw.field_video_custom,
         'background' : raw.image,
         'translations' : raw.translations,
@@ -319,14 +319,6 @@
       }
       updateActiveMenu(link);
       addHashtag(getHashKey(link.attr('href')));
-
-      // Add jTruncate to content.
-      $('.content .field-name-field-body').jTruncate({
-        length: 1000,
-        moreText: Drupal.t('Read more'),
-        lessText: Drupal.t('Hide')
-      });
-
     }
 
     // Find the next element in the menu to load (used by next link).
@@ -426,6 +418,7 @@
       });
     }
   }
+  
   // Load the module and start the fun.
   $(document).ready(function() {
     // Don't run code for logged in users, as it give problems with node edit
