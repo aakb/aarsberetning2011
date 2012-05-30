@@ -13,11 +13,10 @@
 function node2json_menu() {
   $items = array();
 
-  $items['node2json/%'] = array(
+  $items['node2json'] = array(
     'title' => 'JSON node Ajax callback',
     'description' => 'Ajax callback that returns node information as json.',
     'page callback' => 'node2json_ajax',
-    'page arguments' => array(1),
     'access callback' => TRUE,
     'type' => MENU_CALLBACK,
   );
@@ -35,8 +34,8 @@ function node2json_menu() {
 
 /**
  * Loads all node dynamic backgrounds and return them as an encode json array.
- *  
- * @TODO Optimize image loading with nid's, so the ajax callback could skip 
+ *
+ * @TODO Optimize image loading with nid's, so the ajax callback could skip
  * that step.
  */
 function node2json_backgrounds() {
@@ -56,18 +55,22 @@ function node2json_backgrounds() {
 }
 
 /**
- * Loads information about the node and returns the information as an json 
+ * Loads information about the node and returns the information as an json
  * encoded string.
- * 
+ *
  * @param string $nid
  *  Node path or node id.
  * @return string
- *  JSON encode representation of the node. 
+ *  JSON encode representation of the node.
  */
-function node2json_ajax($nid) {
+function node2json_ajax() {
+  // Get path and remove possible language strings.
+  $path = $_POST['node2json_path'];
+  $path = str_replace('en/', '', $path);
+
   // Load node.
-  if (!is_numeric($nid)) {
-    $nid = substr(drupal_get_normal_path($nid), 5);
+  if (!is_numeric($path)) {
+    $nid = substr(drupal_get_normal_path(substr($path, 1)), 5);
   }
   $node = node_load($nid);
   $node_array = node_view($node, $view_mode = 'full');
@@ -80,7 +83,7 @@ function node2json_ajax($nid) {
     }
   }
   $data['page_title'] = $node->title;
-  
+
   // Get dynamic background image for the node.
   $data['image'] = FALSE;
   $image = dynamic_background_active_image('node', $nid);

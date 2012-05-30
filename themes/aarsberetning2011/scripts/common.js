@@ -45,7 +45,7 @@
       // Extract background image.
       $content = $(options.content);
       var bgImage = $content.css('backgroundImage').replace(/url\((.+)\)/, "$1").replace(/"/g, "");
-      
+
       // Build wrapper content.
       $outer = $(options.outer);
       $outer.css({'overflow-x':'hidden'});
@@ -128,7 +128,7 @@
         'page_title' : raw.page_title,
         'content' : (raw.field_title_image == undefined ? '' : raw.field_title_image + "\n") + raw.field_body,
         'sidebar' : raw.field_video_custom,
-        'background' : raw.image,
+        'background' : (raw.image ? raw.image : '.'),
         'translations' : raw.translations,
         'language' : raw.language
       }
@@ -157,7 +157,8 @@
       }
       else {
         // The ajax query string is used to change theme in the backend.
-        $.get('node2json' + path, function(data) {
+        console.log(path);
+        $.post('node2json', { node2json_path: path }, function(data) {
           data = saveData(data, key);
           animatePageLoad(data, link, direction);
         });
@@ -365,20 +366,20 @@
       menu.css('display', (menu.css('display') == 'none' ? 'block' : 'none'));
     });
   }
-  
+
   /**
    * Defines function().
    * Creates <select /> from menu block.
    */
   function menuToSelect(source) {
-    
+
     // Make sure there is a reason to create the menu.
     if ($(source).find("ul").length) {
       // Create wrapper for mobile menu.
       $("<div />", {
         "class" : "mobile-menu"
       }).prependTo(source);
-      
+
 
       // Create the dropdown base
       $("<select />", {
@@ -408,7 +409,7 @@
             "text" : " - " + $(this).text()
           }).appendTo("select:last");
         });
-        
+
         // To make dropdown actually work
         $("select", source).change(function() {
           window.location = $(this).find("option:selected").val();
@@ -416,7 +417,7 @@
       });
     }
   }
-  
+
   // Load the module and start the fun.
   $(document).ready(function() {
     // Don't run code for logged in users, as it give problems with node edit
@@ -425,9 +426,9 @@
       slider.init();
       slider.start();
     }
-    
+
     // Adds event to the dropdown menus
     menuDropdown();
-    menuToSelect(".region-secondary-menu-inner");   
+    menuToSelect(".region-secondary-menu-inner");
   });
 }) (jQuery);
