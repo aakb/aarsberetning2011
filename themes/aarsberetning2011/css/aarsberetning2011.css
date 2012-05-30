@@ -529,7 +529,11 @@ table tbody + tbody {
 
 /* line 335, ../sass/aarsberetning2011.scss */
 .table-bordered th {
-  background-color: #f1f1f1;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.85);
+  background-color: transparent\9;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#d9ffffff,endColorstr=#d9ffffff);
+  zoom: 1;
 }
 
 /* line 340, ../sass/aarsberetning2011.scss */
@@ -591,11 +595,19 @@ table tbody + tbody {
 /* line 386, ../sass/aarsberetning2011.scss */
 .table-striped tbody tr:nth-child(odd) td,
 .table-striped tbody tr:nth-child(odd) th {
-  background-color: #f6f6f6;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.75);
+  background-color: transparent\9;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#bfffffff,endColorstr=#bfffffff);
+  zoom: 1;
 }
 
 /* line 391, ../sass/aarsberetning2011.scss */
 table tbody tr:hover td,
 table tbody tr:hover th {
-  background-color: #f6f6f6;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.75);
+  background-color: transparent\9;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#bfffffff,endColorstr=#bfffffff);
+  zoom: 1;
 }

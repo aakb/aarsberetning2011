@@ -333,7 +333,7 @@ table tbody + tbody {
 }
 
 .table-bordered th {
-  background-color: $color-gray-light;
+  @include rgba-background($color-lighter, .85);
 }
 
 .table-bordered th,
@@ -384,10 +384,10 @@ table tbody + tbody {
 
 .table-striped tbody tr:nth-child(odd) td,
 .table-striped tbody tr:nth-child(odd) th {
-  background-color: $color-gray-lighter;
+  @include rgba-background($color-lighter, .75);
 }
 
 table tbody tr:hover td,
 table tbody tr:hover th {
-  background-color: $color-gray-lighter;
+  @include rgba-background($color-lighter, .75);
 }
