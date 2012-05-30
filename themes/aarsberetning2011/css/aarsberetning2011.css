@@ -119,7 +119,7 @@ body .content h2,
 body .content h3,
 body .content h4 {
   font-weight: bold;
-  margin-bottom: 0.1em;
+  margin-bottom: 0.2em;
 }
 /* line 40, ../sass/typography.scss */
 body .content h2 {
