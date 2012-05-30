@@ -262,7 +262,6 @@
               slide.removeClass('left').addClass('current');
 
               // Move background to fix scroll
-              slide.css('backgroundImage', 'none');
               $outer.css('backgroundImage', 'url(\'' + data.background + '\')');
               isAnimationRunning = false;
             }
@@ -287,7 +286,6 @@
               slide.removeClass('right').addClass('current');
 
               // Move background to fix scroll
-              slide.css('backgroundImage', 'none');
               $outer.css('backgroundImage', 'url(\'' + data.background + '\')');
 
               isAnimationRunning = false;
@@ -310,7 +308,6 @@
           slide.removeClass('fade').addClass('current');
 
           // Move background to fix scroll
-          slide.css('backgroundImage', 'none');
           $outer.css('backgroundImage', 'url(\'' + data.background + '\')');
 
           isAnimationRunning = false;
