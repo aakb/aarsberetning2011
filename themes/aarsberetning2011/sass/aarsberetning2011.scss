@@ -287,11 +287,12 @@ table {
 
 table th,
 table td {
-  padding: 8px;
+  @include rgba-background($color-lighter, .5);
+  border-top: 1px solid $color-gray-med;  
   line-height: 18px;
   text-align: left;
   vertical-align: top;
-  border-top: 1px solid $color-gray-med;
+  padding: 8px;
 }
 
 table th {
