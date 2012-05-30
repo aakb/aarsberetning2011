@@ -157,7 +157,7 @@
       }
       else {
         // The ajax query string is used to change theme in the backend.
-        $.post('node2json', { node2json_path: path }, function(data) {
+        $.post('node2json', {node2json_path: path}, function(data) {
           data = saveData(data, key);
           animatePageLoad(data, link, direction);
         });
@@ -207,6 +207,10 @@
     // Build slide div.
     function buildSlide(data, slide_class) {
       var slide = $fragment.clone();
+
+      // Fix flicker in background image.
+      $('.slide', slide).width($outer.width() + 'px');
+
       $('#region-content .content', slide).html(data.content);
       $('#region-sidebar .region-inner', slide).html(data.sidebar);
       $('#page-title', slide).html(data.page_title);
