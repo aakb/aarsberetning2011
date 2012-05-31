@@ -46,7 +46,7 @@ function aarsberetning2011_menu_link(array $variables) {
   }
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
   
-  // Adds the depth class just for main-menu.
+  // Adds the span to main menus.
   if ($element['#original_link']['menu_name'] == 'main-menu' || $element['#original_link']['menu_name'] == 'menu-main-menu-english-') {
     $element['#attributes']['class'][] = 'level-' . $element['#original_link']['depth'];
     return '<li' . drupal_attributes($element['#attributes']) . '><span>' . $output . $sub_menu . "</span></li>\n";
