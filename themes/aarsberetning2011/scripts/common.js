@@ -128,7 +128,7 @@
         'page_title' : raw.page_title,
         'content' : (raw.field_title_image == undefined ? '' : raw.field_title_image + "\n") + raw.field_body,
         'sidebar' : raw.field_video_custom,
-        'background' : (raw.image ? raw.image : '.'),
+        'background' : (raw.image ? raw.image : '/misc/druplicon.png'),
         'translations' : raw.translations,
         'language' : raw.language
       }
@@ -226,15 +226,22 @@
     // Update languge switch url.
     function updateLanguageSwitch(translations) {
       var url;
+      var lang_switch = $('.language-switcher-locale-url li');
       if (translations != null) {
-        var lang_switch = $('.language-switcher-locale-url li');
+        var url, lang = null;
         if (lang_switch.hasClass('en')) {
+          lang = 'english';
           url = 'en/node/' + translations.en.nid;
         }
         else {
-          url = 'da/node/' + translations.da.nid;
+          lang = 'dansk';
+          url = 'node/' + translations.da.nid;
         }
-        $('.language-link').attr('href', url);
+        lang_switch.html('<a class="language-link" href="' + url + '">' + lang + '</a>');
+      }
+      else {
+        var lang = $('a', lang_switch).text();
+        lang_switch.html('<span class="locale-untranslated">' + lang + '</span>');
       }
     }
 
