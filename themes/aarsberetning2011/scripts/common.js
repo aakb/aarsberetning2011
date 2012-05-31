@@ -77,7 +77,7 @@
 
     // Preload all background images to make transitions smoother.
     function backgroundPreload() {
-      $.get('node2json/preload', function(data) {
+      $.get('/node2json/preload', function(data) {
         $(data).each(function() {
           $('<img/>')[0].src = this;
          });
@@ -146,7 +146,7 @@
 
     // Ajax call to get page content.
     function fetchPage(url, link, direction) {
-      var path = url == '/' ? '/forord' : url;
+      var path = url == '/' ? '/home' : url;
 
       // Try to get content from cache.
       var key = getHashKey(path);
@@ -169,14 +169,14 @@
     function getHashKey(url) {
       var hash = '';
       if (url === undefined) {
-        url = window.location.pathname == '/' ? '/frontpage' : window.location.pathname;
+        url = window.location.pathname == '/' ? '/home' : window.location.pathname;
         hash = url.substr(1);
       }
       else {
         if (url.charAt(0) == '/') {
           hash = url.substr(1);
           if (hash == '') {
-            hash = 'frontpage';
+            hash = 'home';
           }
         }
         else {

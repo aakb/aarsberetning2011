@@ -66,11 +66,16 @@ function node2json_backgrounds() {
 function node2json_ajax() {
   // Get path and remove possible language strings.
   $path = $_POST['node2json_path'];
-  $path = str_replace('en/', '', $path);
-
+  
   // Load node.
   if (!is_numeric($path)) {
-    $nid = substr(drupal_get_normal_path(substr($path, 1)), 5);
+    if (preg_match('/^(\/)*en/', $path, $matches)) {
+      $path = str_replace($matches[0], '', $path);
+      $nid = substr(drupal_get_normal_path(substr($path, 1), 'en'), 5);
+    }
+    else {
+      $nid = substr(drupal_get_normal_path(substr($path, 1)), 5);
+    }
   }
   $node = node_load($nid);
   $node_array = node_view($node, $view_mode = 'full');
