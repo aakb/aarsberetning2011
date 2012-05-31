@@ -157,7 +157,7 @@
       }
       else {
         // The ajax query string is used to change theme in the backend.
-        $.post('node2json', {node2json_path: path}, function(data) {
+        $.post('/node2json', {node2json_path: path}, function(data) {
           data = saveData(data, key);
           animatePageLoad(data, link, direction);
         });
