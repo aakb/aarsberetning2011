@@ -6,31 +6,26 @@ body {
 /* line 6, ../sass/ie.scss */
 img,
 video {
-  max-width: auto;
-}
-
-/* line 10, ../sass/ie.scss */
-img, video {
   width: auto;
 }
 
-/* line 15, ../sass/ie.scss */
+/* line 11, ../sass/ie.scss */
 #zone-content-wrapper {
   width: 100%;
 }
 
-/* line 21, ../sass/ie.scss */
+/* line 17, ../sass/ie.scss */
 .section-header,
 .region-secondary-menu {
   z-index: 11;
 }
 
-/* line 25, ../sass/ie.scss */
+/* line 21, ../sass/ie.scss */
 .zone-menu-wrapper {
   left: 0;
 }
 
-/* line 31, ../sass/ie.scss */
+/* line 27, ../sass/ie.scss */
 img#expando {
   display: none;
   position: absolute;
@@ -38,19 +33,19 @@ img#expando {
   -ms-interpolation-mode: bicubic;
 }
 
-/* line 39, ../sass/ie.scss */
+/* line 35, ../sass/ie.scss */
 .wide img#expando,
 .tall img#expando {
   display: block;
 }
 
-/* line 43, ../sass/ie.scss */
+/* line 39, ../sass/ie.scss */
 .wide img#expando {
   height: auto;
   width: 100%;
 }
 
-/* line 48, ../sass/ie.scss */
+/* line 44, ../sass/ie.scss */
 .tall img#expando {
   height: 100%;
   width: auto;
