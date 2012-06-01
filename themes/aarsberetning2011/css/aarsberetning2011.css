@@ -146,6 +146,10 @@ body .content ul li {
 body .content strong {
   font-weight: bold;
 }
+/* line 61, ../sass/typography.scss */
+body .content em {
+  text-transform: italic;
+}
 
 /* line 7, ../sass/aarsberetning2011.scss */
 html {
