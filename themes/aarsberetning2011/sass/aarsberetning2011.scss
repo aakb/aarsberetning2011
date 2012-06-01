@@ -203,6 +203,7 @@ body {
             &:link,
             &:visited {
               color: $color-lighter;
+              text-decoration: none;
             }
             &:hover {
               color: $color-lighter;
@@ -213,6 +214,7 @@ body {
             }
             &:active {
               color: $color-lighter;
+              text-decoration: none;
             }
           }
           &.arrow-nav {
