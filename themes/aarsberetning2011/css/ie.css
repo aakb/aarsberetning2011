@@ -3,23 +3,28 @@ body {
   padding: 100px;
 }
 
-/* line 6, ../sass/ie.scss */
+/* line 5, ../sass/ie.scss */
+img, video {
+  width: auto;
+}
+
+/* line 10, ../sass/ie.scss */
 #zone-content-wrapper {
   width: 100%;
 }
 
-/* line 12, ../sass/ie.scss */
+/* line 16, ../sass/ie.scss */
 .section-header,
 .region-secondary-menu {
   z-index: 11;
 }
 
-/* line 16, ../sass/ie.scss */
+/* line 20, ../sass/ie.scss */
 .zone-menu-wrapper {
   left: 0;
 }
 
-/* line 22, ../sass/ie.scss */
+/* line 26, ../sass/ie.scss */
 img#expando {
   display: none;
   position: absolute;
@@ -27,19 +32,19 @@ img#expando {
   -ms-interpolation-mode: bicubic;
 }
 
-/* line 30, ../sass/ie.scss */
+/* line 34, ../sass/ie.scss */
 .wide img#expando,
 .tall img#expando {
   display: block;
 }
 
-/* line 34, ../sass/ie.scss */
+/* line 38, ../sass/ie.scss */
 .wide img#expando {
   height: auto;
   width: 100%;
 }
 
-/* line 39, ../sass/ie.scss */
+/* line 43, ../sass/ie.scss */
 .tall img#expando {
   height: 100%;
   width: auto;
