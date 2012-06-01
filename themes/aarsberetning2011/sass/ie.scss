@@ -2,8 +2,13 @@ body {
   padding: 100px;
 }
 
-img, video {
+img,
+video {
   max-width: auto;
+}
+
+img, video {
+  width: auto;
 }
 
 // Make sure the content zone is 100% wide.
