@@ -11,7 +11,7 @@
  */
 function aarsberetning2011_preprocess_block(&$vars) {
  if(isset($vars['elements']['#block']->module) && $vars['elements']['#block']->module == 'menu_block') {
-   if ($vars['elements']['#delta'] == 2) {
+   if ($vars['elements']['#delta'] == 2 || $vars['elements']['#delta'] == 4) {
     $vars['attributes_array']['class'][] = 'menu-dropdown';
    }
  }
