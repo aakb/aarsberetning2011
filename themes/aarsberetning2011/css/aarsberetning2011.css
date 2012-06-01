@@ -148,7 +148,7 @@ body .content strong {
 }
 /* line 61, ../sass/typography.scss */
 body .content em {
-  text-transform: italic;
+  font-style: italic;
 }
 
 /* line 7, ../sass/aarsberetning2011.scss */
