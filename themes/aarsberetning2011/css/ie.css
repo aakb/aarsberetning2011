@@ -5,7 +5,7 @@ body {
 
 /* line 5, ../sass/ie.scss */
 img, video {
-  width: auto;
+  max-width: auto;
 }
 
 /* line 10, ../sass/ie.scss */
