@@ -2,9 +2,11 @@ body {
   padding: 100px;
 }
 
-img,
-video {
-  width: auto;
+.ie8 {
+  img,
+  video {
+    width: auto;
+  }
 }
 
 // Make sure the content zone is 100% wide.
