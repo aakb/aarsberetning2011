@@ -1,31 +1,26 @@
-/* line 1, ../sass/ie.scss */
 body {
   padding: 100px;
+  position: relative;
 }
 
-/* line 7, ../sass/ie.scss */
 .ie8 img,
 .ie8 video {
   width: auto;
 }
 
-/* line 13, ../sass/ie.scss */
 #zone-content-wrapper {
   width: 100%;
 }
 
-/* line 19, ../sass/ie.scss */
 .section-header,
 .region-secondary-menu {
   z-index: 11;
 }
 
-/* line 23, ../sass/ie.scss */
 .zone-menu-wrapper {
   left: 0;
 }
 
-/* line 29, ../sass/ie.scss */
 img#expando {
   display: none;
   position: absolute;
@@ -33,19 +28,16 @@ img#expando {
   -ms-interpolation-mode: bicubic;
 }
 
-/* line 37, ../sass/ie.scss */
 .wide img#expando,
 .tall img#expando {
   display: block;
 }
 
-/* line 41, ../sass/ie.scss */
 .wide img#expando {
   height: auto;
   width: 100%;
 }
 
-/* line 46, ../sass/ie.scss */
 .tall img#expando {
   height: 100%;
   width: auto;
