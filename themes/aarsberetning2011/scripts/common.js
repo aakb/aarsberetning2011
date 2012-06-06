@@ -201,10 +201,10 @@
 
     // Update active class in the menu.
     function updateActiveMenu(link) {
-      $('a', $menu).removeClass('active').removeClass('active-trail');
-      $('li.active', $menu).removeClass('active').removeClass('active-trail');
-      link.addClass('active').addClass('active-trail');
-      link.parent().parent().addClass('active').addClass('active-trail');
+      $('a', $menu).removeClass('active active-trail');
+      $('li', $menu).removeClass('active active-trail');
+      link.addClass('active active-trail');
+      link.parent().parent().addClass('active active-trail');
     }
 
     // Build slide div.
@@ -345,7 +345,7 @@
 
     // Find the next element in the menu to load (used by next link).
     function next() {
-      var current = $('a.active', $menu);
+      var current = $('a.active, a.active-trail', $menu);
       if (current.length == 1) {
         var link = current;
         var list = current.parent().parent();
@@ -361,7 +361,7 @@
 
     // Find the previous element in the menu to load (used by prev link).
     function prev() {
-      var current = $('a.active', $menu);
+      var current = $('a.active, a.active-trail', $menu);
       if (current.length == 1) {
         var link = current;
         var list = current.parent().parent();
