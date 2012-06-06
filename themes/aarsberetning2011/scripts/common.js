@@ -22,7 +22,7 @@
     var $outer;
     var isAnimationRunning = false;
     var cache = {};
-    var $fragment;
+    var fragment;
 
     var options = {
       menu: '.region-menu ul',
@@ -56,10 +56,16 @@
       $content.wrapInner('<div class="slide current" style="width: 50%"></div>');
 
       // Create fragment that can be used to build slids.
-      $fragment = $content.clone();
+      //$fragment = $content.clone();
+      // jquery .clone() is not working in IE8 so we use node.cloneNode() instead
+      var temp = document.getElementById("zone-content-wrapper").cloneNode(true);
+      var $localFragment = $(temp);
       $('#region-content .content', $fragment).html('');
       $('#region-sidebar .region-inner', $fragment).html('');
       $('.slide', $fragment).removeClass('current');
+
+      //fetch the jquery object and transform into regular dom object
+      fragment = $fragment[0];
 
       // Remove old background.
       $content.css('backgroundImage', 'none');
@@ -128,13 +134,13 @@
     // Used to store page content.
     function saveData(raw, key) {
       var data = {
-        'page_title' : raw.page_title,
-        'content' : (raw.field_title_image == undefined ? '' : raw.field_title_image + "\n") + raw.field_body,
-        'sidebar' : raw.field_video_custom,
-        'background' : (raw.image ? raw.image : '/misc/druplicon.png'),
-        'translations' : raw.translations,
-        'language' : raw.language
-      }
+          'page_title':raw.page_title,
+          'content':(raw.field_title_image == undefined ? '' : raw.field_title_image + "\n") + raw.field_body,
+          'sidebar':raw.field_video_custom,
+          'background':(raw.image ? raw.image : '/misc/druplicon.png'),
+          'translations':raw.translations,
+          'language':raw.language
+      };
       cache[key] = data;
       return data;
     }
@@ -209,7 +215,8 @@
 
     // Build slide div.
     function buildSlide(data, slide_class) {
-      var slide = $fragment.clone();
+      var temp = fragment.cloneNode(true);
+      var slide = $(temp);
 
       // Fix flicker in background image.
       $('.slide', slide).width($outer.width() + 'px');
