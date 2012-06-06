@@ -73,6 +73,9 @@
       // Add navigation items.
       $menu.prepend('<li><span class="arrow-nav prev"><a href="#previous">'+Drupal.t('Back')+'</a></span></li>');
       $menu.append('<li><span class="arrow-nav next"><a href="#next">'+Drupal.t('Forward')+'</a></span></li>');
+
+      //Fix IE height now
+      heightFix();
     }
 
     // Preload all background images to make transitions smoother.
@@ -275,6 +278,9 @@
               slide.css('backgroundImage', 'none');
               $outer.css('backgroundImage', 'url(\'' + data.background + '\')');
               isAnimationRunning = false;
+
+              //Fix IE height now
+              heightFix();
             }
         });
       }
@@ -301,6 +307,9 @@
               $outer.css('backgroundImage', 'url(\'' + data.background + '\')');
 
               isAnimationRunning = false;
+
+              //Fix IE height now
+              heightFix();
             }
         });
       }
@@ -315,7 +324,7 @@
         updateLanguageSwitch(data.translations);
         slide.fadeIn(options.fadeSpeed, function() {
           // Work around when to faste menu clicks, which lead to 0.001232 opacity).
-          slide.css('filter', 'alpha(opacity=100)')
+          slide.css('filter', 'alpha(opacity=100)');
           slide.css('opacity', '1');
           slide.removeClass('fade').addClass('current');
 
@@ -324,6 +333,10 @@
           $outer.css('backgroundImage', 'url(\'' + data.background + '\')');
 
           isAnimationRunning = false;
+
+          //Fix IE height now
+          heightFix();
+
         });
       }
       updateActiveMenu(link);
@@ -360,6 +373,14 @@
         }
         fetchPage(link.attr('href'), link, 'left');
       }
+    }
+
+    // IE height fix, force slider section-content container to have same height as region-content div
+    function heightFix(){
+        //only trigger when browser is IE
+        if($.browser.msie) {
+            $('#section-content').height($('#region-content').height()+200);
+        }
     }
 
     // Return public methods.
