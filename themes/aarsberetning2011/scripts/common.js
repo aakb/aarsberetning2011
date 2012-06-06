@@ -60,12 +60,12 @@
       // jquery .clone() is not working in IE8 so we use node.cloneNode() instead
       var temp = document.getElementById("zone-content-wrapper").cloneNode(true);
       var $localFragment = $(temp);
-      $('#region-content .content', $fragment).html('');
-      $('#region-sidebar .region-inner', $fragment).html('');
-      $('.slide', $fragment).removeClass('current');
+      $('#region-content .content', $localFragment).html('');
+      $('#region-sidebar .region-inner', $localFragment).html('');
+      $('.slide', $localFragment).removeClass('current');
 
       //fetch the jquery object and transform into regular dom object
-      fragment = $fragment[0];
+      fragment = $localFragment[0];
 
       // Remove old background.
       $content.css('backgroundImage', 'none');
