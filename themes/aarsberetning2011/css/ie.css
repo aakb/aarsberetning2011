@@ -20,3 +20,7 @@ body {
 .zone-menu-wrapper {
   left: 0;
 }
+
+.fluid-width-video-wrapper {
+  margin-bottom: 0;
+}
