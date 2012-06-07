@@ -234,6 +234,7 @@
     // Re-initialize fitVids on slide.
     function fixVideos() {
       $(".field-name-field-video-custom").fitVids({customSelector: "iframe[src^='']"});
+      // triggering the below in IE break the video display
       if(!$.browser.msie) {
         $(".inline-video").fitVids({customSelector: "iframe[src^='']"});
       }
