@@ -397,7 +397,8 @@
     // Return public methods.
     return {
       init : init,
-      start: start
+      start: start,
+      fixVideos: fixVideos
     };
   }());
 
@@ -468,6 +469,8 @@
       slider.init();
       slider.start();
     }
+
+    slider.fixVideos();
 
     // Adds event to the dropdown menus
     menuDropdown();
