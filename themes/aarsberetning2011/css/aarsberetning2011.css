@@ -98,55 +98,56 @@ body a:link {
 /* line 15, ../sass/typography.scss */
 body a:visited {
   color: #ff6600;
+  text-decoration: none;
 }
-/* line 18, ../sass/typography.scss */
+/* line 19, ../sass/typography.scss */
 body a:hover {
   color: #ff6600;
   text-decoration: underline;
 }
-/* line 22, ../sass/typography.scss */
+/* line 23, ../sass/typography.scss */
 body a:active {
   color: #ff6600;
 }
-/* line 27, ../sass/typography.scss */
+/* line 28, ../sass/typography.scss */
 body h1.title {
   font-size: 28px;
   margin-bottom: 0.9em;
   margin-left: -2px;
 }
-/* line 36, ../sass/typography.scss */
+/* line 37, ../sass/typography.scss */
 body .content h2,
 body .content h3,
 body .content h4 {
   font-weight: bold;
   margin-bottom: 0.2em;
 }
-/* line 40, ../sass/typography.scss */
+/* line 41, ../sass/typography.scss */
 body .content h2 {
   font-size: 21px;
 }
-/* line 43, ../sass/typography.scss */
+/* line 44, ../sass/typography.scss */
 body .content h3 {
   font-size: 17.5px;
 }
-/* line 46, ../sass/typography.scss */
+/* line 47, ../sass/typography.scss */
 body .content h4 {
   font-size: 15.75px;
 }
-/* line 49, ../sass/typography.scss */
+/* line 50, ../sass/typography.scss */
 body .content p {
   margin-bottom: 1em;
 }
-/* line 53, ../sass/typography.scss */
+/* line 54, ../sass/typography.scss */
 body .content ul li {
   list-style: square;
   margin-left: 1em;
 }
-/* line 58, ../sass/typography.scss */
+/* line 59, ../sass/typography.scss */
 body .content strong {
   font-weight: bold;
 }
-/* line 61, ../sass/typography.scss */
+/* line 62, ../sass/typography.scss */
 body .content em {
   font-style: italic;
 }

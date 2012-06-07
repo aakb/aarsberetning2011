@@ -14,6 +14,7 @@ body {
     }
     &:visited {
       color: $link-visited;
+      text-decoration: none;
     }
     &:hover {
       color: $link-hover;
