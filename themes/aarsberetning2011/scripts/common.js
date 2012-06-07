@@ -395,7 +395,9 @@
         if($.browser.msie) {
             // the region-content container is sometimes smaller than the entire html container,
             // check to see which height to use when resizing.
-            if ($('#region-content').height() > $('html').height()) {
+            //alert($('#region-content').height()+200);
+            //alert($('html').height());
+            if ($('#region-content').height()+200 > $('html').height()) {
                 $('#section-content').height($('#region-content').height()+200);
             }
             else {
