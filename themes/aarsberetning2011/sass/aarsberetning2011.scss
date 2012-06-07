@@ -263,6 +263,7 @@ body {
     position: absolute;
     right: 0;
     top: 7em;
+    background-attachment: fixed;
     .zone-content-wrapper {
       background: url('../images/e-reolen.jpg') no-repeat;
       @include background-size(cover);

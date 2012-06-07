@@ -442,8 +442,9 @@ body .zone-menu-wrapper nav li span.arrow-nav a {
   position: absolute;
   right: 0;
   top: 7em;
+  background-attachment: fixed;
 }
-/* line 266, ../sass/aarsberetning2011.scss */
+/* line 267, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper {
   background: url("../images/e-reolen.jpg") no-repeat;
   -webkit-background-size: cover;
@@ -455,7 +456,7 @@ body .zone-menu-wrapper nav li span.arrow-nav a {
   top: 0;
   width: 100%;
 }
-/* line 273, ../sass/aarsberetning2011.scss */
+/* line 274, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper .slide {
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -464,12 +465,12 @@ body .zone-menu-wrapper nav li span.arrow-nav a {
   height: 100%;
   position: absolute;
 }
-/* line 278, ../sass/aarsberetning2011.scss */
+/* line 279, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper .zone-content {
   margin: auto;
   padding-top: 11em;
 }
-/* line 281, ../sass/aarsberetning2011.scss */
+/* line 282, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper .zone-content .region-content-inner {
   background-color: white;
   background-color: rgba(255, 255, 255, 0.9);
@@ -478,24 +479,24 @@ body .zone-menu-wrapper nav li span.arrow-nav a {
   zoom: 1;
   padding: 2em;
 }
-/* line 285, ../sass/aarsberetning2011.scss */
+/* line 286, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper .zone-content .region-sidebar {
   overflow: hidden;
 }
 
-/* line 296, ../sass/aarsberetning2011.scss */
+/* line 297, ../sass/aarsberetning2011.scss */
 .file-video iframe,
 .file-video div {
   max-width: 100%;
 }
 
-/* line 301, ../sass/aarsberetning2011.scss */
+/* line 302, ../sass/aarsberetning2011.scss */
 .fluid-width-video-wrapper {
   margin-bottom: 1.5em;
 }
 
 /* !---- Table styling based on Twitters bootstrap ----- */
-/* line 307, ../sass/aarsberetning2011.scss */
+/* line 308, ../sass/aarsberetning2011.scss */
 table {
   max-width: 100%;
   background-color: transparent;
@@ -506,7 +507,7 @@ table {
   width: 100%;
 }
 
-/* line 318, ../sass/aarsberetning2011.scss */
+/* line 319, ../sass/aarsberetning2011.scss */
 table th,
 table td {
   background-color: white;
@@ -521,17 +522,17 @@ table td {
   padding: 8px;
 }
 
-/* line 327, ../sass/aarsberetning2011.scss */
+/* line 328, ../sass/aarsberetning2011.scss */
 table th {
   font-weight: bold;
 }
 
-/* line 331, ../sass/aarsberetning2011.scss */
+/* line 332, ../sass/aarsberetning2011.scss */
 table th {
   vertical-align: bottom;
 }
 
-/* line 340, ../sass/aarsberetning2011.scss */
+/* line 341, ../sass/aarsberetning2011.scss */
 table caption + thead tr:first-child th,
 table caption + thead tr:first-child td,
 table colgroup + thead tr:first-child th,
@@ -541,12 +542,12 @@ table thead:first-child tr:first-child td {
   border-top: 0;
 }
 
-/* line 344, ../sass/aarsberetning2011.scss */
+/* line 345, ../sass/aarsberetning2011.scss */
 table tbody + tbody {
   border-top: 2px solid #dddddd;
 }
 
-/* line 348, ../sass/aarsberetning2011.scss */
+/* line 349, ../sass/aarsberetning2011.scss */
 .table-bordered {
   border: 1px solid #dddddd;
   border-collapse: separate;
@@ -558,13 +559,13 @@ table tbody + tbody {
   -o-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 357, ../sass/aarsberetning2011.scss */
+/* line 358, ../sass/aarsberetning2011.scss */
 .table-bordered.first-column-wide tr:first-child th,
 .table-bordered.first-column-wide tr:first-child td {
   min-width: 85%;
 }
 
-/* line 364, ../sass/aarsberetning2011.scss */
+/* line 365, ../sass/aarsberetning2011.scss */
 .table-bordered th {
   background-color: white;
   background-color: rgba(255, 255, 255, 0.85);
@@ -573,13 +574,13 @@ table tbody + tbody {
   zoom: 1;
 }
 
-/* line 369, ../sass/aarsberetning2011.scss */
+/* line 370, ../sass/aarsberetning2011.scss */
 .table-bordered th,
 .table-bordered td {
   border-left: 1px solid #dddddd;
 }
 
-/* line 381, ../sass/aarsberetning2011.scss */
+/* line 382, ../sass/aarsberetning2011.scss */
 .table-bordered caption + thead tr:first-child th,
 .table-bordered caption + tbody tr:first-child th,
 .table-bordered caption + tbody tr:first-child td,
@@ -592,7 +593,7 @@ table tbody + tbody {
   border-top: 0;
 }
 
-/* line 386, ../sass/aarsberetning2011.scss */
+/* line 387, ../sass/aarsberetning2011.scss */
 .table-bordered thead:first-child tr:first-child th:first-child,
 .table-bordered tbody:first-child tr:first-child td:first-child {
   -webkit-border-top-left-radius: 4px;
@@ -600,7 +601,7 @@ table tbody + tbody {
   -moz-border-radius-topleft: 4px;
 }
 
-/* line 393, ../sass/aarsberetning2011.scss */
+/* line 394, ../sass/aarsberetning2011.scss */
 .table-bordered thead:first-child tr:first-child th:last-child,
 .table-bordered tbody:first-child tr:first-child td:last-child {
   -webkit-border-top-right-radius: 4px;
@@ -608,7 +609,7 @@ table tbody + tbody {
   -moz-border-radius-topright: 4px;
 }
 
-/* line 400, ../sass/aarsberetning2011.scss */
+/* line 401, ../sass/aarsberetning2011.scss */
 .table-bordered thead:last-child tr:last-child th:first-child,
 .table-bordered tbody:last-child tr:last-child td:first-child {
   -webkit-border-radius: 0 0 0 4px;
@@ -621,7 +622,7 @@ table tbody + tbody {
   -moz-border-radius-bottomleft: 4px;
 }
 
-/* line 408, ../sass/aarsberetning2011.scss */
+/* line 409, ../sass/aarsberetning2011.scss */
 .table-bordered thead:last-child tr:last-child th:last-child,
 .table-bordered tbody:last-child tr:last-child td:last-child {
   -webkit-border-bottom-right-radius: 4px;
@@ -629,7 +630,7 @@ table tbody + tbody {
   -moz-border-radius-bottomright: 4px;
 }
 
-/* line 415, ../sass/aarsberetning2011.scss */
+/* line 416, ../sass/aarsberetning2011.scss */
 .table-striped tbody tr:nth-child(odd) td,
 .table-striped tbody tr:nth-child(odd) th {
   background-color: white;
@@ -639,7 +640,7 @@ table tbody + tbody {
   zoom: 1;
 }
 
-/* line 420, ../sass/aarsberetning2011.scss */
+/* line 421, ../sass/aarsberetning2011.scss */
 table tbody tr:hover td,
 table tbody tr:hover th {
   background-color: white;
