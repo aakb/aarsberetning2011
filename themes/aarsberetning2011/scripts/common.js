@@ -234,7 +234,9 @@
     // Re-initialize fitVids on slide.
     function fixVideos() {
       $(".field-name-field-video-custom").fitVids({customSelector: "iframe[src^='']"});
-      $(".inline-video").fitVids({customSelector: "iframe[src^='']"});
+      if(!$.browser.msie) {
+        $(".inline-video").fitVids({customSelector: "iframe[src^='']"});
+      }
     }
 
     // Update languge switch url.
