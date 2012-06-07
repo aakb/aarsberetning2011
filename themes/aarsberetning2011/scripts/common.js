@@ -57,13 +57,15 @@
 
       // Create fragment that can be used to build slids.
       //$fragment = $content.clone();
-      // jquery .clone() is not working in IE8 so we use node.cloneNode() instead
+
+      // jquery .clone() is not working in IE8 so we use node.cloneNode() instead.
+      // Then the DOM object is transformed into a jQuery object to do a little cleanup.
+      // Afterwards the jQuery object is turned back into a DOM object.
       var temp = document.getElementById("zone-content-wrapper").cloneNode(true);
       var $localFragment = $(temp);
       $('#region-content .content', $localFragment).html('');
       $('#region-sidebar .region-inner', $localFragment).html('');
       $('.slide', $localFragment).removeClass('current');
-
       //fetch the jquery object and transform into regular dom object
       fragment = $localFragment[0];
 
@@ -80,6 +82,7 @@
       $menu.prepend('<li><span class="arrow-nav prev"><a href="#previous">'+Drupal.t('Back')+'</a></span></li>');
       $menu.append('<li><span class="arrow-nav next"><a href="#next">'+Drupal.t('Forward')+'</a></span></li>');
 
+      fixVideos();
       //Fix IE height now
       heightFix();
     }
@@ -231,6 +234,7 @@
     // Re-initialize fitVids on slide.
     function fixVideos() {
       $(".field-name-field-video-custom").fitVids({customSelector: "iframe[src^='']"});
+      $(".inline-video").fitVids({customSelector: "iframe[src^='']"});
     }
 
     // Update languge switch url.
