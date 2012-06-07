@@ -393,7 +393,15 @@
     function heightFix(){
         //only trigger when browser is IE
         if($.browser.msie) {
-            $('#section-content').height($('#region-content').height()+200);
+            // the region-content container is sometimes smaller than the entire html container,
+            // check to see which height to use when resizing.
+            if ($('#region-content').height() > $('html').height()) {
+                $('#section-content').height($('#region-content').height()+200);
+            }
+            else {
+                $('#section-content').height($('html').height()-102); //subtract height of header
+            }
+
         }
     }
 
