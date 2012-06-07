@@ -123,9 +123,16 @@ header {
     }
   }
   .zone-branding {
+    .region-secondary-menu {
+      float:right;
+    }
+    .region-branding {
+      margin-top: $medium-padding * 0.75;
+    }
     .site-name {
-      margin-top: $medium-padding;
+      margin-top: $small-padding * 1.2;
       margin-bottom: $small-padding;
+      float:left;
       a {
         font-size: $font-size-default * 1.6;
         text-transform: uppercase;
@@ -144,6 +151,11 @@ header {
           text-decoration: none;
         }
       }
+    }
+    .site-logo {
+      float:left;
+      margin-right: $medium-padding;
+      padding-bottom: $small-padding;
     }
   }
 }
