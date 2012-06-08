@@ -442,7 +442,6 @@ body .zone-menu-wrapper nav li span.arrow-nav a {
   position: absolute;
   right: 0;
   top: 7em;
-  background-attachment: fixed;
 }
 /* line 267, ../sass/aarsberetning2011.scss */
 .page .section-content .zone-content-wrapper {
