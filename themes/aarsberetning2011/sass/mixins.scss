@@ -1,0 +1,20 @@
+// RGBa background
+@mixin rgba-background($color, $opacity) {
+  background-color: $color;
+  background-color: rgba($color, $opacity);
+  background-color: transparent\9;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{'#'+hex(round($opacity*255)) + '' + hex(red($color)) + '' + hex(green($color)) + '' + hex(blue($color))},endColorstr=#{'#'+hex(round($opacity*255)) + '' + hex(red($color)) + '' + hex(green($color)) + '' + hex(blue($color))});
+  zoom: 1;
+}
+
+// ::selection mixin with prefixes.
+$prefixes: ("-webkit-","-moz-", "-o-", "");
+@mixin selection($color, $background) {
+    @each $prefix in $prefixes {
+        ::#{$prefix}selection {
+            color: $color;
+            background: $background;
+        }
+    }
+}
+

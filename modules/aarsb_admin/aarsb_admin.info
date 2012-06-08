@@ -1,0 +1,3 @@
+name = Aarsberetning Admin
+description = A module with helper functions for aarsberetning project
+core = 7.x

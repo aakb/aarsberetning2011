@@ -1,38 +1,145 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-
 @import "compass/reset";
-@import "variables.scss";
+@import "compass/css3";
 @import "typography.scss";
+@import "variables.scss";
+@import "mixins.scss";
 
 html {
   height: 100%;
 }
 
 body {
-  background: url('../images/e-reolen.jpg') no-repeat;
-  background-size: cover;
   height: 100%;
+  &.no-js,
+  &.logged-in {
+    .zone-menu-wrapper {
+      nav {
+        li {
+          &.first,
+          &.last {
+            background-image: url('../images/nav-bullet.png');
+            background-repeat: no-repeat;
+          }
+          &.first {
+            background-position: left 12px;
+            padding-left: 1px;
+          }
+          &.last {
+            background-position: right 12px;
+            padding-right: 1px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Editor font styles
+.align-right {
+  float: right;
+  margin-left: 1em;
+  img {
+    margin-top: 0;
+  }
+}
+
+.align-left {
+  float: left;
+  margin-right: 1em;
+  img {
+    margin-top: 0;
+  }
+}
+
+.menu-dropdown {
+  cursor: pointer;
+  .block-title {
+    background: url('../images/nav-arrow-small.png') no-repeat right 2px;
+    padding-right: $small-padding * 1.75;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  ul {
+    @include rgba-background($color-lighter, .9);
+    display: none;
+    padding: $small-padding;
+    position: absolute;
+    right: -4px;
+    text-align: right;
+    max-width: 300px;
+    min-width: 200px;
+    z-index: 100001;
+    li {
+      padding-right: $small-padding * 0.5;
+      ul {
+        display: block;
+        padding: 0;
+        background: none;
+        position: relative;
+        li {
+          padding-right: $small-padding * 0.5;
+          a {
+            color: $text-secondary-color;
+            font-size: $font-size-default * .8;
+          }
+        }
+      }    
+    }
+  }
 }
 
 header {
-  background: #fff;
+  background: $color-lighter;
+  height: 7em;
+  left: 0;
   position: absolute;
   top: 0;
   width: 100%;
+  .region-secondary-menu {
+    font-size: $font-size-default * .9;
+    margin-top: $small-padding;
+    a {
+      color: $text-color;
+    }
+    text-transform: uppercase;
+    .mobile-menu {
+      display: none;
+      float: right;
+    }
+    .region-secondary-menu-inner>nav,
+    .region-secondary-menu-inner>div {
+      float: right;
+      margin-right: $small-spacing;
+    }
+    .block-locale-language {
+      border-right: 1px solid $color-light;
+      padding-right: $small-spacing;
+      ul {
+        li {
+          list-style: none;        
+        }
+      }
+    }
+  }
   .zone-branding {
-    height: $large-padding * 2;
-    position: relative;
+    .region-secondary-menu {
+      float:right;
+    }
+    .region-branding {
+      margin-top: $medium-padding * 0.75;
+    }
     .site-name {
-      margin-top: $large-padding * 1.25;
+      margin-top: $small-padding * 1.2;
+      margin-bottom: $small-padding;
+      float:left;
       a {
         font-size: $font-size-default * 1.6;
         text-transform: uppercase;
         &:link,
         &:visited {
           color: $text-color;
+          text-decoration: none;
         }
         &:hover {
           color: $link-color;
@@ -40,93 +147,107 @@ header {
         }
         &:active {
           background-color: $link-color;
-          color: $text-color-light;
-          padding: .1em .1em 0;
+          color: $text-color;
+          text-decoration: none;
         }
       }
     }
-    .secondary-menu {
-      color: #656565;
-      position: absolute;
-      right: 0;
-      top: $small-spacing;
-      a {
-        color: #656565;
-        font-size: $font-size-default * .9;
-        text-transform: uppercase;
-      }
+    .site-logo {
+      float:left;
+      margin-right: $medium-padding;
+      padding-bottom: $small-padding;
     }
   }
 }
 
-.zone-menu-wrapper {
-  background: rgba(0,0,0,.25);
-  overflow: hidden;
-  padding: $small-padding * 1.5 0 $small-padding;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 10;
-  nav {
-    text-align: center;
-    li {
-      float: left;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      span {
-        background: url('../images/nav-sep.png') no-repeat center 1.45em;
+// TODO: Clean up mixin (move to mixins?).
+
+@mixin main-menu-active-item {
+  background: url('../images/nav-active.png') no-repeat center 0;
+  color: #fff;
+  font-size: $font-size-default * .95;
+  padding-top: 3.5em;
+  &:hover {
+    span {
+      background: url('../images/nav-active.png') no-repeat center 0;
+    }
+  }
+}
+
+body {
+  .zone-menu-wrapper {
+    @include rgba-background(#000, .5);
+    overflow: hidden;
+    padding: $small-padding * 1.5 0 $small-padding;
+    position: absolute;
+    top: 7em;
+    width: 100%;
+    z-index: 10;
+    nav {
+      text-align: center;
+      li {
         float: left;
-        font-size: $font-size-default * .75;
-        text-align: center;
-        text-transform: uppercase;
-        a {
-          background: url('../images/nav.png') no-repeat center .75em;
-          color: rgba(255,255,255,.75);
-          display: block;
-          width: 97px;
-          padding: 4.5em $small-padding 0;
-          &.active {
-            background: url('../images/nav-active.png') no-repeat center 0;
-            color: #fff;
-            font-size: $font-size-default * .95;
-            padding-top: 3.5em;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        &.active-trail {
+          span {
+            a {         
+              @include main-menu-active-item;
+            }
+          }
+        }
+        span {
+          background: url('../images/nav-sep.png') no-repeat center 1.45em;
+          float: left;
+          font-size: $font-size-default * .75;
+          text-align: center;
+          text-transform: uppercase;
+          a {
+            background: url('../images/nav.png') no-repeat center .75em;
+            color: rgba(255,255,255,.75);
+            display: block;
+            width: 97px;
+            padding: 4.5em $small-padding 0;
+            &.active {
+              @include main-menu-active-item;
+            }
+            &:link,
+            &:visited {
+              color: $color-lighter;
+              text-decoration: none;
+            }
             &:hover {
-              span {
-                background: url('../images/nav-active.png') no-repeat center 0;
+              color: $color-lighter;
+              text-decoration: none;
+              a {
+                background: url('../images/nav-hover.png') no-repeat center .75em;
               }
             }
-          }
-          &.first {
-          }
-          &.last {
-          }
-          &:hover {
-            color: #fff;
-            text-decoration: none;
-            a {
-              background: url('../images/nav-hover.png') no-repeat center .75em;
+            &:active {
+              color: $color-lighter;
+              text-decoration: none;
             }
           }
-        }
-        &.arrow-nav {
-          background: none;
-          &.prev {
-            a {
-              background: url('../images/nav-arrow-left.png') no-repeat;
+          &.arrow-nav {
+            background: none;
+            &.prev {
+              a {
+                background: url('../images/nav-arrow-left.png') no-repeat;
+              }
             }
-          }
-          &.next {
-            a {
-              background: url('../images/nav-arrow-right.png') no-repeat right top;
+            &.next {
+              a {
+                background: url('../images/nav-arrow-right.png') no-repeat right 0;
+              }
             }
-          }
-          a {
-            display: block;
-            height: 35px;
-            overflow: hidden;
-            text-indent: -10000px;
-            width: 44px;
+            a {
+              display: block;
+              height: 35px;
+              overflow: hidden;
+              text-indent: -10000px;
+              width: 34px;
+            }
           }
         }
       }
@@ -134,23 +255,169 @@ header {
   }
 }
 
-.toolbar {
-  header {
-    top: $medium-padding * 2.325;
+.page {
+  .section-content {
+    @include background-size(cover);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 7em;
+    background-attachment: fixed;
+    .zone-content-wrapper {
+      background: url('../images/e-reolen.jpg') no-repeat;
+      @include background-size(cover);
+      bottom: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      .slide {
+        @include background-size(cover);
+        height: 100%;
+        position: absolute;
+      }
+      .zone-content {
+        margin: auto;
+        padding-top: 11em;
+        .region-content-inner {
+          @include rgba-background(#fff, .9);
+          padding: $medium-padding;
+        }
+        .region-sidebar {
+          overflow: hidden;
+        }
+      }
+    }
   }
 }
 
-.section-content {
-  position: relative;
-  top: $large-padding * 2;
-  .zone-content {
-    background-color: rgba(255,255,255,.75);
-    min-height: 100%;
-    overflow: hidden;
-    margin: auto;
-    position: relative;
-    top: 10em;
-    width: 1200px;
-
+// Video styling
+.file-video {
+  iframe,
+  div {
+    max-width: 100%;  
   }
+}
+
+.fluid-width-video-wrapper {
+  margin-bottom: $small-padding * 1.5;
+}
+
+/* !---- Table styling based on Twitters bootstrap ----- */
+
+table {
+  max-width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: $small-padding;
+  margin-top: $small-padding;
+  width: 100%;
+}
+
+table th,
+table td {
+  @include rgba-background($color-lighter, .5);
+  border-top: 1px solid $color-gray-med;  
+  line-height: 18px;
+  text-align: left;
+  vertical-align: top;
+  padding: 8px;
+}
+
+table th {
+  font-weight: bold;
+}
+
+table th {
+  vertical-align: bottom;
+}
+
+table caption + thead tr:first-child th,
+table caption + thead tr:first-child td,
+table colgroup + thead tr:first-child th,
+table colgroup + thead tr:first-child td,
+table thead:first-child tr:first-child th,
+table thead:first-child tr:first-child td {
+  border-top: 0;
+}
+
+table tbody + tbody {
+  border-top: 2px solid $color-gray-med;
+}
+
+.table-bordered {
+  border: 1px solid $color-gray-med;
+  border-collapse: separate;
+  *border-collapse: collapsed;
+  border-left: 0;
+  @include border-radius(4px);
+  &.first-column-wide {
+    tr:first-child {
+      th,
+      td {
+        min-width: 85%;
+      }
+    }
+  }
+}
+
+.table-bordered th {
+  @include rgba-background($color-lighter, .85);
+}
+
+.table-bordered th,
+.table-bordered td {
+  border-left: 1px solid $color-gray-med;
+}
+
+.table-bordered caption + thead tr:first-child th,
+.table-bordered caption + tbody tr:first-child th,
+.table-bordered caption + tbody tr:first-child td,
+.table-bordered colgroup + thead tr:first-child th,
+.table-bordered colgroup + tbody tr:first-child th,
+.table-bordered colgroup + tbody tr:first-child td,
+.table-bordered thead:first-child tr:first-child th,
+.table-bordered tbody:first-child tr:first-child th,
+.table-bordered tbody:first-child tr:first-child td {
+  border-top: 0;
+}
+
+.table-bordered thead:first-child tr:first-child th:first-child,
+.table-bordered tbody:first-child tr:first-child td:first-child {
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-topleft: 4px;
+}
+
+.table-bordered thead:first-child tr:first-child th:last-child,
+.table-bordered tbody:first-child tr:first-child td:last-child {
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  -moz-border-radius-topright: 4px;
+}
+
+.table-bordered thead:last-child tr:last-child th:first-child,
+.table-bordered tbody:last-child tr:last-child td:first-child {
+  @include border-radius(0 0 0 4px);
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+}
+
+.table-bordered thead:last-child tr:last-child th:last-child,
+.table-bordered tbody:last-child tr:last-child td:last-child {
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+}
+
+.table-striped tbody tr:nth-child(odd) td,
+.table-striped tbody tr:nth-child(odd) th {
+  @include rgba-background($color-lighter, .75);
+}
+
+table tbody tr:hover td,
+table tbody tr:hover th {
+  @include rgba-background($color-lighter, .75);
 }

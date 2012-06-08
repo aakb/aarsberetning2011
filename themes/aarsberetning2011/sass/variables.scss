@@ -1,3 +1,15 @@
+// Colors
+$color-lighter: #fff;
+$color-light: #ccc;
+$color-dark: #666;
+$color-darker: #000;
+
+// Gray colors
+$color-gray-lighter: #f6f6f6;
+$color-gray-light: #f1f1f1;
+$color-gray-med: #ddd;
+$color-gray-dark: #999;
+
 // Typography
 $text-font: "ff-scala-sans-web-pro",sans-serif;
 $text-color: #000;
@@ -6,6 +18,13 @@ $link-color: #ff6600;
 $link-visited: #ff6600;
 $link-hover: #ff6600;
 $link-active: #ff6600;
+
+$text-secondary-color: #656565;
+$text-secondary-color-light: #656565;
+$link-secondary-color: #656565;
+$link-secondary-visited: #656565;
+$link-secondary-hover: #656565;
+$link-secondary-active: #656565;
 
 // Font sizes
 $font-size-default: 14px;

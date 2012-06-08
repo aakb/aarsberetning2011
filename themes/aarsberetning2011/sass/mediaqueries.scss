@@ -1,0 +1,121 @@
+@import "variables.scss";
+@import "compass/css3";
+
+@media screen and (max-width: 1225px) {
+  .zone-menu-wrapper {
+    display: none;
+  }
+  .page {
+    .section-content {
+      .zone-content-wrapper {
+        .zone-content {
+          padding-top: 2em;
+        }
+      }
+    }
+  }
+}
+
+// 1200
+@media screen and (max-width: 1200px) {
+  header {
+    height: auto;
+    position: relative;
+  }
+  .zone-menu-wrapper,
+  .page {
+    position: relative;
+    .section-content {
+      position: relative;
+      top: 1em;
+      overflow-x: visible !important;
+      .zone-content-wrapper {
+        position: relative !important;
+        width: 100% !important;
+        .slide {
+          position: relative;
+          width: 100% !important;
+        }
+      }
+    }
+  }
+  .container-12 {
+    .region {
+      &.always-stack {
+        clear: both;
+        margin-left: 0;
+        margin-bottom: $medium-spacing;
+        min-height: auto;
+        width: 100%;
+      }
+    }
+  }
+}
+
+// 1024
+@media screen and (max-width: 1024px) {
+  
+}
+
+// 768
+@media screen and (max-width: 779px) {
+  header {
+    .region-branding {
+      position: relative;
+      top: -10px;
+      .site-name {
+        margin-top: $large-spacing;
+        margin-left: $small-spacing;
+        a {
+          font-size: $font-size-default * 1.15;
+          margin: auto;
+          text-decoration: none;
+          @include transition-duration(1s);
+        }
+      }
+    }
+    .region-secondary-menu {
+      position: relative;
+      top: 35px;
+      .menu-dropdown {
+        display: none;
+      }
+      .mobile-menu {
+        display: block;
+      }
+    }
+  }
+  .region {
+    clear: both;
+  }
+}
+
+// 550
+@media screen and (max-width: 550px) {
+  header {
+    .region-branding {
+      .site-name {
+        margin-top: $large-spacing;
+        margin-left: $small-spacing;
+        a {
+          margin: auto;
+        }
+      }
+    }
+  }
+}
+
+//400
+@media screen and (max-width: 400px) {
+  header {
+    .region-branding {
+      top: -30px;
+      .site-name a {
+        font-size: $font-size-default * .9;
+      }
+    }
+.region-secondary-menu {
+  right: $small-padding;
+}
+  }
+}
