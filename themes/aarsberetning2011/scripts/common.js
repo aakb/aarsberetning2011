@@ -248,11 +248,11 @@
         var url, lang = null;
         if (lang_switch.hasClass('en')) {
           lang = 'english';
-          url = 'en/node/' + translations.en.nid;
+          url = '/en/node/' + translations.en.nid;
         }
         else {
           lang = 'dansk';
-          url = 'node/' + translations.da.nid;
+          url = '/node/' + translations.da.nid;
         }
         lang_switch.html('<a class="language-link" href="' + url + '">' + lang + '</a>');
       }
