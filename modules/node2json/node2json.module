@@ -1,0 +1,110 @@
+<?php
+
+/**
+ * @file
+ * Json node module exposes the path ajax/%, whihc can be used to render a nodes
+ * fields and return them as json. The returned json also contins information
+ * from dynamic background and node translation.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function node2json_menu() {
+  $items = array();
+
+  $items['node2json'] = array(
+    'title' => 'JSON node Ajax callback',
+    'description' => 'Ajax callback that returns node information as json.',
+    'page callback' => 'node2json_ajax',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+
+   $items['node2json/preload'] = array(
+    'title' => 'JSON preload',
+    'description' => 'Preload images from dynamic background',
+    'page callback' => 'node2json_backgrounds',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+/**
+ * Loads all node dynamic backgrounds and return them as an encode json array.
+ *
+ * @TODO Optimize image loading with nid's, so the ajax callback could skip
+ * that step.
+ */
+function node2json_backgrounds() {
+  $query = db_select('dynamic_background_usage', 'dbu');
+  $query->join('file_managed', 'fm', 'dbu.fid = fm.fid');
+  $query->fields('dbu', array('fid'))
+        ->fields('fm', array('uri'))
+        ->condition('dbu.type', 'node', '=');
+  $result = $query->execute();
+  if ($result) {
+    foreach ($result as $row) {
+      $files[] = file_create_url($row->uri);
+    }
+  }
+
+  return drupal_json_output($files);
+}
+
+/**
+ * Loads information about the node and returns the information as an json
+ * encoded string.
+ *
+ * @param string $nid
+ *  Node path or node id.
+ * @return string
+ *  JSON encode representation of the node.
+ */
+function node2json_ajax() {
+  // Get path and remove possible language strings.
+  $path = $_POST['node2json_path'];
+  
+  // Load node.
+  if (!is_numeric($path)) {
+    if (preg_match('/^(\/)*en/', $path, $matches)) {
+      $path = str_replace($matches[0], '', $path);
+      $nid = substr(drupal_get_normal_path(substr($path, 1), 'en'), 5);
+    }
+    else {
+      $nid = substr(drupal_get_normal_path(substr($path, 1)), 5);
+    }
+  }
+  $node = node_load($nid);
+  $node_array = node_view($node, $view_mode = 'full');
+
+  // Render the nodes field.
+  $data = array();
+  foreach ($node_array as $key => $value) {
+    if (strstr($key, 'field_')) {
+      $data[$key] = drupal_render($node_array[$key]);
+    }
+  }
+  $data['page_title'] = $node->title;
+
+  // Get dynamic background image for the node.
+  $data['image'] = FALSE;
+  $image = dynamic_background_active_image('node', $nid);
+  if ($image) {
+    // Load image style settings.
+    $image_style = variable_get('dynamic_background_node_image_style', FALSE);
+    if ($image_style && $image_style['style']) {
+      $image->uri = image_style_path($image_style['style'], $image->uri);
+    }
+    $data['image'] = file_create_url($image->uri);
+  }
+
+  // Find translation information about the node.
+  $data['translations'] = translation_node_get_translations($node->tnid);
+  $data['language'] = $node->language;
+
+  // Return the information collected from the node.
+  return drupal_json_output($data);
+}

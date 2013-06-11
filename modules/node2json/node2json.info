@@ -1,0 +1,8 @@
+name = Node2JSON
+description = Render a nodes field and return them as JSON.
+core = 7.x
+
+files[] = node2json.module
+
+dependencies[] = translation
+dependencies[] = dynamic_background
