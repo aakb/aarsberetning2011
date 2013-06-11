@@ -34,12 +34,17 @@ body {
   }
 }
 
+ul,
+ol {
+  padding-left: $spacing;
+}
+
 ul {
   list-style-type: circle;
 }
 
 ul {
-  list-style-type: inherit;
+  list-style-type: decimal;
 }
 
 // Editor font styles
