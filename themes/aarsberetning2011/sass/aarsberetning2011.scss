@@ -34,6 +34,19 @@ body {
   }
 }
 
+ul,
+ol {
+  padding-left: $large-spacing;
+}
+
+ul {
+  list-style-type: circle;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
 // Editor font styles
 .align-right {
   float: right;
@@ -84,7 +97,7 @@ body {
             font-size: $font-size-default * .8;
           }
         }
-      }    
+      }
     }
   }
 }
@@ -117,7 +130,7 @@ header {
       padding-right: $small-spacing;
       ul {
         li {
-          list-style: none;        
+          list-style: none;
         }
       }
     }
@@ -192,7 +205,7 @@ body {
         padding: 0;
         &.active-trail {
           span {
-            a {         
+            a {
               @include main-menu-active-item;
             }
           }
@@ -294,7 +307,7 @@ body {
 .file-video {
   iframe,
   div {
-    max-width: 100%;  
+    max-width: 100%;
   }
 }
 
@@ -317,7 +330,7 @@ table {
 table th,
 table td {
   @include rgba-background($color-lighter, .5);
-  border-top: 1px solid $color-gray-med;  
+  border-top: 1px solid $color-gray-med;
   line-height: 18px;
   text-align: left;
   vertical-align: top;

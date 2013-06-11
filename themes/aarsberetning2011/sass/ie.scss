@@ -1,31 +1,5 @@
-body {
-  padding: 100px;
-  position: relative;
-  height: auto;
-}
-
-.ie8 {
-  img,
-  video {
-    width: auto;
-  }
-}
-
-// Make sure the content zone is 100% wide.
-#zone-content-wrapper {
-  width: 100%;
-}
-
-// Fix menus in IE 7
-.section-header,
-.region-secondary-menu {
-  z-index: 11;
-}
-
-.zone-menu-wrapper {
-  left: 0;
-}
-
-.fluid-width-video-wrapper {
-  margin-bottom: 0;
-}
+/* Welcome to Compass. Use this file to write IE specific override styles.
+ * Import this file using the following HTML or equivalent:
+ * <!--[if IE]>
+ *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ * <![endif]--> */
