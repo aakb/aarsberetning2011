@@ -22,7 +22,7 @@
     var $outer;
     var isAnimationRunning = false;
     var cache = {};
-    var $fragment;
+    var fragment;
 
     var options = {
       menu: '.region-menu ul',
@@ -56,10 +56,18 @@
       $content.wrapInner('<div class="slide current" style="width: 50%"></div>');
 
       // Create fragment that can be used to build slids.
-      $fragment = $content.clone();
-      $('#region-content .content', $fragment).html('');
-      $('#region-sidebar .region-inner', $fragment).html('');
-      $('.slide', $fragment).removeClass('current');
+      //$fragment = $content.clone();
+
+      // jquery .clone() is not working in IE8 so we use node.cloneNode() instead.
+      // Then the DOM object is transformed into a jQuery object to do a little cleanup.
+      // Afterwards the jQuery object is turned back into a DOM object.
+      var temp = document.getElementById("zone-content-wrapper").cloneNode(true);
+      var $localFragment = $(temp);
+      $('#region-content .content', $localFragment).html('');
+      $('#region-sidebar .region-inner', $localFragment).html('');
+      $('.slide', $localFragment).removeClass('current');
+      //fetch the jquery object and transform into regular dom object
+      fragment = $localFragment[0];
 
       // Remove old background.
       $content.css('backgroundImage', 'none');
@@ -73,6 +81,10 @@
       // Add navigation items.
       $menu.prepend('<li><span class="arrow-nav prev"><a href="#previous">'+Drupal.t('Back')+'</a></span></li>');
       $menu.append('<li><span class="arrow-nav next"><a href="#next">'+Drupal.t('Forward')+'</a></span></li>');
+
+      fixVideos();
+      //Fix IE height now
+      heightFix();
     }
 
     // Preload all background images to make transitions smoother.
@@ -125,13 +137,13 @@
     // Used to store page content.
     function saveData(raw, key) {
       var data = {
-        'page_title' : raw.page_title,
-        'content' : (raw.field_title_image == undefined ? '' : raw.field_title_image + "\n") + raw.field_body,
-        'sidebar' : raw.field_video_custom,
-        'background' : (raw.image ? raw.image : '/misc/druplicon.png'),
-        'translations' : raw.translations,
-        'language' : raw.language
-      }
+          'page_title':raw.page_title,
+          'content':(raw.field_title_image == undefined ? '' : raw.field_title_image + "\n") + raw.field_body,
+          'sidebar':raw.field_video_custom,
+          'background':(raw.image ? raw.image : '/misc/druplicon.png'),
+          'translations':raw.translations,
+          'language':raw.language
+      };
       cache[key] = data;
       return data;
     }
@@ -198,15 +210,16 @@
 
     // Update active class in the menu.
     function updateActiveMenu(link) {
-      $('a', $menu).removeClass('active').removeClass('active-trail');
-      $('li.active', $menu).removeClass('active').removeClass('active-trail');
-      link.addClass('active').addClass('active-trail');
-      link.parent().parent().addClass('active').addClass('active-trail');
+      $('a', $menu).removeClass('active active-trail');
+      $('li', $menu).removeClass('active active-trail');
+      link.addClass('active active-trail');
+      link.parent().parent().addClass('active active-trail');
     }
 
     // Build slide div.
     function buildSlide(data, slide_class) {
-      var slide = $fragment.clone();
+      var temp = fragment.cloneNode(true);
+      var slide = $(temp);
 
       // Fix flicker in background image.
       $('.slide', slide).width($outer.width() + 'px');
@@ -221,6 +234,10 @@
     // Re-initialize fitVids on slide.
     function fixVideos() {
       $(".field-name-field-video-custom").fitVids({customSelector: "iframe[src^='']"});
+      // triggering the below in IE break the video display
+      if(!$.browser.msie) {
+        $(".inline-video").fitVids({customSelector: "iframe[src^='']"});
+      }
     }
 
     // Update languge switch url.
@@ -231,11 +248,11 @@
         var url, lang = null;
         if (lang_switch.hasClass('en')) {
           lang = 'english';
-          url = 'en/node/' + translations.en.nid;
+          url = '/en/node/' + translations.en.nid;
         }
         else {
           lang = 'dansk';
-          url = 'node/' + translations.da.nid;
+          url = '/node/' + translations.da.nid;
         }
         lang_switch.html('<a class="language-link" href="' + url + '">' + lang + '</a>');
       }
@@ -275,6 +292,9 @@
               slide.css('backgroundImage', 'none');
               $outer.css('backgroundImage', 'url(\'' + data.background + '\')');
               isAnimationRunning = false;
+
+              //Fix IE height now
+              heightFix();
             }
         });
       }
@@ -301,6 +321,9 @@
               $outer.css('backgroundImage', 'url(\'' + data.background + '\')');
 
               isAnimationRunning = false;
+
+              //Fix IE height now
+              heightFix();
             }
         });
       }
@@ -315,7 +338,7 @@
         updateLanguageSwitch(data.translations);
         slide.fadeIn(options.fadeSpeed, function() {
           // Work around when to faste menu clicks, which lead to 0.001232 opacity).
-          slide.css('filter', 'alpha(opacity=100)')
+          slide.css('filter', 'alpha(opacity=100)');
           slide.css('opacity', '1');
           slide.removeClass('fade').addClass('current');
 
@@ -324,6 +347,10 @@
           $outer.css('backgroundImage', 'url(\'' + data.background + '\')');
 
           isAnimationRunning = false;
+
+          //Fix IE height now
+          heightFix();
+
         });
       }
       updateActiveMenu(link);
@@ -332,7 +359,7 @@
 
     // Find the next element in the menu to load (used by next link).
     function next() {
-      var current = $('a.active', $menu);
+      var current = $('a.active, a.active-trail', $menu);
       if (current.length == 1) {
         var link = current;
         var list = current.parent().parent();
@@ -348,7 +375,7 @@
 
     // Find the previous element in the menu to load (used by prev link).
     function prev() {
-      var current = $('a.active', $menu);
+      var current = $('a.active, a.active-trail', $menu);
       if (current.length == 1) {
         var link = current;
         var list = current.parent().parent();
@@ -362,10 +389,29 @@
       }
     }
 
+    // IE height fix, force slider section-content container to have same height as region-content div
+    function heightFix(){
+        //only trigger when browser is IE
+        if($.browser.msie) {
+            // the region-content container is sometimes smaller than the entire html container,
+            // check to see which height to use when resizing.
+            //alert($('#region-content').height()+200);
+            //alert($('html').height());
+            if ($('#region-content').height()+200 > $('html').height()) {
+                $('#section-content').height($('#region-content').height()+200);
+            }
+            else {
+                $('#section-content').height($('html').height()-102); //subtract height of header
+            }
+
+        }
+    }
+
     // Return public methods.
     return {
       init : init,
-      start: start
+      start: start,
+      fixVideos: fixVideos
     };
   }());
 
@@ -436,6 +482,8 @@
       slider.init();
       slider.start();
     }
+
+    slider.fixVideos();
 
     // Adds event to the dropdown menus
     menuDropdown();

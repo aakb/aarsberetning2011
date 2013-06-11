@@ -43,11 +43,10 @@ css[mediaqueries.css][options][weight] = '10'
 
 ; ----- / SCRIPTS / -----
 
-scripts[] = scripts/common.js
-scripts[] = scripts/flexi-background.js
 scripts[] = scripts/jquery.jtruncate.pack.js
 scripts[] = scripts/jquery.easing.1.3.js
-
+scripts[] = scripts/jquery.fitvids.js
+scripts[] = scripts/common.js
 
 ; ----- / DEFAULT SETTINGS / -----
 

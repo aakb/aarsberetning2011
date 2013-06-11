@@ -1,26 +1,36 @@
 /* line 1, ../sass/ie.scss */
 body {
   padding: 100px;
+  position: relative;
+  height: auto;
 }
 
-/* line 7, ../sass/ie.scss */
+/* line 9, ../sass/ie.scss */
 .ie8 img,
 .ie8 video {
   width: auto;
 }
 
-/* line 13, ../sass/ie.scss */
+/* line 15, ../sass/ie.scss */
 #zone-content-wrapper {
   width: 100%;
 }
 
-/* line 19, ../sass/ie.scss */
+/* line 21, ../sass/ie.scss */
 .section-header,
 .region-secondary-menu {
   z-index: 11;
 }
 
-/* line 23, ../sass/ie.scss */
+/* line 25, ../sass/ie.scss */
 .zone-menu-wrapper {
   left: 0;
 }
+<<<<<<< HEAD
+=======
+
+/* line 29, ../sass/ie.scss */
+.fluid-width-video-wrapper {
+  margin-bottom: 0;
+}
+>>>>>>> b356cb19f7202257020e6f725674f0e8d21137d2
