@@ -151,4 +151,13 @@ function aarsberetning2011_page_alter(&$page) {
     
   }
   
+	/* handle the sites presentation in IE10 */
+  $compatible = array(
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => array(
+    'http-equiv' => 'X-UA-Compatible',
+    'content' => 'IE=9'
+    ));
+  drupal_add_html_head( $compatible, 'ie10compat' );
 }

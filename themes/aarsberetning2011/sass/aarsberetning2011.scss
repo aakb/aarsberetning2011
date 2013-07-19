@@ -34,6 +34,19 @@ body {
   }
 }
 
+ul,
+ol {
+  padding-left: $medium-spacing;
+}
+
+ul {
+  list-style-type: circle;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
 // Editor font styles
 .align-right {
   float: right;
@@ -84,7 +97,7 @@ body {
             font-size: $font-size-default * .8;
           }
         }
-      }    
+      }
     }
   }
 }
@@ -117,7 +130,7 @@ header {
       padding-right: $small-spacing;
       ul {
         li {
-          list-style: none;        
+          list-style: none;
         }
       }
     }
@@ -184,6 +197,10 @@ body {
     width: 100%;
     z-index: 10;
     nav {
+      ul {
+        padding-left: 0;
+      }
+
       text-align: center;
       li {
         float: left;
@@ -192,7 +209,7 @@ body {
         padding: 0;
         &.active-trail {
           span {
-            a {         
+            a {
               @include main-menu-active-item;
             }
           }
@@ -263,7 +280,6 @@ body {
     position: absolute;
     right: 0;
     top: 7em;
-    background-attachment: fixed;
     .zone-content-wrapper {
       background: url('../images/e-reolen.jpg') no-repeat;
       @include background-size(cover);
@@ -295,7 +311,7 @@ body {
 .file-video {
   iframe,
   div {
-    max-width: 100%;  
+    max-width: 100%;
   }
 }
 
@@ -318,7 +334,7 @@ table {
 table th,
 table td {
   @include rgba-background($color-lighter, .5);
-  border-top: 1px solid $color-gray-med;  
+  border-top: 1px solid $color-gray-med;
   line-height: 18px;
   text-align: left;
   vertical-align: top;
